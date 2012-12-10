@@ -1,32 +1,26 @@
-name:     Ember Starter
-author:   Generator: Anthony Bull 
-provides: HTML5 Boilerplate, jQuery, Ember, Handlebars 
-usage:    yeoman init ember-starter
+# Ember generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-ember.png?branch=master)](http://travis-ci.org/yeoman/generator-ember)
 
-## Description 
- 
-Gets you started with a "Hello World" implementation of 
-[Ember.JS](http://emberjs.com/) in Yeoman.
+Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
-## Steps 
+Usage: `yeoman init angular`
 
-- Make a directory (e.g. myEmberProj) and switch to it
-- Once in, run the following: `yeoman init ember-starter`
-- Startup Yeoman with: `yeoman server` (your app should open in a browser tab)
-- Click "/app"; you should see "Hello World" 
 
-## Architecture 
+## Description
 
-This generator will create:
+Gets you started with a "Hello World" implementation of
+[Ember](http://emberjs.com).
 
-- app/scripts/app.js
-- app/scripts/libs/ember-1.0.pre.js
-- app/scripts/libs/handlebars-1.0.0.beta.6.js
-- app/scripts/libs/jquery-1.7.2.min.js
-- app/index.html
-- app/styles/style.css
-- Gruntfile.js
 
 ## Credits
 
 The Ember code is taken directly from the [1.0.pre starter kit](https://github.com/downloads/emberjs/starter-kit/starter-kit.1.0.pre.zip)
+
+
+## Contribute
+
+See the [contributing docs](https://github.com/yeoman/yeoman/blob/master/contributing.md)
+
+
+## License
+
+[BSD license](http://opensource.org/licenses/bsd-license.php)
