@@ -2,7 +2,7 @@
 
 Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
-Usage: `yeoman init angular`
+Usage: `yeoman init ember-starter`
 
 
 ## Description
