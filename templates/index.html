@@ -13,24 +13,30 @@
 
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
+
 <body>
+
+  <!-- Define your Handlebars here -->
+
   <script type="text/x-handlebars">
-    {{#view App.MyView}}
-      <h1>Hello world!</h1>
-    {{/view}}
+    <h1>Hello from Ember.js</h1>
   </script>
 
+  <!-- Scripts -->
+
   <!-- The missing protocol means that it will match the current protocol, either http or https. If running locally, we use the local jQuery. -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="scripts/libs/jquery-1.7.2.min.js"><\/script>')</script>
-  <script src="scripts/libs/handlebars-1.0.0.beta.6.js"></script>
-  <script src="scripts/libs/ember-1.0.pre.js"></script>
-  <script src="scripts/app.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+
+  <script src="js/libs/handlebars-1.0.rc.2.js"></script>
+  <script src="js/libs/ember-1.0.0-pre.4.js"></script>
+  <script src="js/app.js"></script>
+
 </body>
 </html>
