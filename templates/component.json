@@ -1,0 +1,10 @@
+{
+  "name": "<%= _.slugify(appname) %>",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "~1.9.0",
+    "handlebars": "1.0.0-rc.1",
+    "ember": "~1.0.0-pre.4"
+  },
+  "devDependencies": {}
+}
