@@ -28,7 +28,7 @@ Generator.prototype.createJsFiles = function createJsFiles() {
   // of files, opting to hardcode instead of
   // introduce another dependency (node-glob?)
 
-  this.libfiles = 'ember-1.0.0-pre.4.min.js handlebars-1.0.rc.2.js jquery-1.7.2.min.js'.split(' ');
+  this.libfiles = 'ember-1.0.0-rc.1.min.js handlebars-1.0.rc.3.js jquery-1.9.1.min.js'.split(' ');
   var self = this;
   this.libfiles.forEach(function(file) {
     self.template('scripts/libs/' + file, 'app/scripts/libs/' + file);
