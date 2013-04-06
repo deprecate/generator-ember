@@ -2,7 +2,6 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 
-
 module.exports = Generator;
 
 function Generator() {
@@ -13,37 +12,23 @@ function Generator() {
 util.inherits(Generator, yeoman.generators.Base);
 
 Generator.prototype.createDirLayout = function createDirLayout() {
-  this.mkdir('app');
-  this.mkdir('app/scripts');
-  this.mkdir('app/styles');
-  this.mkdir('app/images');
-};
-
-Generator.prototype.git = function git() {
-  this.copy('gitignore', '.gitignore');
-  this.copy('gitattributes', '.gitattributes');
-};
-
-Generator.prototype.jshint = function jshint() {
-  this.copy('jshintrc', '.jshintrc');
-};
-
-Generator.prototype.editorConfig = function editorConfig() {
-  this.copy('editorconfig', '.editorconfig');
-};
-
-Generator.prototype.packageJSON = function packageJSON() {
-  this.template('package.json');
+  this.mkdir('js');
+  this.mkdir('js/libs');
+  this.mkdir('css');
 };
 
 Generator.prototype.indexFile = function createIndexFile() {
-  this.template('index.html', 'app/index.html');
-};
+  this.template('index.html', 'index.html');
 
-Generator.prototype.styleFile = function createStyleFile() {
-  this.template('styles/style.css', 'app/styles/style.css');
-};
+  // yes, I know this isn't exactly where the following
+  // are supposed to go; it's the poor man's Saturday
+  // afternoon solution...
+  this.copy('js/app.js', 'js/app.js');
 
-Generator.prototype.gruntFile = function createGruntFile() {
-  this.template('Gruntfile.js', 'Gruntfile.js');
+  this.copy('js/libs/ember-1.0.0-rc.2.js', 'js/libs/ember-1.0.0-rc.2.js');
+  this.copy('js/libs/handlebars-1.0.0-rc.3.js', 'js/libs/handlebars-1.0.0-rc.3.js');
+  this.copy('js/libs/jquery-1.9.1.js', 'js/libs/jquery-1.9.1.js');
+
+  this.copy('css/normalize.css', 'css/normalize.css');
+  this.copy('css/style.css', 'css/style.css');
 };
