@@ -30,6 +30,7 @@ describe('Ember generator test', function() {
   it('creates expected files', function(done) {
     var expected = [
       'index.html',
+      'Gruntfile.js',
       'css/normalize.css',
       'css/style.css',
       'js/libs/ember-1.0.0-rc.2.js',

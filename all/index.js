@@ -24,6 +24,7 @@ Generator.prototype.indexFile = function createIndexFile() {
   // are supposed to go; it's the poor man's Saturday
   // afternoon solution...
   this.copy('js/app.js', 'js/app.js');
+  this.copy('Gruntfile.js', 'Gruntfile.js');
 
   this.copy('js/libs/ember-1.0.0-rc.2.js', 'js/libs/ember-1.0.0-rc.2.js');
   this.copy('js/libs/handlebars-1.0.0-rc.3.js', 'js/libs/handlebars-1.0.0-rc.3.js');
