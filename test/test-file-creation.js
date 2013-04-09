@@ -29,13 +29,19 @@ describe('Ember generator test', function() {
 
   it('creates expected files', function(done) {
     var expected = [
-      'index.html',
+      '.gitignore',
+      '.gitattributes',
+      '.bowerrc',
+      'component.json',
+      'package.json',
+      '.jshintrc',
+      '.editorconfig',
       'Gruntfile.js',
-      'css/normalize.css',
-      'css/style.css',
-      'js/libs/ember-1.0.0-rc.2.js',
-      'js/libs/handlebars-1.0.0-rc.3.js',
-      'js/libs/jquery-1.9.1.js'
+      'app/index.html',
+      'app/css/normalize.css',
+      'app/css/style.css',
+      'app/js/app.js',
+      'app/index.html'
     ];
 
     helpers.mockPrompt(this.ember.all, {
