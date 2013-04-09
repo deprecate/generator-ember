@@ -24,11 +24,11 @@ Generator.prototype.git = function git() {
 
 Generator.prototype.bower = function bower() {
   this.copy('bowerrc', '.bowerrc');
-  this.copy('component.json', 'component.json');
+  this.copy('_component.json', 'component.json');
 };
 
-Generator.prototype.packageFile = function () {
-  this.copy('package.json', 'package.json');
+Generator.prototype.packageFile = function packageFile() {
+  this.copy('_package.json', 'package.json');
 };
 
 Generator.prototype.jshint = function jshint() {
