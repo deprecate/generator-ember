@@ -8,13 +8,20 @@ function Generator() {
   yeoman.generators.Base.apply(this, arguments);
   this.sourceRoot(path.join(path.dirname(__dirname), 'templates'));
   this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'index.html'));
+  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 }
 
 util.inherits(Generator, yeoman.generators.Base);
 
 Generator.prototype.createDirLayout = function createDirLayout() {
-  this.mkdir('app/js');
-  this.mkdir('app/css');
+  this.mkdir('app/templates');
+  this.mkdir('app/styles');
+  this.mkdir('app/images');
+  this.mkdir('app/scripts');
+  this.mkdir('app/scripts/models');
+  this.mkdir('app/scripts/controllers');
+  this.mkdir('app/scripts/routes');
+  this.mkdir('app/scripts/views');
 };
 
 Generator.prototype.git = function git() {
@@ -40,27 +47,36 @@ Generator.prototype.editorConfig = function editorConfig() {
 };
 
 Generator.prototype.gruntfile = function gruntfile() {
-  this.copy('Gruntfile.js', 'Gruntfile.js');
+  this.template('Gruntfile.js');
+};
+
+
+Generator.prototype.templates = function templates() {
+  this.copy('hbs/application.hbs', 'app/templates/application.hbs');
+  this.copy('hbs/index.hbs', 'app/templates/index.hbs');
 };
 
 Generator.prototype.writeIndex = function writeIndex() {
+  this.indexFile = this.appendStyles(this.indexFile, 'styles/main.css', [
+    'styles/normalize.css',
+    'styles/style.css'
+  ]);
+
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/components.js', [
     'components/jquery/jquery.js',
-    'components/handlebars/handlebars.js',
-    'components/ember/ember.js',
+    'components/handlebars/handlebars.runtime.js',
+    'components/ember/ember.js'
   ]);
 
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/main.js', [
-    'js/app.js'
+    'scripts/app.js',
+    'scripts/compiled-templates.js'
   ]);
-}
-
-Generator.prototype.mainStylesheet = function mainStylesheet() {
-  this.copy('css/normalize.css', 'app/css/normalize.css');
-  this.copy('css/style.css', 'app/css/style.css');
 };
 
 Generator.prototype.all = function all() {
   this.write('app/index.html', this.indexFile);
-  this.copy('js/app.js', 'app/js/app.js');
+  this.copy('styles/normalize.css', 'app/styles/normalize.css');
+  this.copy('styles/style.css', 'app/styles/style.css');
+  this.copy('scripts/app.js', 'app/scripts/app.js');
 };

@@ -37,10 +37,11 @@ describe('Ember generator test', function() {
       '.jshintrc',
       '.editorconfig',
       'Gruntfile.js',
-      'app/index.html',
-      'app/css/normalize.css',
-      'app/css/style.css',
-      'app/js/app.js',
+      'app/styles/normalize.css',
+      'app/styles/style.css',
+      'app/scripts/app.js',
+      'app/templates/application.hbs',
+      'app/templates/index.hbs',
       'app/index.html'
     ];
 

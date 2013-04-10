@@ -7,8 +7,8 @@ Usage:
 - `mkdir webapp; cd webapp`
 - `npm install generator-ember`
 - `yo ember:all`
-- `bower install`
-- open index.html
+- `bower install && npm install`
+- `grunt server`
 
 ## Description
 

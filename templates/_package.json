@@ -23,7 +23,8 @@
     "grunt-open": "~0.2.0",
     "grunt-svgmin": "~0.1.0",
     "grunt-concurrent": "~0.1.0",
-    "matchdep": "~0.1.1"
+    "matchdep": "~0.1.1",
+    "grunt-ember-templates": "~0.4.4"
   },
   "engines": {
     "node": ">=0.8.0"
