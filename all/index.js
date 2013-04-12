@@ -1,3 +1,4 @@
+'use strict';
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
@@ -49,7 +50,6 @@ Generator.prototype.editorConfig = function editorConfig() {
 Generator.prototype.gruntfile = function gruntfile() {
   this.template('Gruntfile.js');
 };
-
 
 Generator.prototype.templates = function templates() {
   this.copy('hbs/application.hbs', 'app/templates/application.hbs');
