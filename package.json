@@ -12,6 +12,7 @@
   "homepage": "https://github.com/yeoman/generator-ember",
   "bugs": "https://github.com/yeoman/generator-ember/issues",
   "author": "Chrome Developer Relations",
+  "main": "app/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/yeoman/generator-ember.git"
