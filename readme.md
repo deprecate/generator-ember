@@ -2,12 +2,11 @@
 
 Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
-Usage: 
+Usage:
 
 - `mkdir webapp; cd webapp`
-- `npm install generator-ember`
-- `yo ember:all`
-- `bower install && npm install`
+- `npm install -g generator-ember`
+- `yo ember`
 - `grunt server`
 
 ## Description
