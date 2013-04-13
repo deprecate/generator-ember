@@ -1,22 +1,23 @@
 # Ember generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-ember.png?branch=master)](http://travis-ci.org/yeoman/generator-ember)
 
+> Gets you started with a "Hello World" implementation of
+[Ember](http://emberjs.com).
+
 Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
-Usage:
+
+## Usage
 
 - `mkdir webapp; cd webapp`
 - `npm install -g generator-ember`
 - `yo ember`
 - `grunt server`
 
-## Description
-
-Gets you started with a "Hello World" implementation of
-[Ember](http://emberjs.com).
 
 ## Credits
 
 The Ember code is taken directly from the [1.0 RC2](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.2.zip)
+
 
 ## Contribute
 
@@ -27,6 +28,7 @@ When submitting an issue, please follow the [guidelines](https://github.com/yeom
 When submitting a bugfix, write a test that exposes the bug and fails before applying your fix. Submit the test alongside the fix.
 
 When submitting a new feature, add tests that cover the feature.
+
 
 ## License
 
