@@ -1,33 +1,34 @@
 /*global describe:true, beforeEach:true, it:true */
 'use strict';
-var path    = require('path');
+var path = require('path');
 var helpers = require('yeoman-generator').test;
-var assert  = require('assert');
+var assert = require('assert');
 
-describe('Ember generator test', function() {
-  beforeEach(function(done){
-    helpers.testDirectory(path.join(__dirname, './temp'), function(err){
-      if(err){
+describe('Ember generator test', function () {
+  beforeEach(function (done) {
+    helpers.testDirectory(path.join(__dirname, './temp'), function (err) {
+      if (err) {
         return done(err);
       }
       this.ember = {};
-      this.ember.all = helpers.createGenerator('ember:all',[
-        '../../all', [
+      this.ember.app = helpers.createGenerator('ember:app', [
+        '../../app', [
           helpers.createDummyGenerator(),
-          'mocha:all'
+          'mocha:app'
         ]
       ]);
+      this.ember.app.options['skip-install'] = true;
       done();
     }.bind(this));
 
   });
 
-  it('every generator can be required without throwing', function() {
+  it('every generator can be required without throwing', function () {
     // not testing the actual run of generators yet
-    this.all = require('../all');
+    this.app = require('../app');
   });
 
-  it('creates expected files', function(done) {
+  it('creates expected files', function (done) {
     var expected = [
       '.gitignore',
       '.gitattributes',
@@ -45,11 +46,11 @@ describe('Ember generator test', function() {
       'app/index.html'
     ];
 
-    helpers.mockPrompt(this.ember.all, {
+    helpers.mockPrompt(this.ember.app, {
       'compassBootstrap': 'Y'
     });
 
-    this.ember.all.run({}, function () {
+    this.ember.app.run({}, function () {
       helpers.assertFiles(expected);
       done();
     });
