@@ -54,7 +54,5 @@ describe('Ember generator test', function () {
       helpers.assertFiles(expected);
       done();
     });
-
   });
-
 });
