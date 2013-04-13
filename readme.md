@@ -14,6 +14,17 @@ Maintainer: [Anthony Bull](https://github.com/inkredabull)
 - `grunt server`
 
 
+## Options
+
+* `--skip-install`
+
+  Skips the automatic execution of `bower` and `npm` after scaffolding has finished.
+
+* `--test-framework=[framework]`
+
+  Defaults to `mocha`. Can be switched for another supported testing framework like `jasmine`.
+
+
 ## Credits
 
 The Ember code is taken directly from the [1.0 RC2](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.2.zip)
