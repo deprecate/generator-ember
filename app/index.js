@@ -99,8 +99,11 @@ EmberGenerator.prototype.writeIndex = function writeIndex() {
 
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/main.js', [
     'scripts/app.js',
-    'scripts/compiled-templates.js'
   ]);
+
+  this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/templates.js', [
+    'scripts/compiled-templates.js'
+  ], null, '.tmp');
 };
 
 EmberGenerator.prototype.all = function all() {
