@@ -276,6 +276,7 @@ module.exports = function (grunt) {
                 'compass'
             ],
             dist: [
+                'ember_templates',
                 'coffee',
                 'compass:dist',
                 'imagemin',
@@ -284,17 +285,17 @@ module.exports = function (grunt) {
             ]
         },
         ember_templates: {
-          compile: {
             options: {
-              templateName: function(sourceFile) {
-                var path_regex = new RegExp(yeomanConfig.app + "/templates/");
-                return sourceFile.replace(path_regex, '');
-              }
+                templateName: function (sourceFile) {
+                    var templatePath = yeomanConfig.app + '/templates/';
+                    return sourceFile.replace(templatePath, '');
+                }
             },
-            files: {
-              "<%%= yeoman.app %>/scripts/compiled-templates.js": "<%%= yeoman.app %>/templates/**/*.hbs"
+            dist: {
+                files: {
+                    '.tmp/scripts/compiled-templates.js': '<%%= yeoman.app %>/templates/{,*/}*.hbs'
+                }
             }
-          }
         }
 
     });
