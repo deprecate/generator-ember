@@ -8,11 +8,14 @@ Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
 ## Usage
 
-- `mkdir webapp; cd webapp`
-- `npm install -g generator-ember`
-- `yo ember`
-- `grunt server`
+Execute these steps from the command line, one after another:
 
+1. `mkdir webapp; cd webapp`
+2. `npm install -g generator-ember`
+3. `yo ember`
+4. `grunt server`
+
+A page with "Welcome to Ember.js" should appear in your browser.
 
 ## Options
 
