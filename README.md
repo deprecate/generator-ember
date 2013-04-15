@@ -10,7 +10,7 @@ Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
 Execute these steps from the command line, one after another:
 
-1. `mkdir webapp; cd webapp`
+1. `mkdir webapp && cd webapp`
 2. `npm install -g generator-ember`
 3. `yo ember`
 4. `grunt server`
