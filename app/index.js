@@ -43,6 +43,26 @@ EmberGenerator.prototype.welcome = function welcome() {
   console.log(welcomeMsg);
 };
 
+EmberGenerator.prototype.askFor = function askFor() {
+  var cb = this.async();
+
+  var prompts = [{
+    name: 'compassBootstrap',
+    message: 'Would you like to include Twitter Bootstrap for Sass?',
+    default: 'Y/n'
+  }];
+
+  this.prompt(prompts, function (err, props) {
+    if (err) {
+      return this.emit('error', err);
+    }
+
+    this.compassBootstrap = (/y/i).test(props.compassBootstrap);
+    cb();
+  }.bind(this));
+
+};
+
 EmberGenerator.prototype.createDirLayout = function createDirLayout() {
   this.mkdir('app/templates');
   this.mkdir('app/styles');
@@ -86,10 +106,15 @@ EmberGenerator.prototype.templates = function templates() {
 };
 
 EmberGenerator.prototype.writeIndex = function writeIndex() {
-  this.indexFile = this.appendStyles(this.indexFile, 'styles/main.css', [
-    'styles/normalize.css',
-    'styles/style.css'
-  ]);
+  var mainCssFiles = [];
+  if (this.compassBootstrap) {
+    mainCssFiles.push('styles/style.css');
+  } else {
+    mainCssFiles.push('styles/normalize.css');
+    mainCssFiles.push('styles/style.css');
+  }
+
+  this.indexFile = this.appendStyles(this.indexFile, 'styles/main.css', mainCssFiles);
 
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/components.js', [
     'components/jquery/jquery.js',
@@ -103,9 +128,38 @@ EmberGenerator.prototype.writeIndex = function writeIndex() {
   ], null, ['app', '.tmp']);
 };
 
+EmberGenerator.prototype.bootstrapJavaScript = function bootstrapJavaScript() {
+  if (!this.compassBootstrap) {
+    return;  // Skip if disabled.
+  }
+
+  // Wire Twitter Bootstrap plugins
+  this.indexFile = this.appendScripts(this.indexFile, 'scripts/plugins.js', [
+    'components/bootstrap-sass/js/bootstrap-affix.js',
+    'components/bootstrap-sass/js/bootstrap-alert.js',
+    'components/bootstrap-sass/js/bootstrap-dropdown.js',
+    'components/bootstrap-sass/js/bootstrap-tooltip.js',
+    'components/bootstrap-sass/js/bootstrap-modal.js',
+    'components/bootstrap-sass/js/bootstrap-transition.js',
+    'components/bootstrap-sass/js/bootstrap-button.js',
+    'components/bootstrap-sass/js/bootstrap-popover.js',
+    'components/bootstrap-sass/js/bootstrap-typeahead.js',
+    'components/bootstrap-sass/js/bootstrap-carousel.js',
+    'components/bootstrap-sass/js/bootstrap-scrollspy.js',
+    'components/bootstrap-sass/js/bootstrap-collapse.js',
+    'components/bootstrap-sass/js/bootstrap-tab.js'
+  ]);
+};
+
 EmberGenerator.prototype.all = function all() {
   this.write('app/index.html', this.indexFile);
-  this.copy('styles/normalize.css', 'app/styles/normalize.css');
-  this.copy('styles/style.css', 'app/styles/style.css');
+
+  if (this.compassBootstrap) {
+    this.copy('styles/style_bootstrap.scss', 'app/styles/style.scss');
+  } else {
+    this.copy('styles/normalize.css', 'app/styles/normalize.css');
+    this.copy('styles/style.css', 'app/styles/style.css');
+  }
+
   this.copy('scripts/app.js', 'app/scripts/app.js');
 };
