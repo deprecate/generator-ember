@@ -28,7 +28,7 @@ describe('Ember generator test', function () {
     this.app = require('../app');
   });
 
-  it('creates expected files', function (done) {
+  it('creates expected files with compassSass', function (done) {
     var expected = [
       '.gitignore',
       '.gitattributes',
@@ -40,6 +40,33 @@ describe('Ember generator test', function () {
       'Gruntfile.js',
       'app/styles/normalize.css',
       'app/styles/style.css',
+      'app/scripts/app.js',
+      'app/templates/application.hbs',
+      'app/templates/index.hbs',
+      'app/index.html'
+    ];
+
+    helpers.mockPrompt(this.ember.app, {
+      'compassBootstrap': 'N'
+    });
+
+    this.ember.app.run({}, function () {
+      helpers.assertFiles(expected);
+      done();
+    });
+  });
+
+  it('creates expected files without compassSass', function (done) {
+    var expected = [
+      '.gitignore',
+      '.gitattributes',
+      '.bowerrc',
+      'component.json',
+      'package.json',
+      '.jshintrc',
+      '.editorconfig',
+      'Gruntfile.js',
+      'app/styles/style.scss',
       'app/scripts/app.js',
       'app/templates/application.hbs',
       'app/templates/index.hbs',
