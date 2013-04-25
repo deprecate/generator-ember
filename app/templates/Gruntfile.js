@@ -301,7 +301,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    '.tmp/scripts/compiled-templates.js': '<%%= yeoman.app %>/templates/{,*/}*.hbs'
+                    '.tmp/scripts/compiled-templates.js': '<%%= yeoman.app %>/templates/{,**/}*.hbs'
                 }
             }
         }
