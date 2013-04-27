@@ -30,7 +30,7 @@ A page with "Welcome to Ember.js" should appear in your browser.
 
 ## Credits
 
-The Ember code is taken directly from the [1.0 RC2](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.2.zip)
+The Ember code is taken directly from the [1.0 RC3](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.3.zip)
 
 
 ## Contribute
