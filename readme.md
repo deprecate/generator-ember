@@ -8,12 +8,16 @@ Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
 ## Usage
 
-Execute these steps from the command line, one after another:
+First, if you have not installed yo yet via npm, do this:
 
-1. `mkdir webapp && cd webapp`
-2. `npm install -g generator-ember`
-3. `yo ember`
-4. `grunt server`
+- `npm install -g yo grunt-cli bower`
+
+After installing yo, execute these steps one after another:
+
+- `npm install -g generator-ember`
+- `mkdir webapp && cd webapp`
+- `yo ember`
+- `grunt server --force`
 
 A page with "Welcome to Ember.js" should appear in your browser.
 
@@ -27,6 +31,14 @@ A page with "Welcome to Ember.js" should appear in your browser.
 
   Defaults to `mocha`. Can be switched for another supported testing framework like `jasmine`.
 
+
+## Troubleshooting 
+
+### `-bash: yo: command not found`
+
+You need to make sure that npm is on your path.  Add the following to your .bash_profile (or .bashrc):
+
+`PATH=/usr/local/share/npm/bin:$PATH`
 
 ## Credits
 
