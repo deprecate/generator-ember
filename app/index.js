@@ -81,7 +81,7 @@ EmberGenerator.prototype.git = function git() {
 
 EmberGenerator.prototype.bower = function bower() {
   this.copy('bowerrc', '.bowerrc');
-  this.copy('_component.json', 'component.json');
+  this.copy('_bower.json', 'bower.json');
 };
 
 EmberGenerator.prototype.packageFile = function packageFile() {
@@ -117,9 +117,9 @@ EmberGenerator.prototype.writeIndex = function writeIndex() {
   this.indexFile = this.appendStyles(this.indexFile, 'styles/main.css', mainCssFiles);
 
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/components.js', [
-    'components/jquery/jquery.js',
-    'components/handlebars/handlebars.runtime.js',
-    'components/ember/ember.js'
+    'bower_components/jquery/jquery.js',
+    'bower_components/handlebars/handlebars.runtime.js',
+    'bower_components/ember/ember.js'
   ]);
 
   this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/main.js', [
@@ -135,19 +135,19 @@ EmberGenerator.prototype.bootstrapJavaScript = function bootstrapJavaScript() {
 
   // Wire Twitter Bootstrap plugins
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/plugins.js', [
-    'components/bootstrap-sass/js/bootstrap-affix.js',
-    'components/bootstrap-sass/js/bootstrap-alert.js',
-    'components/bootstrap-sass/js/bootstrap-dropdown.js',
-    'components/bootstrap-sass/js/bootstrap-tooltip.js',
-    'components/bootstrap-sass/js/bootstrap-modal.js',
-    'components/bootstrap-sass/js/bootstrap-transition.js',
-    'components/bootstrap-sass/js/bootstrap-button.js',
-    'components/bootstrap-sass/js/bootstrap-popover.js',
-    'components/bootstrap-sass/js/bootstrap-typeahead.js',
-    'components/bootstrap-sass/js/bootstrap-carousel.js',
-    'components/bootstrap-sass/js/bootstrap-scrollspy.js',
-    'components/bootstrap-sass/js/bootstrap-collapse.js',
-    'components/bootstrap-sass/js/bootstrap-tab.js'
+    'bower_components/bootstrap-sass/js/bootstrap-affix.js',
+    'bower_components/bootstrap-sass/js/bootstrap-alert.js',
+    'bower_components/bootstrap-sass/js/bootstrap-dropdown.js',
+    'bower_components/bootstrap-sass/js/bootstrap-tooltip.js',
+    'bower_components/bootstrap-sass/js/bootstrap-modal.js',
+    'bower_components/bootstrap-sass/js/bootstrap-transition.js',
+    'bower_components/bootstrap-sass/js/bootstrap-button.js',
+    'bower_components/bootstrap-sass/js/bootstrap-popover.js',
+    'bower_components/bootstrap-sass/js/bootstrap-typeahead.js',
+    'bower_components/bootstrap-sass/js/bootstrap-carousel.js',
+    'bower_components/bootstrap-sass/js/bootstrap-scrollspy.js',
+    'bower_components/bootstrap-sass/js/bootstrap-collapse.js',
+    'bower_components/bootstrap-sass/js/bootstrap-tab.js'
   ]);
 };
 

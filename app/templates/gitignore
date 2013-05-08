@@ -3,4 +3,4 @@ temp
 dist
 .sass-cache
 .tmp
-app/components
+app/bower_components
