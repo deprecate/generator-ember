@@ -26,7 +26,7 @@ module.exports = function (grunt) {
         yeoman: yeomanConfig,
         watch: {
             options: {
-                spawn: false
+                nospawn: true
             },
             ember_templates: {
               files: '<%%= yeoman.app %>/templates/**/*.hbs',
