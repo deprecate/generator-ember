@@ -3,6 +3,7 @@
 var path = require('path');
 var helpers = require('yeoman-generator').test;
 var assert = require('assert');
+var fs = require('fs');
 
 describe('Ember generator test', function () {
   beforeEach(function (done) {
@@ -79,6 +80,36 @@ describe('Ember generator test', function () {
 
     this.ember.app.run({}, function () {
       helpers.assertFiles(expected);
+      done();
+    });
+  });
+
+  it('properly links ember data when required', function (done) {
+    var expected = [
+      ['app/index.html', /<script src="bower_components\/ember-data-shim\/ember-data.js"><\/script>/]
+    ];
+
+    helpers.mockPrompt(this.ember.app, {
+      'emberData': 'Y'
+    });
+
+    this.ember.app.options['skip-install'] = true;
+    this.ember.app.run({}, function () {
+      helpers.assertFiles(expected);
+      done();
+    });
+  });
+
+  it('does not link ember data when not required', function (done) {
+    helpers.mockPrompt(this.ember.app, {
+      'emberData': 'n'
+    });
+
+    this.ember.app.options['skip-install'] = true;
+    this.ember.app.run({}, function () {
+      var fileContents = fs.readFileSync('app/index.html', 'utf8');
+      var reg = /<script src="bower_components\/ember-data-shim\/ember-data.js"><\/script>/;
+      assert.ok(!reg.test(fileContents));
       done();
     });
   });
