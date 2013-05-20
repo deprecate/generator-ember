@@ -20,6 +20,13 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
   this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'index.html'));
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 
+  // this holds the list of scripts we want to include in components.js
+  this.bowerScripts = [
+    'bower_components/jquery/jquery.js',
+    'bower_components/handlebars/handlebars.runtime.js',
+    'bower_components/ember/ember.js'
+  ];
+
   this.on('end', function () {
     this.installDependencies({ skipInstall: options['skip-install'] });
   });
@@ -47,6 +54,11 @@ EmberGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   var prompts = [{
+      name: 'emberData',
+      message: 'Would you like to include Ember Data?',
+      default: 'Y/n'
+    },
+    {
     name: 'compassBootstrap',
     message: 'Would you like to include Twitter Bootstrap for Sass?',
     default: 'Y/n'
@@ -58,6 +70,8 @@ EmberGenerator.prototype.askFor = function askFor() {
     }
 
     this.compassBootstrap = (/y/i).test(props.compassBootstrap);
+    this.emberData = (/y/i).test(props.emberData);
+
     cb();
   }.bind(this));
 
@@ -105,6 +119,12 @@ EmberGenerator.prototype.templates = function templates() {
   this.copy('hbs/index.hbs', 'app/templates/index.hbs');
 };
 
+EmberGenerator.prototype.emberDataJavascript = function emberDataJavascript() {
+  if(this.emberData){
+    this.bowerScripts.push('bower_components/ember-data-shim/ember-data.js');
+  }
+}
+
 EmberGenerator.prototype.writeIndex = function writeIndex() {
   var mainCssFiles = [];
   if (this.compassBootstrap) {
@@ -116,11 +136,7 @@ EmberGenerator.prototype.writeIndex = function writeIndex() {
 
   this.indexFile = this.appendStyles(this.indexFile, 'styles/main.css', mainCssFiles);
 
-  this.indexFile = this.appendScripts(this.indexFile, 'scripts/components.js', [
-    'bower_components/jquery/jquery.js',
-    'bower_components/handlebars/handlebars.runtime.js',
-    'bower_components/ember/ember.js'
-  ]);
+  this.indexFile = this.appendScripts(this.indexFile, 'scripts/components.js', this.bowerScripts);
 
   this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/main.js', [
     'scripts/app.js',
