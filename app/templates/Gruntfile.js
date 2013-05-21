@@ -40,11 +40,14 @@ module.exports = function (grunt) {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
             },
+            neuter: {
+              files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],
+              tasks: ['neuter', 'livereload']
+            },
             livereload: {
                 files: [
                     '<%%= yeoman.app %>/*.html',
                     '{.tmp,<%%= yeoman.app %>}/styles/{,*/}*.css',
-                    '{.tmp,<%%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ],
                 tasks: ['livereload']
@@ -277,16 +280,19 @@ module.exports = function (grunt) {
             server: [
                 'ember_templates',
                 'coffee:dist',
-                'compass:server'
+                'compass:server',
+                'neuter:app'
             ],
             test: [
                 'coffee',
-                'compass'
+                'compass',
+                'neuter:app'
             ],
             dist: [
                 'ember_templates',
                 'coffee',
                 'compass:dist',
+                'neuter:app',
                 'imagemin',
                 'svgmin',
                 'htmlmin'
@@ -304,8 +310,13 @@ module.exports = function (grunt) {
                     '.tmp/scripts/compiled-templates.js': '<%%= yeoman.app %>/templates/{,*/}*.hbs'
                 }
             }
+        },
+        neuter: {
+          app: {
+              src: '<%%= yeoman.app %>/scripts/app.js',
+              dest: '.tmp/scripts/combined-scripts.js'
+          }
         }
-
     });
 
     grunt.renameTask('regarde', 'watch');

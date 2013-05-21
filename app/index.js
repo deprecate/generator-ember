@@ -138,10 +138,8 @@ EmberGenerator.prototype.writeIndex = function writeIndex() {
 
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/components.js', this.bowerScripts);
 
-  this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/main.js', [
-    'scripts/app.js',
-    'scripts/compiled-templates.js'
-  ], null, ['app', '.tmp']);
+  this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/templates.js', ['scripts/compiled-templates.js'], null, ['.tmp']);
+  this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/main.js', ['scripts/combined-scripts.js'], null, ['.tmp']);
 };
 
 EmberGenerator.prototype.bootstrapJavaScript = function bootstrapJavaScript() {
