@@ -282,18 +282,15 @@ module.exports = function (grunt) {
                 'ember_templates',
                 'coffee:dist',
                 'compass:server',
-                'neuter:app'
             ],
             test: [
                 'coffee',
                 'compass',
-                'neuter:app'
             ],
             dist: [
                 'ember_templates',
                 'coffee',
                 'compass:dist',
-                'neuter:app',
                 'imagemin',
                 'svgmin',
                 'htmlmin'
@@ -347,6 +344,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'concurrent:server',
+            'neuter:app',
             'livereload-start',
             'connect:livereload',
             'open',
@@ -357,6 +355,7 @@ module.exports = function (grunt) {
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
+        'neuter:app',
         'connect:test',<% if (testFramework === 'mocha') { %>
         'mocha'<% } else if (testFramework === 'jasmine') { %>
         'jasmine'<% } %>
@@ -366,6 +365,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'useminPrepare',
         'concurrent:dist',
+        'neuter:app',
         'concat',
         'cssmin',
         'uglify',
