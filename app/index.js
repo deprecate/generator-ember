@@ -59,9 +59,9 @@ EmberGenerator.prototype.askFor = function askFor() {
       default: 'Y/n'
     },
     {
-    name: 'compassBootstrap',
-    message: 'Would you like to include Twitter Bootstrap for Sass?',
-    default: 'Y/n'
+      name: 'compassBootstrap',
+      message: 'Would you like to include Twitter Bootstrap for Sass?',
+      default: 'Y/n'
     },
     {
       name: 'coffeeScript',
@@ -129,10 +129,10 @@ EmberGenerator.prototype.templates = function templates() {
 };
 
 EmberGenerator.prototype.emberDataJavascript = function emberDataJavascript() {
-  if(this.emberData){
+  if (this.emberData) {
     this.bowerScripts.push('bower_components/ember-data-shim/ember-data.js');
   }
-}
+};
 
 EmberGenerator.prototype.writeIndex = function writeIndex() {
   var mainCssFiles = [];
@@ -184,9 +184,9 @@ EmberGenerator.prototype.all = function all() {
     this.copy('styles/style.css', 'app/styles/style.css');
   }
 
-  if(this.language === "javascript"){
+  if (this.language === "javascript") {
     this.copy('scripts/app.js', 'app/scripts/app.js');
-  }else{
+  } else {
     this.copy('coffeeScript/app.coffee', 'app/scripts/app.coffee');
   }
 };
