@@ -14,6 +14,9 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
     options['test-framework'] = 'mocha';
   }
 
+  // hook for CoffeeScript
+  this.options.coffee = options.coffee;
+
   // resolved to mocha by default (could be switched to jasmine for instance)
   this.hookFor('test-framework', { as: 'app' });
 
@@ -59,10 +62,11 @@ EmberGenerator.prototype.askFor = function askFor() {
       default: 'Y/n'
     },
     {
-    name: 'compassBootstrap',
-    message: 'Would you like to include Twitter Bootstrap for Sass?',
-    default: 'Y/n'
-  }];
+      name: 'compassBootstrap',
+      message: 'Would you like to include Twitter Bootstrap for Sass?',
+      default: 'Y/n'
+    }
+  ];
 
   this.prompt(prompts, function (err, props) {
     if (err) {
@@ -120,10 +124,10 @@ EmberGenerator.prototype.templates = function templates() {
 };
 
 EmberGenerator.prototype.emberDataJavascript = function emberDataJavascript() {
-  if(this.emberData){
+  if (this.emberData) {
     this.bowerScripts.push('bower_components/ember-data-shim/ember-data.js');
   }
-}
+};
 
 EmberGenerator.prototype.writeIndex = function writeIndex() {
   var mainCssFiles = [];
@@ -175,5 +179,9 @@ EmberGenerator.prototype.all = function all() {
     this.copy('styles/style.css', 'app/styles/style.css');
   }
 
-  this.copy('scripts/app.js', 'app/scripts/app.js');
+  if (!this.options.coffee) {
+    this.copy('scripts/app.js', 'app/scripts/app.js');
+  } else {
+    this.copy('coffeeScript/app.coffee', 'app/scripts/app.coffee');
+  }
 };
