@@ -66,7 +66,7 @@ EmberGenerator.prototype.askFor = function askFor() {
     {
       name: 'coffeeScript',
       message: 'Would you like to use CoffeeScript instead?',
-      default: 'y/N'
+      default: 'Y/n'
     }
   ];
 
