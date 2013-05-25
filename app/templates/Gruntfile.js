@@ -25,8 +25,8 @@ module.exports = function (grunt) {
         yeoman: yeomanConfig,
         watch: {
             ember_templates: {
-              files: '<%%= yeoman.app %>/templates/**/*.hbs',
-              tasks: ['ember_templates', 'livereload']
+                files: '<%%= yeoman.app %>/templates/**/*.hbs',
+                tasks: ['ember_templates', 'livereload']
             },
             coffee: {
                 files: ['<%%= yeoman.app %>/scripts/{,*/}*.coffee'],
@@ -41,8 +41,8 @@ module.exports = function (grunt) {
                 tasks: ['compass:server']
             },
             neuter: {
-              files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],
-              tasks: ['neuter', 'livereload']
+                files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],
+                tasks: ['neuter', 'livereload']
             },
             livereload: {
                 files: [
@@ -312,10 +312,10 @@ module.exports = function (grunt) {
             }
         },
         neuter: {
-          app: {
-              src: '<%%= yeoman.app %>/scripts/app.js',
-              dest: '.tmp/scripts/combined-scripts.js'
-          }
+            app: {
+                src: '<%%= yeoman.app %>/scripts/app.js',
+                dest: '.tmp/scripts/combined-scripts.js'
+            }
         }
     });
 
