@@ -40,7 +40,7 @@ module.exports = function (grunt) {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
             },
-            neuter: {<% if(language === 'javascript') { %>
+            neuter: {<% if (language === 'javascript') { %>
                 files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],<% }else{ %>
                 files: ['./.tmp/scripts/{,*/}*.js'],<% } %>
                 tasks: ['neuter', 'livereload']
@@ -308,7 +308,7 @@ module.exports = function (grunt) {
                     '.tmp/scripts/compiled-templates.js': '<%%= yeoman.app %>/templates/{,*/}*.hbs'
                 }
             }
-        },<% if( language === 'javascript' ) { %>
+        },<% if (language === 'javascript') { %>
         neuter: {
             app: {
                 options: {

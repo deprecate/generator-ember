@@ -184,7 +184,7 @@ EmberGenerator.prototype.all = function all() {
     this.copy('styles/style.css', 'app/styles/style.css');
   }
 
-  if (this.language === "javascript") {
+  if (this.language === 'javascript') {
     this.copy('scripts/app.js', 'app/scripts/app.js');
   } else {
     this.copy('coffeeScript/app.coffee', 'app/scripts/app.coffee');
