@@ -114,24 +114,30 @@ describe('Ember generator test', function () {
     });
   });
 
-  it('creates a CoffeeScript file when CoffeeScript is selected', function (done) {
+  it('creates a CoffeeScript based project when --coffee is specified', function (done) {
     helpers.mockPrompt(this.ember.app, {
-      'coffeeScript': 'y'
+      'emberData': 'Y',
+      'compassBootstrap': 'Y'
     });
 
     this.ember.app.options['skip-install'] = true;
+    this.ember.app.options['coffee'] = true;
+
     this.ember.app.run({}, function () {
       assert.ok(fs.existsSync('app/scripts/app.coffee'));
       done();
     });
   });
 
-  it('creates a JavaScript file when JavaScript is selected', function (done) {
+  it('creates a JavaScript based project by default', function (done) {
     helpers.mockPrompt(this.ember.app, {
-      'coffeeScript': 'n'
+      'emberData': 'Y',
+      'compassBootstrap': 'Y'
     });
 
     this.ember.app.options['skip-install'] = true;
+    this.ember.app.options['coffee'] = false;
+
     this.ember.app.run({}, function () {
       assert.ok(fs.existsSync('app/scripts/app.js'));
       done();

@@ -14,6 +14,10 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
     options['test-framework'] = 'mocha';
   }
 
+  // hook for CoffeeScript
+  if (options['coffee']) {
+    this.options.coffee = true;
+  }
   // resolved to mocha by default (could be switched to jasmine for instance)
   this.hookFor('test-framework', { as: 'app' });
 
@@ -62,11 +66,6 @@ EmberGenerator.prototype.askFor = function askFor() {
       name: 'compassBootstrap',
       message: 'Would you like to include Twitter Bootstrap for Sass?',
       default: 'Y/n'
-    },
-    {
-      name: 'coffeeScript',
-      message: 'Would you like to use CoffeeScript instead?',
-      default: 'Y/n'
     }
   ];
 
@@ -77,9 +76,8 @@ EmberGenerator.prototype.askFor = function askFor() {
 
     this.compassBootstrap = (/y/i).test(props.compassBootstrap);
     this.emberData = (/y/i).test(props.emberData);
-    this.coffeeScript = (/y/i).test(props.coffeeScript);
 
-    this.language = this.coffeeScript ? "coffee": "javascript";
+    this.language = this.options.coffee ? "coffee" : "javascript";
 
     cb();
   }.bind(this));
@@ -184,7 +182,7 @@ EmberGenerator.prototype.all = function all() {
     this.copy('styles/style.css', 'app/styles/style.css');
   }
 
-  if (this.language === 'javascript') {
+  if (!this.options.coffee) {
     this.copy('scripts/app.js', 'app/scripts/app.js');
   } else {
     this.copy('coffeeScript/app.coffee', 'app/scripts/app.coffee');
