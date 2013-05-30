@@ -40,9 +40,9 @@ module.exports = function (grunt) {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
             },
-            neuter: {<% if (language === 'javascript') { %>
+            neuter: {<% if (!options.coffee) { %>
                 files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],<% }else{ %>
-                files: ['./.tmp/scripts/{,*/}*.js'],<% } %>
+                files: ['.tmp/scripts/{,*/}*.js'],<% } %>
                 tasks: ['neuter', 'livereload']
             },
             livereload: {
@@ -281,11 +281,11 @@ module.exports = function (grunt) {
             server: [
                 'ember_templates',
                 'coffee:dist',
-                'compass:server',
+                'compass:server'
             ],
             test: [
                 'coffee',
-                'compass',
+                'compass'
             ],
             dist: [
                 'ember_templates',
@@ -308,12 +308,12 @@ module.exports = function (grunt) {
                     '.tmp/scripts/compiled-templates.js': '<%%= yeoman.app %>/templates/{,*/}*.hbs'
                 }
             }
-        },<% if (language === 'javascript') { %>
+        },<% if (!options.coffee) { %>
         neuter: {
             app: {
                 options: {
                     filepathTransform: function (filepath) {
-                        return './app/' + filepath;
+                        return 'app/' + filepath;
                     }
                 },
                 src: '<%%= yeoman.app %>/scripts/app.js',
@@ -325,7 +325,7 @@ module.exports = function (grunt) {
                 options: {
                     template: "{%= src %}",
                     filepathTransform: function (filepath) {
-                        return './.tmp/' + filepath;
+                        return '.tmp/' + filepath;
                     }
                 },
                 src: [ '.tmp/scripts/app.js' ],

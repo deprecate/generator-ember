@@ -15,9 +15,8 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
   }
 
   // hook for CoffeeScript
-  if (options['coffee']) {
-    this.options.coffee = true;
-  }
+  this.options.coffee = options.coffee;
+
   // resolved to mocha by default (could be switched to jasmine for instance)
   this.hookFor('test-framework', { as: 'app' });
 
@@ -76,8 +75,6 @@ EmberGenerator.prototype.askFor = function askFor() {
 
     this.compassBootstrap = (/y/i).test(props.compassBootstrap);
     this.emberData = (/y/i).test(props.emberData);
-
-    this.language = this.options.coffee ? "coffee" : "javascript";
 
     cb();
   }.bind(this));
