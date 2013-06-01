@@ -328,7 +328,7 @@ module.exports = function (grunt) {
                         return '.tmp/' + filepath;
                     }
                 },
-                src: [ '.tmp/scripts/app.js' ],
+                src: ['.tmp/scripts/app.js'],
                 dest: '.tmp/scripts/combined-scripts.js'
             }
         }<% } %>
