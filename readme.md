@@ -31,6 +31,10 @@ A page with "Welcome to Ember.js" should appear in your browser.
 
   Defaults to `mocha`. Can be switched for another supported testing framework like `jasmine`.
 
+* `--coffee`
+
+  Enable support for CoffeeScript.
+
 
 ## Troubleshooting 
 
