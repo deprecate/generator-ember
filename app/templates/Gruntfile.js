@@ -40,8 +40,9 @@ module.exports = function (grunt) {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
             },
-            neuter: {
-                files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],
+            neuter: {<% if (!options.coffee) { %>
+                files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],<% }else{ %>
+                files: ['.tmp/scripts/{,*/}*.js'],<% } %>
                 tasks: ['neuter', 'livereload']
             },
             livereload: {
@@ -280,19 +281,16 @@ module.exports = function (grunt) {
             server: [
                 'ember_templates',
                 'coffee:dist',
-                'compass:server',
-                'neuter:app'
+                'compass:server'
             ],
             test: [
                 'coffee',
-                'compass',
-                'neuter:app'
+                'compass'
             ],
             dist: [
                 'ember_templates',
                 'coffee',
                 'compass:dist',
-                'neuter:app',
                 'imagemin',
                 'svgmin',
                 'htmlmin'
@@ -310,13 +308,30 @@ module.exports = function (grunt) {
                     '.tmp/scripts/compiled-templates.js': '<%%= yeoman.app %>/templates/{,*/}*.hbs'
                 }
             }
-        },
+        },<% if (!options.coffee) { %>
         neuter: {
             app: {
+                options: {
+                    filepathTransform: function (filepath) {
+                        return 'app/' + filepath;
+                    }
+                },
                 src: '<%%= yeoman.app %>/scripts/app.js',
                 dest: '.tmp/scripts/combined-scripts.js'
             }
-        }
+        }<% } else { %>
+        neuter: {
+            app: {
+                options: {
+                    template: "{%= src %}",
+                    filepathTransform: function (filepath) {
+                        return '.tmp/' + filepath;
+                    }
+                },
+                src: [ '.tmp/scripts/app.js' ],
+                dest: '.tmp/scripts/combined-scripts.js'
+            }
+        }<% } %>
     });
 
     grunt.renameTask('regarde', 'watch');
@@ -329,6 +344,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'concurrent:server',
+            'neuter:app',
             'livereload-start',
             'connect:livereload',
             'open',
@@ -339,6 +355,7 @@ module.exports = function (grunt) {
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
+        'neuter:app',
         'connect:test',<% if (testFramework === 'mocha') { %>
         'mocha'<% } else if (testFramework === 'jasmine') { %>
         'jasmine'<% } %>
@@ -348,6 +365,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'useminPrepare',
         'concurrent:dist',
+        'neuter:app',
         'concat',
         'cssmin',
         'uglify',

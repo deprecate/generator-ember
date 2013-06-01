@@ -113,4 +113,34 @@ describe('Ember generator test', function () {
       done();
     });
   });
+
+  it('creates a CoffeeScript based project when --coffee is specified', function (done) {
+    helpers.mockPrompt(this.ember.app, {
+      'emberData': 'Y',
+      'compassBootstrap': 'Y'
+    });
+
+    this.ember.app.options['skip-install'] = true;
+    this.ember.app.options['coffee'] = true;
+
+    this.ember.app.run({}, function () {
+      assert.ok(fs.existsSync('app/scripts/app.coffee'));
+      done();
+    });
+  });
+
+  it('creates a JavaScript based project by default', function (done) {
+    helpers.mockPrompt(this.ember.app, {
+      'emberData': 'Y',
+      'compassBootstrap': 'Y'
+    });
+
+    this.ember.app.options['skip-install'] = true;
+    this.ember.app.options['coffee'] = false;
+
+    this.ember.app.run({}, function () {
+      assert.ok(fs.existsSync('app/scripts/app.js'));
+      done();
+    });
+  });
 });
