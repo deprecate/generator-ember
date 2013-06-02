@@ -1,4 +1,4 @@
-/*global Ember */
+/*global Ember<% if (emberData) {%>, DS<% } %> */
 
 var App = window.App = Ember.Application.create();
 
@@ -10,7 +10,10 @@ var App = window.App = Ember.Application.create();
 
 App.Router.map(function () {
   // put your routes here
-});
+});<% if (emberData) { %>
+
+App.Store = DS.Store.extend({
+});<% } %>
 
 App.IndexRoute = Ember.Route.extend({
   model: function () {

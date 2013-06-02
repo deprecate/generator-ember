@@ -8,7 +8,11 @@ App = window.App = Ember.Application.create()
 
 App.Router.map ->
   # routes here
+<% if (emberData) { %>
+
+App.Store = DS.Store.extend {
+}
+<% } %>
 
 App.IndexRoute = Ember.Route.extend
   model: -> ['red', 'yellow', 'blue']
-
