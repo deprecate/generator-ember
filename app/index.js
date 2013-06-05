@@ -59,12 +59,12 @@ EmberGenerator.prototype.askFor = function askFor() {
   var prompts = [{
       name: 'emberData',
       message: 'Would you like to include Ember Data?',
-      default: 'Y/n'
+      default: true
     },
     {
       name: 'compassBootstrap',
       message: 'Would you like to include Twitter Bootstrap for Sass?',
-      default: 'Y/n'
+      default: true
     }
   ];
 
@@ -73,8 +73,8 @@ EmberGenerator.prototype.askFor = function askFor() {
       return this.emit('error', err);
     }
 
-    this.compassBootstrap = (/y/i).test(props.compassBootstrap);
-    this.emberData = (/y/i).test(props.emberData);
+    this.compassBootstrap = props.compassBootstrap;
+    this.emberData = props.emberData;
 
     cb();
   }.bind(this));

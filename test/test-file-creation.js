@@ -29,7 +29,7 @@ describe('Ember generator test', function () {
     this.app = require('../app');
   });
 
-  it('creates expected files with compassSass', function (done) {
+  it('creates expected files without compassSass', function (done) {
     var expected = [
       '.gitignore',
       '.gitattributes',
@@ -48,7 +48,8 @@ describe('Ember generator test', function () {
     ];
 
     helpers.mockPrompt(this.ember.app, {
-      'compassBootstrap': 'N'
+      'emberData': false,
+      'compassBootstrap': false
     });
 
     this.ember.app.run({}, function () {
@@ -57,7 +58,7 @@ describe('Ember generator test', function () {
     });
   });
 
-  it('creates expected files without compassSass', function (done) {
+  it('creates expected files with compassSass', function (done) {
     var expected = [
       '.gitignore',
       '.gitattributes',
@@ -90,7 +91,7 @@ describe('Ember generator test', function () {
     ];
 
     helpers.mockPrompt(this.ember.app, {
-      'emberData': 'Y'
+      'emberData': true
     });
 
     this.ember.app.options['skip-install'] = true;
@@ -102,7 +103,7 @@ describe('Ember generator test', function () {
 
   it('does not link ember data when not required', function (done) {
     helpers.mockPrompt(this.ember.app, {
-      'emberData': 'n'
+      'emberData': false
     });
 
     this.ember.app.options['skip-install'] = true;
@@ -116,8 +117,8 @@ describe('Ember generator test', function () {
 
   it('creates a CoffeeScript based project when --coffee is specified', function (done) {
     helpers.mockPrompt(this.ember.app, {
-      'emberData': 'Y',
-      'compassBootstrap': 'Y'
+      'emberData': true,
+      'compassBootstrap': true
     });
 
     this.ember.app.options['skip-install'] = true;
@@ -131,8 +132,8 @@ describe('Ember generator test', function () {
 
   it('creates a JavaScript based project by default', function (done) {
     helpers.mockPrompt(this.ember.app, {
-      'emberData': 'Y',
-      'compassBootstrap': 'Y'
+      'emberData': true,
+      'compassBootstrap': true
     });
 
     this.ember.app.options['skip-install'] = true;

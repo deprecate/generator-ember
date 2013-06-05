@@ -24,9 +24,9 @@ module.exports = function (grunt) {
     grunt.initConfig({
         yeoman: yeomanConfig,
         watch: {
-            ember_templates: {
+            emberTemplates: {
                 files: '<%%= yeoman.app %>/templates/**/*.hbs',
-                tasks: ['ember_templates', 'livereload']
+                tasks: ['emberTemplates', 'livereload']
             },
             coffee: {
                 files: ['<%%= yeoman.app %>/scripts/{,*/}*.coffee'],
@@ -160,11 +160,15 @@ module.exports = function (grunt) {
             options: {
                 sassDir: '<%%= yeoman.app %>/styles',
                 cssDir: '.tmp/styles',
+                generatedImagesDir: '.tmp/images/generated',
                 imagesDir: '<%%= yeoman.app %>/images',
                 javascriptsDir: '<%%= yeoman.app %>/scripts',
                 fontsDir: '<%%= yeoman.app %>/styles/fonts',
                 importPath: 'app/bower_components',
-                relativeAssets: true
+                httpImagesPath: '/images',
+                httpGeneratedImagesPath: '/images/generated',
+                httpFontsPath: '/styles/fonts',
+                relativeAssets: false
             },
             dist: {},
             server: {
@@ -279,7 +283,7 @@ module.exports = function (grunt) {
         },
         concurrent: {
             server: [
-                'ember_templates',
+                'emberTemplates',
                 'coffee:dist',
                 'compass:server'
             ],
@@ -288,7 +292,7 @@ module.exports = function (grunt) {
                 'compass'
             ],
             dist: [
-                'ember_templates',
+                'emberTemplates',
                 'coffee',
                 'compass:dist',
                 'imagemin',
@@ -296,7 +300,7 @@ module.exports = function (grunt) {
                 'htmlmin'
             ]
         },
-        ember_templates: {
+        emberTemplates: {
             options: {
                 templateName: function (sourceFile) {
                     var templatePath = yeomanConfig.app + '/templates/';
