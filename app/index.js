@@ -57,22 +57,18 @@ EmberGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   var prompts = [{
-      name: 'emberData',
-      message: 'Would you like to include Ember Data?',
-      default: true
-    },
-    {
-      name: 'compassBootstrap',
-      message: 'Would you like to include Twitter Bootstrap for Sass?',
-      default: true
-    }
-  ];
+    type: 'confirm',
+    name: 'emberData',
+    message: 'Would you like to include Ember Data?',
+    default: true
+  }, {
+    type: 'confirm',
+    name: 'compassBootstrap',
+    message: 'Would you like to include Twitter Bootstrap for Sass?',
+    default: true
+  }];
 
-  this.prompt(prompts, function (err, props) {
-    if (err) {
-      return this.emit('error', err);
-    }
-
+  this.prompt(prompts, function (props) {
     this.compassBootstrap = props.compassBootstrap;
     this.emberData = props.emberData;
 
