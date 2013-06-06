@@ -46,7 +46,7 @@ You need to make sure that npm is on your path.  Add the following to your .bash
 
 ## Credits
 
-The Ember code is taken directly from the [1.0 RC3](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.3.zip)
+The Ember code is taken directly from the [1.0 RC4](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.4.zip)
 
 
 ## Contribute
