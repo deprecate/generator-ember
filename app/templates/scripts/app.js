@@ -1,4 +1,5 @@
 /*global Ember<% if (emberData) {%>, DS<% } %> */
+/*jslint browser: true */
 
 var App = window.App = Ember.Application.create();
 
