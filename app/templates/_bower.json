@@ -4,7 +4,7 @@
   "dependencies": {
     "jquery": "~1.9.1",
     "handlebars": "1.0.0-rc.4",
-    "ember": "1.0.0-rc.4"<% if (emberData) { %>,
+    "ember": "1.0.0-rc.5"<% if (emberData) { %>,
     "ember-data-shim": "~0.0.13"<% } %><% if (compassBootstrap) { %>,
     "bootstrap-sass": "~2.3.1"<% } %>
   },
