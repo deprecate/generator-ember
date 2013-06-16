@@ -288,6 +288,7 @@ module.exports = function (grunt) {
                 'compass:server'
             ],
             test: [
+                'emberTemplates',
                 'coffee',
                 'compass'
             ],
@@ -299,6 +300,11 @@ module.exports = function (grunt) {
                 'svgmin',
                 'htmlmin'
             ]
+        },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
         },
         emberTemplates: {
             options: {
@@ -359,8 +365,8 @@ module.exports = function (grunt) {
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
-        'neuter:app',
-        'connect:test',<% if (testFramework === 'mocha') { %>
+        'neuter:app',<% if (options.karma) { %>
+        'karma',<% } else if (testFramework === 'mocha') { %>
         'mocha'<% } else if (testFramework === 'jasmine') { %>
         'jasmine'<% } %>
     ]);
