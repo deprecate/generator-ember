@@ -49,6 +49,7 @@ You need to make sure that npm is on your path.  Add the following to your .bash
 
 ### 0.3 (2013-06-16)
 
+* Upgraded to Ember 1.0 RC5
 * Support for scaffolding out CoffeeScript via `--coffee`
 * Support for jasmine as alternative test framework via `--test-framework`
 * Automatic script inclusions via [`grunt-neuter`](https://github.com/trek/grunt-neuter)
