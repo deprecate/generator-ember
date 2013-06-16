@@ -17,7 +17,7 @@ After installing yo, execute these steps one after another:
 - `npm install -g generator-ember`
 - `mkdir webapp && cd webapp`
 - `yo ember`
-- `grunt server --force`
+- `grunt server`
 
 A page with "Welcome to Ember.js" should appear in your browser.
 
@@ -36,13 +36,24 @@ A page with "Welcome to Ember.js" should appear in your browser.
   Enable support for CoffeeScript.
 
 
-## Troubleshooting 
+## Troubleshooting
 
 ### `-bash: yo: command not found`
 
 You need to make sure that npm is on your path.  Add the following to your .bash_profile (or .bashrc):
 
 `PATH=/usr/local/share/npm/bin:$PATH`
+
+
+## History
+
+### 0.3 (2013-06-16)
+
+* Support for scaffolding out CoffeeScript via `--coffee`
+* Support for jasmine as alternative test framework via `--test-framework`
+* Automatic script inclusions via [`grunt-neuter`](https://github.com/trek/grunt-neuter)
+* New prompt
+
 
 ## Credits
 
