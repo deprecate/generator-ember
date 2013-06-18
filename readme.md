@@ -17,6 +17,7 @@ After installing yo, execute these steps one after another:
 - `npm install -g generator-ember`
 - `mkdir webapp && cd webapp`
 - `yo ember`
+- `sudo npm install grunt-mocha` 
 - `grunt server`
 
 A page with "Welcome to Ember.js" should appear in your browser.
@@ -47,7 +48,11 @@ You need to make sure that npm is on your path.  Add the following to your .bash
 
 ## History
 
-### 0.3 (2013-06-16)
+### 0.3.1 (2013-06-18)
+
+* Added install step to address [PhantomJS issue](https://github.com/yeoman/generator-webapp/issues/92)
+
+### 0.3.0 (2013-06-16)
 
 * Upgraded to Ember 1.0 RC5
 * Support for scaffolding out CoffeeScript via `--coffee`
