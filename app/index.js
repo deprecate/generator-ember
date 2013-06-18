@@ -39,7 +39,7 @@ util.inherits(EmberGenerator, yeoman.generators.Base);
 
 EmberGenerator.prototype.welcome = function welcome() {
   // welcome message
-  var welcomeMsg =
+  var welcomeMsg = 
   '\n     _-----_' +
   '\n    |       |' +
   '\n    |' + '--(o)--'.red + '|   .--------------------------.' +
@@ -58,6 +58,11 @@ EmberGenerator.prototype.askFor = function askFor() {
 
   var prompts = [{
     type: 'confirm',
+    name: 'jQuery2',
+    message: 'Would you like to use jQuery 2.x over 1.x?',
+    default: true
+  }, {
+    type: 'confirm',
     name: 'emberData',
     message: 'Would you like to include Ember Data?',
     default: true
@@ -71,6 +76,7 @@ EmberGenerator.prototype.askFor = function askFor() {
   this.prompt(prompts, function (props) {
     this.compassBootstrap = props.compassBootstrap;
     this.emberData = props.emberData;
+    this.jQuery2 = props.jQuery2;
 
     cb();
   }.bind(this));
