@@ -8,7 +8,13 @@ Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
 ## Usage
 
-First, if you have not installed yo yet via npm, do this:
+First, this generator requires that Ruby and Compass are installed and in your path.
+
+- `which ruby && which compass`
+
+If you do not see two paths, follow [these instructions](https://github.com/gruntjs/grunt-contrib-compass#compass-task).
+
+Second, if you have not installed yo yet via npm, do this:
 
 - `npm install -g yo grunt-cli bower`
 
