@@ -2,7 +2,7 @@
   "name": "<%= _.slugify(appname) %>",
   "version": "0.0.0",
   "dependencies": {
-    "jquery": "~1.9.1",
+    "jquery": "~1.10.2",
     "handlebars": "1.0.0-rc.4",
     "ember": "1.0.0-rc.6"<% if (emberData) { %>,
     "ember-data-shim": "~0.0.13"<% } %><% if (compassBootstrap) { %>,
