@@ -1,6 +1,6 @@
 'use strict';
-var util = require('util');
-var path = require('path');
+var util   = require('util');
+var path   = require('path');
 var yeoman = require('yeoman-generator');
 
 var EmberGenerator = module.exports = function EmberGenerator(args, options) {
@@ -16,6 +16,9 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
 
   // hook for CoffeeScript
   this.options.coffee = options.coffee;
+
+  // hook for karma test runner
+  this.options.karma = options.karma;
 
   // resolved to mocha by default (could be switched to jasmine for instance)
   this.hookFor('test-framework', { as: 'app' });
@@ -104,6 +107,23 @@ EmberGenerator.prototype.packageFile = function packageFile() {
 
 EmberGenerator.prototype.jshint = function jshint() {
   this.copy('jshintrc', '.jshintrc');
+};
+
+EmberGenerator.prototype.tests = function tests() {
+  if (this.options.karma) {
+    this.mkdir('test');
+    this.mkdir('test/support');
+    this.mkdir('test/integration');
+    this.copy('karma.conf.js', 'karma.conf.js');
+
+    if (this.options.coffee) {
+      this.copy('test/initializer.coffee', 'test/support/initializer.coffee');
+      this.copy('test/integration/index.coffee', 'test/integration/index.coffee');
+    } else {
+      this.copy('test/initializer.js', 'test/support/initializer.js');
+      this.copy('test/integration/index.js', 'test/integration/index.js');
+    }
+  }
 };
 
 EmberGenerator.prototype.editorConfig = function editorConfig() {
