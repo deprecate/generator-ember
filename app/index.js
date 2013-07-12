@@ -1,6 +1,6 @@
 'use strict';
-var util   = require('util');
-var path   = require('path');
+var util = require('util');
+var path = require('path');
 var yeoman = require('yeoman-generator');
 
 var EmberGenerator = module.exports = function EmberGenerator(args, options) {
