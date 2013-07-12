@@ -64,6 +64,12 @@ You need to make sure that npm is on your path.  Add the following to your .bash
 
 ## History
 
+### 0.4.0 (2013-07-11)
+
+* Added testing improvement
+* Upgraded to RC6
+* Upgraded to grunt-contrib-compass 0.3.0
+
 ### 0.3.1 (2013-06-18)
 
 * Added install step to address [PhantomJS issue](https://github.com/yeoman/generator-webapp/issues/92)
