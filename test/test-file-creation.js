@@ -144,4 +144,20 @@ describe('Ember generator test', function () {
       done();
     });
   });
+
+  it('creates karma config file when using karma-runner', function (done) {
+    helpers.mockPrompt(this.ember.app, {
+      'emberData': true,
+      'compassBootstrap': true
+    });
+
+    this.ember.app.options['skip-install'] = true;
+    this.ember.app.options['coffee'] = false;
+    this.ember.app.options['karma'] = true;
+
+    this.ember.app.run({}, function () {
+      assert.ok(fs.existsSync('karma.conf.js'));
+      done();
+    });
+  });
 });
