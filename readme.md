@@ -28,6 +28,14 @@ After installing yo, execute these steps one after another:
 
 A page with "Welcome to Ember.js" should appear in your browser.
 
+## Generators
+
+Available generators:
+
+* ember
+* ember:controller
+* ember:model
+ 
 ## Options
 
 * `--skip-install`
