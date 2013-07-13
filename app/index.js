@@ -27,7 +27,8 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
   this.bowerScripts = [
     'bower_components/jquery/jquery.js',
     'bower_components/handlebars/handlebars.runtime.js',
-    'bower_components/ember/ember.js'
+    'bower_components/ember/ember.js',
+    'bower_components/ember-data-shim/ember-data.js'
   ];
 
   this.on('end', function () {
@@ -58,11 +59,6 @@ EmberGenerator.prototype.askFor = function askFor() {
 
   var prompts = [{
     type: 'confirm',
-    name: 'emberData',
-    message: 'Would you like to include Ember Data?',
-    default: true
-  }, {
-    type: 'confirm',
     name: 'compassBootstrap',
     message: 'Would you like to include Twitter Bootstrap for Sass?',
     default: true
@@ -70,7 +66,6 @@ EmberGenerator.prototype.askFor = function askFor() {
 
   this.prompt(prompts, function (props) {
     this.compassBootstrap = props.compassBootstrap;
-    this.emberData = props.emberData;
 
     cb();
   }.bind(this));
@@ -117,12 +112,6 @@ EmberGenerator.prototype.gruntfile = function gruntfile() {
 EmberGenerator.prototype.templates = function templates() {
   this.copy('hbs/application.hbs', 'app/templates/application.hbs');
   this.copy('hbs/index.hbs', 'app/templates/index.hbs');
-};
-
-EmberGenerator.prototype.emberDataJavascript = function emberDataJavascript() {
-  if (this.emberData) {
-    this.bowerScripts.push('bower_components/ember-data-shim/ember-data.js');
-  }
 };
 
 EmberGenerator.prototype.writeIndex = function writeIndex() {
