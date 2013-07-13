@@ -5,6 +5,10 @@ var yeoman = require('yeoman-generator');
 var ModelGenerator = module.exports = function ModelGenerator(args, options, config) {
   yeoman.generators.NamedBase.apply(this, arguments);
 
+  this.hookFor('ember:controller', {
+    args: args
+  });
+
   // XXX default and banner to be implemented
   this.argument('attributes', { type: Array, defaults: [], banner: 'field[:type] field[:type]' });
 
