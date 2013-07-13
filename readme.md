@@ -1,22 +1,21 @@
-# Ember generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-ember.png?branch=master)](http://travis-ci.org/yeoman/generator-ember)
-
-> Gets you started with a "Hello World" implementation of
-[Ember](http://emberjs.com).
+# Ember.js generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-ember.png?branch=master)](http://travis-ci.org/yeoman/generator-ember)
 
 Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
 
-## Usage
-
-First, this generator requires that Ruby and Compass are installed and in your path.
+## Pre-reqs
+ 
+* First, this generator requires that Ruby and Compass are installed and in your path.
 
 - `which ruby && which compass`
 
 If you do not see two paths, follow [these instructions](https://github.com/gruntjs/grunt-contrib-compass#compass-task).
 
-Second, if you have not installed yo yet via npm, do this:
+* Second, if you have not installed yo yet via npm, do this:
 
 - `npm install -g yo grunt-cli bower`
+
+## Usage
 
 After installing yo, execute these steps one after another:
 
@@ -62,6 +61,14 @@ You need to make sure that npm is on your path.  Add the following to your .bash
 
 
 ## History
+
+### 0.5.0 (2013-07-13)
+
+* Added basic scaffolding 
+
+### 0.4.1 (2013-07-13)
+
+* Reverted changes for testing improvement
 
 ### 0.4.0 (2013-07-11)
 
