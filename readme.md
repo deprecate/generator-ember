@@ -23,7 +23,7 @@ After installing yo, execute these steps one after another:
 - `npm install -g generator-ember`
 - `mkdir webapp && cd webapp`
 - `yo ember`
-- `sudo npm install grunt-mocha` 
+- `npm install grunt-mocha` 
 - `grunt server`
 
 A page with "Welcome to Ember.js" should appear in your browser.
