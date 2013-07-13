@@ -31,10 +31,41 @@ A page with "Welcome to Ember.js" should appear in your browser.
 
 Available generators:
 
-* ember
+* ember 
 * ember:view
-* ember:model
 * ember:controller
+* ember:model
+
+### ember
+
+Creates the basic infrastructure for your app. 
+
+### ember:view
+
+Creates a view and template given an arg, as in
+
+  `yo ember:view Foo`
+
+### ember:controller
+
+Creates a view, handlebar, controller and route given an arg, as in:
+
+  `yo ember:controller Bar`
+
+Currently, for new routes:
+
+- add them manually to router.js 
+- restart the app to load the new view created with the route
+
+see: http://localhost:9000/#/bar
+
+### ember:model
+
+Creates a model, view, handlebar, controller, and route given an arg, as in: 
+
+`yo ember:model Baz name:string postal_code:number`
+
+see http://localhost:9000/#/baz
  
 ## Options
 
@@ -65,6 +96,7 @@ You need to make sure that npm is on your path.  Add the following to your .bash
 ### 0.5.0 (2013-07-13)
 
 * Added basic scaffolding 
+* Assume yes for Ember Data
 
 ### 0.4.1 (2013-07-13)
 
