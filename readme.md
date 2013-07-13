@@ -36,7 +36,6 @@ Available generators:
 * ember:view
 * ember:model
 * ember:controller
-* ember:all
  
 ## Options
 
