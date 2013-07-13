@@ -14,5 +14,5 @@ util.inherits(ViewGenerator, yeoman.generators.NamedBase);
 
 ViewGenerator.prototype.files = function files() {
   this.copy('base.js', 'app/scripts/views/' + this._.slugify(this.name) + '_view.js');
-  this.copy('base.hbs', 'app/scripts/templates/' + this._.slugify(this.name) + '_view.hbs');
+  this.copy('base.hbs', 'app/templates/' + this._.slugify(this.name) + '.hbs');
 };
