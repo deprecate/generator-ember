@@ -33,8 +33,10 @@ A page with "Welcome to Ember.js" should appear in your browser.
 Available generators:
 
 * ember
-* ember:controller
+* ember:view
 * ember:model
+* ember:controller
+* ember:all
  
 ## Options
 
