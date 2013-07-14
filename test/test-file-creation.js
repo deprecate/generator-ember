@@ -13,6 +13,7 @@ describe('Ember generator test', function () {
       }
       this.ember = {};
       this.ember.app = helpers.createGenerator('ember:app', [
+        '../../router',
         '../../app', [
           helpers.createDummyGenerator(),
           'mocha:app'
