@@ -47,7 +47,7 @@ describe('Ember generator test', function () {
       'app/styles/normalize.css',
       'app/styles/style.css',
       'app/scripts/app.js',
-      //'app/scripts/router.js',
+      'app/scripts/router.js',
       'app/templates/application.hbs',
       'app/templates/index.hbs',
       'app/index.html'
@@ -75,6 +75,7 @@ describe('Ember generator test', function () {
       'Gruntfile.js',
       'app/styles/style.scss',
       'app/scripts/app.js',
+      'app/scripts/router.js',
       'app/templates/application.hbs',
       'app/templates/index.hbs',
       'app/index.html'
