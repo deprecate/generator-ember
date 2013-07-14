@@ -28,6 +28,10 @@ describe('Ember generator test', function () {
   it('every generator can be required without throwing', function () {
     // not testing the actual run of generators yet
     this.app = require('../app');
+    this.router = require('../router');
+    this.controller = require('../controller');
+    this.view = require('../view');
+    this.model = require('../model');
   });
 
   it('creates expected files without compassSass', function (done) {
@@ -43,13 +47,13 @@ describe('Ember generator test', function () {
       'app/styles/normalize.css',
       'app/styles/style.css',
       'app/scripts/app.js',
+      //'app/scripts/router.js',
       'app/templates/application.hbs',
       'app/templates/index.hbs',
       'app/index.html'
     ];
 
     helpers.mockPrompt(this.ember.app, {
-      'emberData': false,
       'compassBootstrap': false
     });
 
@@ -91,6 +95,10 @@ describe('Ember generator test', function () {
       ['app/index.html', /<script src="bower_components\/ember-data-shim\/ember-data.js"><\/script>/]
     ];
 
+    helpers.mockPrompt(this.ember.app, {
+      'compassBootstrap': true
+    });
+
     this.ember.app.options['skip-install'] = true;
     this.ember.app.run({}, function () {
       helpers.assertFiles(expected);
@@ -100,7 +108,6 @@ describe('Ember generator test', function () {
 
   it('creates a CoffeeScript based project when --coffee is specified', function (done) {
     helpers.mockPrompt(this.ember.app, {
-      'emberData': true,
       'compassBootstrap': true
     });
 
@@ -115,7 +122,6 @@ describe('Ember generator test', function () {
 
   it('creates a JavaScript based project by default', function (done) {
     helpers.mockPrompt(this.ember.app, {
-      'emberData': true,
       'compassBootstrap': true
     });
 
@@ -127,4 +133,5 @@ describe('Ember generator test', function () {
       done();
     });
   });
+
 });
