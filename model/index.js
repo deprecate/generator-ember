@@ -13,7 +13,7 @@ var ModelGenerator = module.exports = function ModelGenerator(args, options, con
   this.argument('attributes', { type: Array, defaults: [], banner: 'field[:type] field[:type]' });
 
   // parse back the attributes provided, build an array of attr
-  this.attrs = this.attributes.map(function(attr) {
+  this.attrs = this.attributes.map(function (attr) {
     var parts = attr.split(':');
     return {
       name: parts[0],
