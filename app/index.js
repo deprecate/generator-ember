@@ -6,6 +6,10 @@ var yeoman = require('yeoman-generator');
 var EmberGenerator = module.exports = function EmberGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
 
+  this.hookFor('ember:router', {
+    args: []
+  });
+
   // setup the test-framework property, Gruntfile template will need this
   this.testFramework = options['test-framework'] || 'mocha';
 
@@ -135,7 +139,6 @@ EmberGenerator.prototype.bootstrapJavaScript = function bootstrapJavaScript() {
   if (!this.compassBootstrap) {
     return;  // Skip if disabled.
   }
-
   // Wire Twitter Bootstrap plugins
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/plugins.js', [
     'bower_components/bootstrap-sass/js/bootstrap-affix.js',
@@ -166,7 +169,6 @@ EmberGenerator.prototype.all = function all() {
 
   if (!this.options.coffee) {
     this.copy('scripts/app.js', 'app/scripts/app.js');
-    this.copy('scripts/router.js', 'app/scripts/router.js');
     this.copy('scripts/store.js', 'app/scripts/store.js');
     this.copy('scripts/routes/index_route.js', 'app/scripts/routes/index_route.js');
   } else {
