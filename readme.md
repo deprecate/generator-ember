@@ -1,19 +1,19 @@
-# Ember.js generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-ember.png?branch=master)](http://travis-ci.org/yeoman/generator-ember)
+# Ember.js Generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-ember.png?branch=master)](http://travis-ci.org/yeoman/generator-ember)
 
 Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
 
 ## Pre-reqs
  
-* First, this generator requires that Ruby and Compass are installed and in your path.
+First, this generator requires that Ruby and Compass are installed and in your path.
 
-- `which ruby && which compass`
+  `which ruby && which compass`
 
 If you do not see two paths, follow [these instructions](https://github.com/gruntjs/grunt-contrib-compass#compass-task).
 
-* Second, if you have not installed yo yet via npm, do this:
+Second, if you have not installed yo yet via npm, do this:
 
-- `npm install -g yo grunt-cli bower`
+  `npm install -g yo grunt-cli bower`
 
 ## Usage
 
@@ -46,16 +46,15 @@ Creates a view and template given an arg, as in
 
   `yo ember:view Foo`
 
+__KNOWN ISSUE: IF YOU ADD A NEW VIEW, REGARDLESS OF WITH WHICH GENERATOR, YOU HAVE TO RESTART THE SERVER.__ 
+
 ### ember:controller
 
 Creates a view, handlebar, controller and route given an arg, as in:
 
   `yo ember:controller Bar`
 
-Currently, for new routes:
-
-- add them manually to router.js 
-- restart the app to load the new view created with the route
+(and updates router.js, overwrite when prompted)
 
 see: http://localhost:9000/#/bar
 
@@ -90,13 +89,16 @@ You need to make sure that npm is on your path.  Add the following to your .bash
 
 `PATH=/usr/local/share/npm/bin:$PATH`
 
+### `You specified the templateName ... but it did not exist.`
+
+You probably added a view; restart the server.
 
 ## History
 
 ### 0.5.0 (2013-07-13)
 
-* Added basic scaffolding 
-* Assume yes for Ember Data
+* Added basic scaffolding
+* By default, include Ember Data
 
 ### 0.4.1 (2013-07-13)
 
