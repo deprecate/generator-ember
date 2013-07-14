@@ -6,9 +6,7 @@ var yeoman = require('yeoman-generator');
 var EmberGenerator = module.exports = function EmberGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
 
-  this.hookFor('ember:router', {
-    args: []
-  });
+  this.hookFor('ember:router');
 
   // setup the test-framework property, Gruntfile template will need this
   this.testFramework = options['test-framework'] || 'mocha';

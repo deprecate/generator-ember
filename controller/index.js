@@ -8,9 +8,7 @@ var ControllerGenerator = module.exports = function ControllerGenerator(args, op
   this.hookFor('ember:view', {
     args: args
   });
-  this.hookFor('ember:router', {
-    args: []
-  });
+  this.hookFor('ember:router');
 };
 
 // TODO: add option for Array or Object controller
