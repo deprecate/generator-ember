@@ -161,7 +161,6 @@ You probably added a view; restart the server.
 
 ## TODO
 
-* Re-integrate the [testing work](https://github.com/yeoman/generator-ember/issues/77) by @fayimora 
 * Add tests for generators
 
 ## Credits
