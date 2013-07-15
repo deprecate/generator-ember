@@ -367,7 +367,7 @@ module.exports = function (grunt) {
         'concurrent:test',
         'connect:test',
         'neuter:app',<% if (options.karma) { %>
-        'karma',<% } else if (testFramework === 'mocha') { %>
+        'karma'<% } else if (testFramework === 'mocha') { %>
         'mocha'<% } else if (testFramework === 'jasmine') { %>
         'jasmine'<% } %>
     ]);
