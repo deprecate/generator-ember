@@ -17,6 +17,8 @@ Maintainer: [Anthony Bull](https://github.com/inkredabull)
 * [TODO](#todo)
 * [Credits](#credits)
 * [Contribute](#contribute)
+  * [Basics](#basics)
+  * [Tips](#tips)
 * [License](#license)
 
 ## Pre-reqs
@@ -154,6 +156,8 @@ The Ember code is taken directly from the [1.0 RC6](https://github.com/emberjs/s
 
 ## Contribute
 
+### Basics
+
 See the [contributing docs](https://github.com/yeoman/yeoman/blob/master/contributing.md)
 
 When submitting an issue, please follow the [guidelines](https://github.com/yeoman/yeoman/blob/master/contributing.md#issue-submission). Especially important is to make sure Yeoman is up-to-date, and providing the command or commands that cause the issue.
@@ -162,6 +166,14 @@ When submitting a bugfix, write a test that exposes the bug and fails before app
 
 When submitting a new feature, add tests that cover the feature.
 
+### Tips
+
+Here are some of the techniques I use; maybe they're useful for you.
+
+When developing...
+
+* in generator-ember dir, `npm link` to use what's in the local repo for `yo ember`
+* wipe the example webapp dir clean (`cd .. && rm -rf webapp`) from time-to-time to ensure the code output is coming from the latest generator (will re-install everything via npm, so be forewarned)
 
 ## License
 
