@@ -14,6 +14,7 @@ Maintainer: [Anthony Bull](https://github.com/inkredabull)
 * [Options](#options)
 * [Troubleshooting](#troubleshooting)
 * [History](#history)
+* [TODO](#todo)
 * [Credits](#credits)
 * [Contribute](#contribute)
 * [License](#license)
@@ -141,6 +142,10 @@ You probably added a view; restart the server.
 * Automatic script inclusions via [`grunt-neuter`](https://github.com/trek/grunt-neuter)
 * New prompt
 
+## TODO
+
+* Re-integrate the [testing work](https://github.com/yeoman/generator-ember/issues/77) by @fayimora 
+* Add tests for generators
 
 ## Credits
 
