@@ -7,6 +7,7 @@ var fs = require('fs');
 
 describe('Ember generator test', function () {
   beforeEach(function (done) {
+
     helpers.testDirectory(path.join(__dirname, './temp'), function (err) {
       if (err) {
         return done(err);
@@ -19,6 +20,10 @@ describe('Ember generator test', function () {
           'mocha:app'
         ]
       ]);
+      helpers.mockPrompt(this.ember.app, {
+        'compassBootstrap': true
+      });
+      this.ember.app.options['coffee'] = false;
       this.ember.app.options['skip-install'] = true;
       done();
     }.bind(this));
@@ -81,10 +86,6 @@ describe('Ember generator test', function () {
       'app/index.html'
     ];
 
-    helpers.mockPrompt(this.ember.app, {
-      'compassBootstrap': 'Y'
-    });
-
     this.ember.app.run({}, function () {
       helpers.assertFiles(expected);
       done();
@@ -93,14 +94,11 @@ describe('Ember generator test', function () {
 
   it('properly links ember data', function (done) {
     var expected = [
-      ['app/index.html', /<script src="bower_components\/ember-data-shim\/ember-data.js"><\/script>/]
+      [
+        'app/index.html', 
+        /<script src="bower_components\/ember-data-shim\/ember-data.js"><\/script>/
+      ]
     ];
-
-    helpers.mockPrompt(this.ember.app, {
-      'compassBootstrap': true
-    });
-
-    this.ember.app.options['skip-install'] = true;
     this.ember.app.run({}, function () {
       helpers.assertFiles(expected);
       done();
@@ -108,13 +106,7 @@ describe('Ember generator test', function () {
   });
 
   it('creates a CoffeeScript based project when --coffee is specified', function (done) {
-    helpers.mockPrompt(this.ember.app, {
-      'compassBootstrap': true
-    });
-
-    this.ember.app.options['skip-install'] = true;
     this.ember.app.options['coffee'] = true;
-
     this.ember.app.run({}, function () {
       assert.ok(fs.existsSync('app/scripts/app.coffee'));
       done();
@@ -122,13 +114,6 @@ describe('Ember generator test', function () {
   });
 
   it('creates a JavaScript based project by default', function (done) {
-    helpers.mockPrompt(this.ember.app, {
-      'compassBootstrap': true
-    });
-
-    this.ember.app.options['skip-install'] = true;
-    this.ember.app.options['coffee'] = false;
-
     this.ember.app.run({}, function () {
       assert.ok(fs.existsSync('app/scripts/app.js'));
       done();
@@ -136,19 +121,28 @@ describe('Ember generator test', function () {
   });
 
   it('creates karma config file when using karma-runner', function (done) {
-    helpers.mockPrompt(this.ember.app, {
-      'emberData': true,
-      'compassBootstrap': true
-    });
-
-    this.ember.app.options['skip-install'] = true;
-    this.ember.app.options['coffee'] = false;
     this.ember.app.options['karma'] = true;
-
     this.ember.app.run({}, function () {
       assert.ok(fs.existsSync('karma.conf.js'));
       done();
     });
   });
 
+  /*
+  it('creates files for router subgenerator as expected', function (done) {
+    assert(true==false);
+  });
+
+  it('creates files for view subgenerator as expected', function (done) {
+    assert(true==false);
+  });
+
+  it('creates files for model subgenerator as expected', function (done) {
+    assert(true==false);
+  });
+
+  it('creates files for controller subgenerator as expected', function (done) {
+    assert(true==false);
+  });
+  */
 });
