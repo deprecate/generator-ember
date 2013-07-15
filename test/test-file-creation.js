@@ -5,6 +5,22 @@ var helpers = require('yeoman-generator').test;
 var assert = require('assert');
 var fs = require('fs');
 
+var EXPECTED_FILES = [
+  '.gitignore',
+  '.gitattributes',
+  '.bowerrc',
+  'bower.json',
+  'package.json',
+  '.jshintrc',
+  '.editorconfig',
+  'Gruntfile.js',
+  'app/scripts/app.js',
+  'app/scripts/router.js',
+  'app/templates/application.hbs',
+  'app/templates/index.hbs',
+  'app/index.html'
+];
+
 describe('Ember generator test', function () {
   beforeEach(function (done) {
 
@@ -40,54 +56,19 @@ describe('Ember generator test', function () {
   });
 
   it('creates expected files without compassSass', function (done) {
-    var expected = [
-      '.gitignore',
-      '.gitattributes',
-      '.bowerrc',
-      'bower.json',
-      'package.json',
-      '.jshintrc',
-      '.editorconfig',
-      'Gruntfile.js',
-      'app/styles/normalize.css',
-      'app/styles/style.css',
-      'app/scripts/app.js',
-      'app/scripts/router.js',
-      'app/templates/application.hbs',
-      'app/templates/index.hbs',
-      'app/index.html'
-    ];
-
     helpers.mockPrompt(this.ember.app, {
       'compassBootstrap': false
     });
-
     this.ember.app.run({}, function () {
-      helpers.assertFiles(expected);
+      helpers.assertFiles(EXPECTED_FILES);
+      helpers.assertFiles( ['app/styles/normalize.css', 'app/styles/style.css'] );
       done();
     });
   });
 
   it('creates expected files with compassSass', function (done) {
-    var expected = [
-      '.gitignore',
-      '.gitattributes',
-      '.bowerrc',
-      'bower.json',
-      'package.json',
-      '.jshintrc',
-      '.editorconfig',
-      'Gruntfile.js',
-      'app/styles/style.scss',
-      'app/scripts/app.js',
-      'app/scripts/router.js',
-      'app/templates/application.hbs',
-      'app/templates/index.hbs',
-      'app/index.html'
-    ];
-
     this.ember.app.run({}, function () {
-      helpers.assertFiles(expected);
+      helpers.assertFiles(EXPECTED_FILES);
       done();
     });
   });
