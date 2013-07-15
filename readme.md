@@ -83,13 +83,17 @@ see http://localhost:9000/#/baz
 
 ## Troubleshooting
 
-### `-bash: yo: command not found`
+### Command not found
+
+Manifests as: `-bash: yo: command not found`
 
 You need to make sure that npm is on your path.  Add the following to your .bash_profile (or .bashrc):
 
 `PATH=/usr/local/share/npm/bin:$PATH`
 
-### `You specified the templateName ... but it did not exist.`
+### templateName issues
+
+Manifests as: `You specified the templateName ... but it did not exist.`
 
 You probably added a view; restart the server.
 
