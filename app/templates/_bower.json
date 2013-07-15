@@ -8,5 +8,7 @@
     "ember-data-shim": "~0.0.13"<% if (compassBootstrap) { %>,
     "bootstrap-sass": "~2.3.1"<% } %>
   },
-  "devDependencies": {}
+  "devDependencies": {<% if (testFramework === 'mocha') { %>
+    "ember-mocha-adapter": "0.1.1"<% } %>
+  }
 }

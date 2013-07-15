@@ -98,6 +98,16 @@ see http://localhost:9000/#/baz
 
   Enable support for CoffeeScript.
 
+* `--karma`
+
+  Enables support for karma test runner
+
+## Testing
+Testing your app is as simple as running `grunt test`. The generator ships with the
+[karma test runner](http://karma-runner.github.io/0.8/index.html) for running the tests. Integration
+tests are written with [ember-testing](https://github.com/emberjs/ember.js/tree/master/packages/ember-testing)
+and preferably mocha. Karma is highly configurable and you can take a look at the varity of options
+on [its website](http://karma-runner.github.io/0.8/index.html).
 
 ## Troubleshooting
 
