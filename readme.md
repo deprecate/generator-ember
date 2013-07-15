@@ -127,6 +127,11 @@ You probably added a view; restart the server.
 
 ## History
 
+### 0.5.1 (2013-07-15)
+
+* Re-introduced @fayimora's testing improvement; now working with `grunt test`
+* documentation updates
+
 ### 0.5.0 (2013-07-13)
 
 * Added basic scaffolding
