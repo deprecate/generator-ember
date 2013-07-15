@@ -2,6 +2,21 @@
 
 Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
+## Table of Contents
+
+* [Pre-reqs](#pre-reqs)
+* [Usage](#usage)
+* [Generators](#generators)
+  * [ember](#ember)
+  * [ember-view](#ember-view)
+  * [ember-controller](#ember-controller)
+  * [ember-model](#ember-model)
+* [Options](#options)
+* [Troubleshooting](#troubleshooting)
+* [History](#history)
+* [Credits](#credits)
+* [Contribute](#contribute)
+* [License](#license)
 
 ## Pre-reqs
  
