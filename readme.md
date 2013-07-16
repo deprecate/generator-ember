@@ -165,6 +165,7 @@ You probably added a view; restart the server.
 
 ## TODO
 
+* Change tests to instantiate and test objects instead of grepping for text
 * DRY up/refactor tests
 
 ## Credits
