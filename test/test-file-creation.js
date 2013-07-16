@@ -84,11 +84,17 @@ describe('Ember', function () {
 
   describe('subgenerators', function () {
 
+    var filesDoNotExist = function(list_of_files){
+      for (var i = 0; i < list_of_files.length; i++) {
+        assert(!fs.existsSync(list_of_files[i]));
+      }
+    };
+
     it('router', function (done) {
       this.router = {};
       this.router = helpers.createGenerator('ember:router', ['../../router']);
 
-      assert(!fs.existsSync(this.router.router_file)); // router_file d.n.e. before invocation
+      filesDoNotExist([this.router.router_file]);
 
       this.router.options.controller_files = ['foo_controller.js'];
       var router = this.router;
@@ -109,9 +115,7 @@ describe('Ember', function () {
       this.view = {};
       this.view = helpers.createGenerator('ember:view', ['../../view'], 'foo');
 
-      for (var i = 0; i < files_generated_by_view_subgen.length; i++) {
-        assert(!fs.existsSync(files_generated_by_view_subgen[i])); // files d.n.e. before invocation
-      }
+      filesDoNotExist(files_generated_by_view_subgen);
 
       var view = this.view;
       this.view.run({}, function () {
@@ -131,9 +135,7 @@ describe('Ember', function () {
       this.controller = {};
       this.controller = helpers.createGenerator('ember:controller', ['../../controller','../../view','../../router'], 'foo');
 
-      for (var i = 0; i < files_generated_by_controller_subgen.length; i++) {
-        assert(!fs.existsSync(files_generated_by_controller_subgen[i])); // files d.n.e. before invocation
-      }
+      filesDoNotExist(files_generated_by_controller_subgen);
 
       var controller = this.controller;
       this.controller.run({}, function () {
@@ -154,9 +156,7 @@ describe('Ember', function () {
          ['../../model','../../controller','../../view','../../router'],
          ['foo', 'name:string']);
 
-      for (var i = 0; i < files_generated_by_model_subgen.length; i++) {
-        assert(!fs.existsSync(files_generated_by_model_subgen[i])); // files d.n.e. before invocation
-      }
+      filesDoNotExist(files_generated_by_model_subgen);
 
       var model = this.model;
       this.model.run({}, function () {
