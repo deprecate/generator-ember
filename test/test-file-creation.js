@@ -99,7 +99,24 @@ describe('Ember', function () {
       });
     });
 
-    it('view');
+    it('view', function (done) {
+      this.view = {};
+      this.view = helpers.createGenerator('ember:view', ['../../view'], 'foo');
+      var expected_files = [ 'app/scripts/views/foo_view.js', 'app/templates/foo.hbs'];
+
+      for (var i = 0; i < expected_files.length; i++) {
+        assert(!fs.existsSync(expected_files[i])); // files d.n.e. before invocation
+      }
+
+      var view = this.view;
+      this.view.run({}, function () {
+        helpers.assertFiles( expected_files );
+        var content = fs.readFileSync(expected_files[0]);
+        assert(content.toString().match(/FooView/));
+        done();
+      });
+    });
+
     it('controller');
     it('model');
   });
