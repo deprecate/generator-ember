@@ -21,7 +21,7 @@ var EXPECTED_FILES = [
   'app/index.html'
 ];
 
-describe('Ember generator tests', function () {
+describe('Ember', function () {
   beforeEach(function (done) {
     helpers.testDirectory(path.join(__dirname, './temp'), function (err) {
       if (err) {
@@ -82,23 +82,25 @@ describe('Ember generator tests', function () {
   });
 
   describe('subgenerators', function () {
-    /*
-    it('creates files for router subgenerator as expected', function (done) {
-      assert(true==false);
+    it('router', function (done) {
+      this.router = {};
+      this.router = helpers.createGenerator('ember:router', ['../../router']);
+
+      assert(!fs.existsSync(this.router.router_file)); // router_file d.n.e. before invocation
+
+      this.router.options.controller_files = ['foo_controller.js'];
+      var router = this.router;
+      this.router.run({}, function () {
+        helpers.assertFiles( [ router.options.router_file ] );
+        var content = fs.readFileSync(router.options.router_file);
+        assert(content.toString().match(/route.*foo/));
+        done();
+      });
     });
 
-    it('creates files for view subgenerator as expected', function (done) {
-      assert(true==false);
-    });
-
-    it('creates files for model subgenerator as expected', function (done) {
-      assert(true==false);
-    });
-
-    it('creates files for controller subgenerator as expected', function (done) {
-      assert(true==false);
-    });
-    */
+    it('view');
+    it('controller');
+    it('model');
   });
 
   it('creates karma config file when using karma-runner', function (done) {
