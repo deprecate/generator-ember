@@ -21,7 +21,7 @@ var EXPECTED_FILES = [
   'app/index.html'
 ];
 
-describe('Ember', function () {
+describe('Basics', function () {
   beforeEach(function (done) {
 
     helpers.testDirectory(path.join(__dirname, './temp'), function (err) {
@@ -45,15 +45,13 @@ describe('Ember', function () {
     }.bind(this));
   });
 
-  describe('basics', function () {
-    it('every generator can be required without throwing', function () {
-      // not testing the actual run of generators yet
-      this.app = require('../app');
-      this.router = require('../router');
-      this.controller = require('../controller');
-      this.view = require('../view');
-      this.model = require('../model');
-    });
+  it('every generator can be required without throwing', function () {
+    // not testing the actual run of generators yet
+    this.app = require('../app');
+    this.router = require('../router');
+    this.controller = require('../controller');
+    this.view = require('../view');
+    this.model = require('../model');
   });
 
   it('creates karma config file when using karma-runner', function (done) {
