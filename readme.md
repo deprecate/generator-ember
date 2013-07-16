@@ -165,7 +165,7 @@ You probably added a view; restart the server.
 
 ## TODO
 
-* Add tests for generators
+* DRY up/refactor tests
 
 ## Credits
 
