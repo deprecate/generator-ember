@@ -150,7 +150,9 @@ describe('Ember', function () {
 
     it('model', function (done) {
       this.model = {};
-      this.model = helpers.createGenerator('ember:model', ['../../model','../../controller','../../view','../../router'], 'foo');
+      this.model = helpers.createGenerator('ember:model', 
+         ['../../model','../../controller','../../view','../../router'],
+         ['foo', 'name:string']);
 
       for (var i = 0; i < files_generated_by_model_subgen.length; i++) {
         assert(!fs.existsSync(files_generated_by_model_subgen[i])); // files d.n.e. before invocation
@@ -161,6 +163,7 @@ describe('Ember', function () {
         helpers.assertFiles( files_generated_by_model_subgen );
         var content = fs.readFileSync(files_generated_by_model_subgen[0]); // brittle
         assert(content.toString().match(/Foo = Ember.Object/));
+        assert(content.toString().match(/name: DS.attr\('string'\)/));
         done();
       });
     });
