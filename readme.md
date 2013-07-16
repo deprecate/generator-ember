@@ -127,6 +127,10 @@ You probably added a view; restart the server.
 
 ## History
 
+### 0.5.3 (...)
+
+* tests!
+
 ### 0.5.2 (2013-07-15)
 
 * Fixed [#79](https://github.com/yeoman/generator-ember/issues/79) (srsly considering dropping CoffeeScript support for now)
