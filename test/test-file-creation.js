@@ -21,7 +21,7 @@ var EXPECTED_FILES = [
   'app/index.html'
 ];
 
-describe('Ember generator test', function () {
+describe('Ember', function () {
   beforeEach(function (done) {
 
     helpers.testDirectory(path.join(__dirname, './temp'), function (err) {
@@ -43,32 +43,71 @@ describe('Ember generator test', function () {
       this.ember.app.options['skip-install'] = true;
       done();
     }.bind(this));
-
   });
 
-  it('every generator can be required without throwing', function () {
-    // not testing the actual run of generators yet
-    this.app = require('../app');
-    this.router = require('../router');
-    this.controller = require('../controller');
-    this.view = require('../view');
-    this.model = require('../model');
-  });
-
-  it('creates expected files without compassSass', function (done) {
-    helpers.mockPrompt(this.ember.app, {
-      'compassBootstrap': false
+  describe('basics', function () {
+    it('every generator can be required without throwing', function () {
+      // not testing the actual run of generators yet
+      this.app = require('../app');
+      this.router = require('../router');
+      this.controller = require('../controller');
+      this.view = require('../view');
+      this.model = require('../model');
     });
-    this.ember.app.run({}, function () {
-      helpers.assertFiles(EXPECTED_FILES);
-      helpers.assertFiles( ['app/styles/normalize.css', 'app/styles/style.css'] );
-      done();
+    it('creates a JavaScript based project by default', function (done) {
+      this.ember.app.run({}, function () {
+        assert.ok(fs.existsSync('app/scripts/app.js'));
+        done();
+      });
     });
   });
 
-  it('creates expected files with compassSass', function (done) {
+  describe('compass', function () {
+    it('creates expected files without compassSass', function (done) {
+      helpers.mockPrompt(this.ember.app, {
+        'compassBootstrap': false
+      });
+      this.ember.app.run({}, function () {
+        helpers.assertFiles(EXPECTED_FILES);
+        helpers.assertFiles( ['app/styles/normalize.css', 'app/styles/style.css'] );
+        done();
+      });
+    });
+
+    it('creates expected files with compassSass', function (done) {
+      this.ember.app.run({}, function () {
+        helpers.assertFiles(EXPECTED_FILES);
+        done();
+      });
+    });
+  });
+
+  describe('subgenerators', function () {
+    it('router', function (done) {
+      this.router = {};
+      this.router = helpers.createGenerator('ember:router', ['../../router']);
+
+      assert(!fs.existsSync(this.router.router_file)); // router_file d.n.e. before invocation
+
+      this.router.options.controller_files = ['foo_controller.js'];
+      var router = this.router;
+      this.router.run({}, function () {
+        helpers.assertFiles( [ router.options.router_file ] );
+        var content = fs.readFileSync(router.options.router_file);
+        assert(content.toString().match(/route.*foo/));
+        done();
+      });
+    });
+
+    it('view');
+    it('controller');
+    it('model');
+  });
+
+  it('creates karma config file when using karma-runner', function (done) {
+    this.ember.app.options['karma'] = true;
     this.ember.app.run({}, function () {
-      helpers.assertFiles(EXPECTED_FILES);
+      assert.ok(fs.existsSync('karma.conf.js'));
       done();
     });
   });
@@ -93,37 +132,4 @@ describe('Ember generator test', function () {
       done();
     });
   });
-
-  it('creates a JavaScript based project by default', function (done) {
-    this.ember.app.run({}, function () {
-      assert.ok(fs.existsSync('app/scripts/app.js'));
-      done();
-    });
-  });
-
-  it('creates karma config file when using karma-runner', function (done) {
-    this.ember.app.options['karma'] = true;
-    this.ember.app.run({}, function () {
-      assert.ok(fs.existsSync('karma.conf.js'));
-      done();
-    });
-  });
-
-  /*
-  it('creates files for router subgenerator as expected', function (done) {
-    assert(true==false);
-  });
-
-  it('creates files for view subgenerator as expected', function (done) {
-    assert(true==false);
-  });
-
-  it('creates files for model subgenerator as expected', function (done) {
-    assert(true==false);
-  });
-
-  it('creates files for controller subgenerator as expected', function (done) {
-    assert(true==false);
-  });
-  */
 });
