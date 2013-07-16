@@ -2,6 +2,8 @@
 
 Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
+Originally inspired by the [Ember Starter Kit](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.6.zip)
+
 ## Table of Contents
 
 * [Pre-reqs](#pre-reqs)
@@ -15,7 +17,6 @@ Maintainer: [Anthony Bull](https://github.com/inkredabull)
 * [Troubleshooting](#troubleshooting)
 * [History](#history)
 * [TODO](#todo)
-* [Credits](#credits)
 * [Contribute](#contribute)
   * [Basics](#basics)
   * [Tips](#tips)
@@ -171,11 +172,6 @@ You probably added a view; restart the server.
 
 * Change tests to instantiate and test objects instead of grepping for text
 * DRY up/refactor tests
-
-## Credits
-
-The Ember code is taken directly from the [1.0 RC6](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.6.zip)
-
 
 ## Contribute
 
