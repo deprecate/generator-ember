@@ -54,32 +54,6 @@ describe('Ember', function () {
       this.view = require('../view');
       this.model = require('../model');
     });
-    it('creates a JavaScript based project by default', function (done) {
-      this.ember.app.run({}, function () {
-        assert.ok(fs.existsSync('app/scripts/app.js'));
-        done();
-      });
-    });
-  });
-
-  describe('compass', function () {
-    it('creates expected files without compassSass', function (done) {
-      helpers.mockPrompt(this.ember.app, {
-        'compassBootstrap': false
-      });
-      this.ember.app.run({}, function () {
-        helpers.assertFiles(EXPECTED_FILES);
-        helpers.assertFiles( ['app/styles/normalize.css', 'app/styles/style.css'] );
-        done();
-      });
-    });
-
-    it('creates expected files with compassSass', function (done) {
-      this.ember.app.run({}, function () {
-        helpers.assertFiles(EXPECTED_FILES);
-        done();
-      });
-    });
   });
 
   it('creates karma config file when using karma-runner', function (done) {
