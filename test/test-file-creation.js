@@ -83,6 +83,7 @@ describe('Ember', function () {
   });
 
   describe('subgenerators', function () {
+
     it('router', function (done) {
       this.router = {};
       this.router = helpers.createGenerator('ember:router', ['../../router']);
@@ -99,26 +100,70 @@ describe('Ember', function () {
       });
     });
 
+    var files_generated_by_view_subgen = [
+      'app/scripts/views/foo_view.js',
+      'app/templates/foo.hbs'
+    ];
+
     it('view', function (done) {
       this.view = {};
       this.view = helpers.createGenerator('ember:view', ['../../view'], 'foo');
-      var expected_files = [ 'app/scripts/views/foo_view.js', 'app/templates/foo.hbs'];
 
-      for (var i = 0; i < expected_files.length; i++) {
-        assert(!fs.existsSync(expected_files[i])); // files d.n.e. before invocation
+      for (var i = 0; i < files_generated_by_view_subgen.length; i++) {
+        assert(!fs.existsSync(files_generated_by_view_subgen[i])); // files d.n.e. before invocation
       }
 
       var view = this.view;
       this.view.run({}, function () {
-        helpers.assertFiles( expected_files );
-        var content = fs.readFileSync(expected_files[0]);
+        helpers.assertFiles( files_generated_by_view_subgen );
+        var content = fs.readFileSync(files_generated_by_view_subgen[0]); // brittle
         assert(content.toString().match(/FooView/));
+        done();
+      });
+    }); 
+
+    var files_generated_by_controller_subgen = [
+      'app/scripts/controllers/foo_controller.js',
+      'app/scripts/routes/foo_route.js'
+    ].concat(files_generated_by_view_subgen);
+
+    it('controller', function (done) {
+      this.controller = {};
+      this.controller = helpers.createGenerator('ember:controller', ['../../controller','../../view','../../router'], 'foo');
+
+      for (var i = 0; i < files_generated_by_controller_subgen.length; i++) {
+        assert(!fs.existsSync(files_generated_by_controller_subgen[i])); // files d.n.e. before invocation
+      }
+
+      var controller = this.controller;
+      this.controller.run({}, function () {
+        helpers.assertFiles( files_generated_by_controller_subgen );
+        var content = fs.readFileSync(files_generated_by_controller_subgen[0]); // brittle
+        assert(content.toString().match(/FooController/));
         done();
       });
     });
 
-    it('controller');
-    it('model');
+    var files_generated_by_model_subgen = [
+      'app/scripts/models/foo_model.js'
+    ].concat(files_generated_by_controller_subgen).concat(files_generated_by_view_subgen);
+
+    it('model', function (done) {
+      this.model = {};
+      this.model = helpers.createGenerator('ember:model', ['../../model','../../controller','../../view','../../router'], 'foo');
+
+      for (var i = 0; i < files_generated_by_model_subgen.length; i++) {
+        assert(!fs.existsSync(files_generated_by_model_subgen[i])); // files d.n.e. before invocation
+      }
+
+      var model = this.model;
+      this.model.run({}, function () {
+        helpers.assertFiles( files_generated_by_model_subgen );
+        var content = fs.readFileSync(files_generated_by_model_subgen[0]); // brittle
+        assert(content.toString().match(/Foo = Ember.Object/));
+        done();
+      });
+    });
   });
 
   it('creates karma config file when using karma-runner', function (done) {
