@@ -4,6 +4,8 @@ Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
 The scaffolding tool for Ember.js apps.
 
+![ScreenShot](https://raw.github.com/yeoman/generator-ember/master/project/img/screenshots/2013_07_17.png)
+
 ## Table of Contents
 
 * [Pre-reqs](#pre-reqs)
