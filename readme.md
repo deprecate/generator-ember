@@ -2,7 +2,7 @@
 
 Maintainer: [Anthony Bull](https://github.com/inkredabull)
 
-Originally inspired by the [Ember Starter Kit](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.6.zip)
+The scaffolding tool for Ember.js apps.
 
 ## Table of Contents
 
@@ -20,6 +20,7 @@ Originally inspired by the [Ember Starter Kit](https://github.com/emberjs/starte
 * [Contribute](#contribute)
   * [Basics](#basics)
   * [Tips](#tips)
+* [History](#history)
 * [License](#license)
 
 ## Pre-reqs
@@ -195,6 +196,10 @@ When developing...
 
 * in generator-ember dir, `npm link` to use what's in the local repo for `yo ember`
 * wipe the example webapp dir clean (`cd .. && rm -rf webapp`) from time-to-time to ensure the code output is coming from the latest generator (will re-install everything via npm, so be forewarned)
+
+## History 
+
+Originally inspired by the [Ember Starter Kit](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.6.zip).
 
 ## License
 
