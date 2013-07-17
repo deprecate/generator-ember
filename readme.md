@@ -22,7 +22,7 @@ The scaffolding tool for Ember.js apps.
 * [Contribute](#contribute)
   * [Basics](#basics)
   * [Tips](#tips)
-* [History](#history)
+* [Background](#background)
 * [License](#license)
 
 ## Pre-reqs
@@ -201,9 +201,10 @@ When developing...
 * in generator-ember dir, `npm link` to use what's in the local repo for `yo ember`
 * wipe the example webapp dir clean (`cd .. && rm -rf webapp`) from time-to-time to ensure the code output is coming from the latest generator (will re-install everything via npm, so be forewarned)
 
-## History 
+## Background 
 
-Originally inspired by the [Ember Starter Kit](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.6.zip).
+* Originally inspired by the [Ember Starter Kit](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.6.zip)
+* Taking influence from [ember_data_example](https://github.com/dgeb/ember_data_example)
 
 ## License
 
