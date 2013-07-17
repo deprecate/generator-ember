@@ -129,8 +129,9 @@ You probably added a view; restart the server.
 
 ## History
 
-### 0.5.3 (...)
+### 0.5.3 (2013-07-17)
 
+* new look!
 * tests!
 
 ### 0.5.2 (2013-07-15)
