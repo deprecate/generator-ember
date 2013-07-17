@@ -1,3 +1,30 @@
-<h2>Welcome to Ember.js</h2>
-
-{{outlet}}
+<div>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <div class="brand">
+          Your App
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" id="main">
+    <div class="row-fluid">
+      <div>
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <span class="nav-header">Colors</span>
+            <ul class="nav nav-list">
+            {{#each item in controller}}
+              <li>{{item}}</li>
+            {{/each}}
+            </ul>
+          </div>
+        </div>
+        <div class="span9">
+          {{outlet}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
