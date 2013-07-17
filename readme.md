@@ -172,6 +172,7 @@ You probably added a view; restart the server.
 
 ## TODO
 
+* Move grunt-mocha dep into bower file? 
 * Change tests to instantiate and test objects instead of grepping for text
 * DRY up/refactor tests
 * Consider ES6 as base structure
