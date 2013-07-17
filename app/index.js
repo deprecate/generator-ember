@@ -188,7 +188,7 @@ EmberGenerator.prototype.all = function all() {
   if (!this.options.coffee) {
     this.copy('scripts/app.js', 'app/scripts/app.js');
     this.copy('scripts/store.js', 'app/scripts/store.js');
-    this.copy('scripts/routes/index_route.js', 'app/scripts/routes/index_route.js');
+    this.copy('scripts/routes/application_route.js', 'app/scripts/routes/application_route.js');
   } else {
     this.copy('coffeeScript/app.coffee', 'app/scripts/app.coffee');
   }

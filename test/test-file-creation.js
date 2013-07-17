@@ -16,6 +16,7 @@ var EXPECTED_FILES = [
   'Gruntfile.js',
   'app/scripts/app.js',
   'app/scripts/router.js',
+  'app/scripts/routes/application_route.js',
   'app/templates/application.hbs',
   'app/templates/index.hbs',
   'app/index.html'
@@ -52,6 +53,13 @@ describe('Basics', function () {
     this.controller = require('../controller');
     this.view = require('../view');
     this.model = require('../model');
+  });
+
+  it('creates the expected files', function (done) {
+    this.ember.app.run({}, function () {
+      helpers.assertFiles(EXPECTED_FILES);
+      done();
+    });
   });
 
   it('creates karma config file when using karma-runner', function (done) {
