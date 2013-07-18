@@ -28,13 +28,13 @@ The scaffolding tool for Ember.js apps.
 ## Pre-reqs
 
 * [npm](http://nodejs.org/)
+* `npm install -g yo grunt-cli bower`
+* `npm install -g grunt-contrib-compass`
 * Ruby 
  
-If you do not see two paths for:
+You should one path each for:
 
   `which ruby && which compass`
-
-... follow [these instructions](https://github.com/gruntjs/grunt-contrib-compass#compass-task).
 
 ## Usage
 
@@ -127,6 +127,10 @@ Manifests as: `You specified the templateName ... but it did not exist.`
 You probably added a view; restart the server.
 
 ## History
+
+### 0.5.7 (2013-07-18)
+
+* abandon dependencies changes; not working
 
 ### 0.5.6 (2013-07-18)
 
