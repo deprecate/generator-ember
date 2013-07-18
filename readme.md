@@ -44,7 +44,7 @@ If you do not see two paths for:
 * `npm install -g grunt-mocha` 
 * `grunt server`
 
-A page with "Welcome to Ember.js" should appear in your browser.
+A welcome page should appear in your browser.
 
 ## Generators
 
@@ -127,6 +127,10 @@ Manifests as: `You specified the templateName ... but it did not exist.`
 You probably added a view; restart the server.
 
 ## History
+
+### 0.5.6 (2013-07-18)
+
+* change dependencies for npm
 
 ### 0.5.5 (2013-07-18)
 
