@@ -128,6 +128,10 @@ You probably added a view; restart the server.
 
 ## History
 
+### 0.5.5 (2013-07-18)
+
+* more dependency-moving out of readme 
+
 ### 0.5.4 (2013-07-18)
 
 * moving dependencies out of readme 
