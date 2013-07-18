@@ -32,7 +32,7 @@ The scaffolding tool for Ember.js apps.
 * `npm install -g grunt-contrib-compass`
 * Ruby 
  
-You should one path each for:
+You should have one path each for:
 
   `which ruby && which compass`
 
