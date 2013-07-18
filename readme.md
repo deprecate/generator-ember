@@ -28,7 +28,7 @@ The scaffolding tool for Ember.js apps.
 ## Pre-reqs
 
 * [npm](http://nodejs.org/)
-* Ruby and Compass
+* Ruby 
  
 If you do not see two paths for:
 
@@ -38,10 +38,10 @@ If you do not see two paths for:
 
 ## Usage
 
-* `npm install *g generator*ember`
+* `npm install -g generator-ember`
 * `mkdir webapp && cd webapp`
 * `yo ember`
-* `npm install *g grunt*mocha` 
+* `npm install -g grunt-mocha` 
 * `grunt server`
 
 A page with "Welcome to Ember.js" should appear in your browser.
