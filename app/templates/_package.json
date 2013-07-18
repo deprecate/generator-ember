@@ -4,7 +4,8 @@
   "dependencies": {
     "yo": "1.0.0-rc.1.1",
     "grunt-cli": "0.1.9",
-    "bower": "0.10.1"
+    "bower": "0.10.1",
+    "grunt-contrib-compass": "0.3.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
