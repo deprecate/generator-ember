@@ -26,26 +26,23 @@ The scaffolding tool for Ember.js apps.
 * [License](#license)
 
 ## Pre-reqs
+
+* [npm](http://nodejs.org/)
+* Ruby and Compass
  
-First, this generator requires that Ruby and Compass are installed and in your path.
+If you do not see two paths for:
 
   `which ruby && which compass`
 
-If you do not see two paths, follow [these instructions](https://github.com/gruntjs/grunt-contrib-compass#compass-task).
-
-Second, if you have not installed yo yet via npm, do this:
-
-  `npm install -g yo grunt-cli bower`
+... follow [these instructions](https://github.com/gruntjs/grunt-contrib-compass#compass-task).
 
 ## Usage
 
-After installing yo, execute these steps one after another:
-
-- `npm install -g generator-ember`
-- `mkdir webapp && cd webapp`
-- `yo ember`
-- `npm install -g grunt-mocha` 
-- `grunt server`
+* `npm install *g generator*ember`
+* `mkdir webapp && cd webapp`
+* `yo ember`
+* `npm install *g grunt*mocha` 
+* `grunt server`
 
 A page with "Welcome to Ember.js" should appear in your browser.
 
@@ -131,6 +128,10 @@ You probably added a view; restart the server.
 
 ## History
 
+### 0.5.4 (2013-07-18)
+
+* moving dependencies out of readme 
+
 ### 0.5.3 (2013-07-17)
 
 * new look!
@@ -174,7 +175,6 @@ You probably added a view; restart the server.
 
 ## TODO
 
-* Move grunt-mocha dep into bower file? 
 * Change tests to instantiate and test objects instead of grepping for text
 * DRY up/refactor tests
 * Consider ES6 as base structure
