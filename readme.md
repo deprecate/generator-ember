@@ -28,7 +28,6 @@ The scaffolding tool for Ember.js apps.
 ## Pre-reqs
 
 * [npm](http://nodejs.org/)
-* `npm install -g yo grunt-cli bower`
 * `npm install -g grunt-contrib-compass`
 * Ruby 
  
