@@ -46,12 +46,23 @@ describe('Karma', function () {
     }.bind(this));
   });
 
-  it('creates config file when using karma-runner', function (done) {
+  it('creates files with correct syntax', function (done) {
     this.ember.app.options['karma'] = true;
+    EXPECTED_FILES = [
+      'karma.conf.js',
+      'test/integration/index.js',
+      'test/support/initializer.js'
+    ];
     this.ember.app.run({}, function () {
-      assert.ok(fs.existsSync('karma.conf.js'));
+      helpers.assertFiles(EXPECTED_FILES);
+
+      var content = fs.readFileSync(EXPECTED_FILES[1]);
+      assert(content.toString().match(/Foo.IndexRoute/));
+
+      var content = fs.readFileSync(EXPECTED_FILES[2]);
+      assert(content.toString().match(/Foo.rootElement/));
+
       done();
     });
   });
-
 });
