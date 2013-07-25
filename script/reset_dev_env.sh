@@ -1,2 +1,2 @@
 #!/bin/bash
-`rm -rf bower.json Gruntfile.js karma.conf.js package.json test/ app/`
+`rm -rf libpeerconnection.log bower.json Gruntfile.js karma.conf.js package.json test/ app/`
