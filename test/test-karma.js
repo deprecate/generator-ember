@@ -57,7 +57,7 @@ describe('Karma', function () {
       helpers.assertFiles(EXPECTED_FILES);
 
       var content = fs.readFileSync(EXPECTED_FILES[1]);
-      assert(content.toString().match(/Temp.IndexRoute/));
+      assert(content.toString().match(/Temp.ApplicationRoute/));
 
       var content = fs.readFileSync(EXPECTED_FILES[2]);
       assert(content.toString().match(/Temp.rootElement/));
