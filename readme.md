@@ -127,6 +127,11 @@ You probably added a view; restart the server.
 
 ## History
 
+### 0.5.8 (2013-07-25)
+
+* fixed karma-based app gen 
+* simplication of install 
+
 ### 0.5.7 (2013-07-18)
 
 * abandon dependencies changes; not working
