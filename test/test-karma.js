@@ -57,10 +57,10 @@ describe('Karma', function () {
       helpers.assertFiles(EXPECTED_FILES);
 
       var content = fs.readFileSync(EXPECTED_FILES[1]);
-      assert(content.toString().match(/Foo.IndexRoute/));
+      assert(content.toString().match(/Temp.IndexRoute/));
 
       var content = fs.readFileSync(EXPECTED_FILES[2]);
-      assert(content.toString().match(/Foo.rootElement/));
+      assert(content.toString().match(/Temp.rootElement/));
 
       done();
     });

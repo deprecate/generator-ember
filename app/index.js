@@ -114,11 +114,11 @@ EmberGenerator.prototype.tests = function tests() {
     this.copy('karma.conf.js', 'karma.conf.js');
 
     if (this.options.coffee) {
-      this.copy('test/initializer.coffee', 'test/support/initializer.coffee');
-      this.copy('test/integration/index.coffee', 'test/integration/index.coffee');
+      this.template('test/initializer.coffee', 'test/support/initializer.coffee');
+      this.template('test/integration/index.coffee', 'test/integration/index.coffee');
     } else {
-      this.copy('test/initializer.js', 'test/support/initializer.js');
-      this.copy('test/integration/index.js', 'test/integration/index.js');
+      this.template('test/_initializer.js', 'test/support/initializer.js');
+      this.template('test/integration/_index.js', 'test/integration/index.js');
     }
   }
 };
