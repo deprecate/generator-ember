@@ -1,16 +1,16 @@
 describe("Index page", function () {
   it("displays a welcome message", function () {
     visit('/').then(function () {
-      find('h2').text().should.equal('Welcome to Ember.js');
+      find('div.well').text().should.contain('Welcome to Yeoman and Ember.js');
     });
   });
 });
 
-describe("IndexRoute", function () {
+describe("ApplicationRoute", function () {
   describe("model property", function () {
-    var indexRoute = <%= _.classify(appname) %>.IndexRoute.create();
+    var applicationRoute = <%= _.classify(appname) %>.ApplicationRoute.create();
     it("should have the right number of items", function () {
-      var model = indexRoute.model();
+      var model = applicationRoute.model();
       model.should.have.length(3);
     });
   });
