@@ -7,12 +7,12 @@ var should = chai.should();
 chai.Assertion.includeStack = true;
 
 Ember.testing = true;
-App.rootElement = "#ember-testing";
+<%= _.classify(appname) %>.rootElement = "#ember-testing";
 Ember.Test.adapter = Ember.Test.MochaAdapter.create();
 
-App.setupForTesting();
-App.injectTestHelpers();
-Ember.run(App, App.advanceReadiness);
+<%= _.classify(appname) %>.setupForTesting();
+<%= _.classify(appname) %>.injectTestHelpers();
+Ember.run(<%= _.classify(appname) %>, <%= _.classify(appname) %>.advanceReadiness);
 
 window.start = function () {};
 window.stop = function () {};
