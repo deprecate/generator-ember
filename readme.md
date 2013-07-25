@@ -211,6 +211,9 @@ When developing...
 
 * in generator-ember dir, `npm link` to use what's in the local repo for `yo ember`
 * wipe the example webapp dir clean (`cd .. && rm -rf webapp`) from time-to-time to ensure the code output is coming from the latest generator (will re-install everything via npm, so be forewarned)
+* script/reset_dev_env.sh is there to help when you don't want to wipe and reinstall a test dir with Bower and Node modules again-and-again; read it and understand it before you use it. It's good
+if you want to smoke-test changes, bad if you update Bower and/or Node
+mods (ignores removing their subdirs.)
 
 ## Background 
 
