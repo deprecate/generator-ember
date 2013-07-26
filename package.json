@@ -1,6 +1,6 @@
 {
   "name": "generator-ember",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "description": "Yeoman generator for Ember",
   "keywords": [
     "yeoman-generator",
