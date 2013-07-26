@@ -127,6 +127,10 @@ You probably added a view; restart the server.
 
 ## History
 
+### 0.5.9 (2013-07-25)
+
+* modified for [CVE-2013-4170](http://emberjs.com/blog/2013/07/25/ember-1-0-rc6-1-rc5-1-rc4-1-rc3-1-rc2-1-and-rc1-1-released.html)   
+
 ### 0.5.8 (2013-07-25)
 
 * fixed karma-based app gen 

@@ -17,6 +17,8 @@ var EXPECTED_FILES = [
   'app/scripts/app.js',
   'app/scripts/router.js',
   'app/scripts/routes/application_route.js',
+  'app/bower_components/ember/ember-1.0.0-rc.6.1.js',
+  'app/bower_components/handlebars/handlebars.runtime.js',
   'app/templates/application.hbs',
   'app/templates/index.hbs',
   'app/index.html'
