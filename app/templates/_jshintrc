@@ -12,6 +12,13 @@
     "noarg": true,
     "undef": true,
     "strict": false,
-    "trailing": true,
-    "smarttabs": true
+    "trailing": false,
+    "smarttabs": true,
+    "globals": {
+        "<%= _.classify(appname) %>": true,
+        "jQuery": true,
+        "Ember": true,
+        "Handlebars": true,
+        "DS": true
+    }
 }
