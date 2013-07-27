@@ -43,6 +43,10 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
 
 util.inherits(EmberGenerator, yeoman.generators.Base);
 
+EmberGenerator.prototype._getJSPath = function _getJSPath(file) {
+  return file + (this.options.coffee ? '.coffee' : '.js');
+};
+
 EmberGenerator.prototype.welcome = function welcome() {
   // welcome message
   console.log(this.yeoman);
@@ -92,7 +96,7 @@ EmberGenerator.prototype.packageFile = function packageFile() {
 };
 
 EmberGenerator.prototype.jshint = function jshint() {
-  this.copy('jshintrc', '.jshintrc');
+  this.copy('_jshintrc', '.jshintrc');
 };
 
 EmberGenerator.prototype.tests = function tests() {
@@ -102,13 +106,8 @@ EmberGenerator.prototype.tests = function tests() {
     this.mkdir('test/integration');
     this.copy('karma.conf.js', 'karma.conf.js');
 
-    if (this.options.coffee) {
-      this.template('test/initializer.coffee', 'test/support/initializer.coffee');
-      this.template('test/integration/index.coffee', 'test/integration/index.coffee');
-    } else {
-      this.template('test/_initializer.js', 'test/support/initializer.js');
-      this.template('test/integration/_index.js', 'test/integration/index.js');
-    }
+    this.template(this._getJSPath('test/_initializer'), this._getJSPath('test/support/initializer'));
+    this.template(this._getJSPath('test/integration/_index'), this._getJSPath('test/integration/index'));
   }
 };
 
@@ -174,14 +173,11 @@ EmberGenerator.prototype.all = function all() {
     this.copy('styles/style.css', 'app/styles/style.css');
   }
 
-  if (!this.options.coffee) {
-    this.copy('scripts/app.js', 'app/scripts/app.js');
-    this.copy('scripts/libs/ember-1.0.0-rc.6.1.js', 'app/bower_components/ember/ember-1.0.0-rc.6.1.js');
-    this.copy('scripts/libs/handlebars.runtime.js', 'app/bower_components/handlebars/handlebars.runtime.js');
-    this.copy('scripts/libs/ember-data.js', 'app/bower_components/ember-data-shim/ember-data.js');
-    this.copy('scripts/store.js', 'app/scripts/store.js');
-    this.copy('scripts/routes/application_route.js', 'app/scripts/routes/application_route.js');
-  } else {
-    this.copy('coffeeScript/app.coffee', 'app/scripts/app.coffee');
-  }
+  this.copy('scripts/libs/ember-1.0.0-rc.6.1.js', 'app/bower_components/ember/ember-1.0.0-rc.6.1.js');
+  this.copy('scripts/libs/handlebars.runtime.js', 'app/bower_components/handlebars/handlebars.runtime.js');
+  this.copy('scripts/libs/ember-data.js', 'app/bower_components/ember-data-shim/ember-data.js');
+
+  this.copy(this._getJSPath('scripts/app'), this._getJSPath('app/scripts/app'));
+  this.copy(this._getJSPath('scripts/store'), this._getJSPath('app/scripts/store'));
+  this.copy(this._getJSPath('scripts/routes/application_route'), this._getJSPath('app/scripts/routes/application_route'));
 };
