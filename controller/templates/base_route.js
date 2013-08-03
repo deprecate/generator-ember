@@ -1,4 +1,4 @@
 <%= _.classify(appname) %>.<%= _.classify(name) %>Route = Ember.Route.extend({
-    // Implement your controller here.
+    // Implement route-specific logic here
 });
 
