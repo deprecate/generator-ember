@@ -127,8 +127,9 @@ You probably added a view; restart the server.
 
 ## History
 
-### 0.5.10 (2013-08-02)
+### 0.5.10 (2013-08-04)
 
+* Fixed issue where routes in router.js were blasted on model subgen invocation
 * Reordered app script requires and added store.js
 
 ### 0.5.9 (2013-07-25)
