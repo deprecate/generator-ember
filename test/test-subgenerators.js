@@ -93,6 +93,20 @@ describe('subgenerators', function () {
       var content = fs.readFileSync(files_generated_by_model_subgen[0]); // brittle
       assert(content.toString().match(/Foo = Ember.Object/));
       assert(content.toString().match(/name: DS.attr\('string'\)/));
+    });
+
+    // there has to be a better way
+    // to structure/include the following...
+    this.router = {};
+    this.router = helpers.createGenerator('ember:router', ['../../router']);
+
+    filesDoNotExist([this.router.router_file]);
+
+    var router = this.router;
+    this.router.run({}, function () {
+      helpers.assertFiles( [ router.options.router_file ] );
+      var content = fs.readFileSync(router.options.router_file);
+      assert(content.toString().match(/route.*foo/));
       done();
     });
   });
