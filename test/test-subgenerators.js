@@ -25,7 +25,7 @@ describe('subgenerators', function () {
 
     filesDoNotExist([this.router.router_file]);
 
-    this.router.options.controller_files = ['foo_controller.js'];
+    this.router.controller_files = ['foo_controller.js'];
     var router = this.router;
     this.router.run({}, function () {
       helpers.assertFiles( [ router.options.router_file ] );
