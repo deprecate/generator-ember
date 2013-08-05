@@ -21,7 +21,7 @@ util.inherits(RouterGenerator, yeoman.generators.NamedBase);
 
 RouterGenerator.prototype.files = function files() {
   this.attrs = [];
-  var controllers = this.options.controller_files;
+  var controllers = this.controller_files;
   for (var i in controllers) {
     this.attrs.push(controllers[i].replace('_controller.js', ''));
   }
