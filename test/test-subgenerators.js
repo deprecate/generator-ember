@@ -5,6 +5,9 @@ var helpers = require('yeoman-generator').test;
 var assert = require('assert');
 var fs = require('fs');
 
+require('../lib/expected_controller_files');
+require('../lib/expected_view_files');
+
 describe('subgenerators', function () {
 
   beforeEach(function (done) {
@@ -35,78 +38,32 @@ describe('subgenerators', function () {
     });
   });
 
-  var files_generated_by_view_subgen = [
-    'app/scripts/views/foo_view.js',
-    'app/templates/foo.hbs'
-  ];
-
   it('view', function (done) {
     this.view = {};
     this.view = helpers.createGenerator('ember:view', ['../../view'], 'foo');
 
-    filesDoNotExist(files_generated_by_view_subgen);
+    filesDoNotExist(FILES_GENERATED_BY_VIEW_SUBGEN);
 
     var view = this.view;
     this.view.run({}, function () {
-      helpers.assertFiles( files_generated_by_view_subgen );
-      var content = fs.readFileSync(files_generated_by_view_subgen[0]); // brittle
+      helpers.assertFiles( FILES_GENERATED_BY_VIEW_SUBGEN );
+      var content = fs.readFileSync(FILES_GENERATED_BY_VIEW_SUBGEN[0]); // brittle
       assert(content.toString().match(/FooView/));
       done();
     });
   }); 
 
-  var files_generated_by_controller_subgen = [
-    'app/scripts/controllers/foo_controller.js',
-    'app/scripts/routes/foo_route.js'
-  ].concat(files_generated_by_view_subgen);
-
   it('controller', function (done) {
     this.controller = {};
     this.controller = helpers.createGenerator('ember:controller', ['../../controller','../../view','../../router'], 'foo');
 
-    filesDoNotExist(files_generated_by_controller_subgen);
+    filesDoNotExist(FILES_GENERATED_BY_CONTROLLER_SUBGEN);
 
     var controller = this.controller;
     this.controller.run({}, function () {
-      helpers.assertFiles( files_generated_by_controller_subgen );
-      var content = fs.readFileSync(files_generated_by_controller_subgen[0]); // brittle
+      helpers.assertFiles( FILES_GENERATED_BY_CONTROLLER_SUBGEN );
+      var content = fs.readFileSync(FILES_GENERATED_BY_CONTROLLER_SUBGEN[0]); // brittle
       assert(content.toString().match(/FooController/));
-      done();
-    });
-  });
-
-  var files_generated_by_model_subgen = [
-    'app/scripts/models/foo_model.js'
-  ].concat(files_generated_by_controller_subgen).concat(files_generated_by_view_subgen);
-
-  it('model', function (done) {
-    this.model = {};
-    this.model = helpers.createGenerator('ember:model', 
-       ['../../model','../../controller','../../view','../../router'],
-       ['foo', 'name:string']);
-
-    filesDoNotExist(files_generated_by_model_subgen);
-
-    var model = this.model;
-    this.model.run({}, function () {
-      helpers.assertFiles( files_generated_by_model_subgen );
-      var content = fs.readFileSync(files_generated_by_model_subgen[0]); // brittle
-      assert(content.toString().match(/Foo = Ember.Object/));
-      assert(content.toString().match(/name: DS.attr\('string'\)/));
-    });
-
-    // there has to be a better way
-    // to structure/include the following...
-    this.router = {};
-    this.router = helpers.createGenerator('ember:router', ['../../router']);
-
-    filesDoNotExist([this.router.router_file]);
-
-    var router = this.router;
-    this.router.run({}, function () {
-      helpers.assertFiles( [ router.options.router_file ] );
-      var content = fs.readFileSync(router.options.router_file);
-      assert(content.toString().match(/route.*foo/));
       done();
     });
   });
