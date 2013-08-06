@@ -25,9 +25,10 @@ describe('Model', function () {
 
   it('does basic scaffolding', function (done) {
     this.model = {};
+    var cmd_line_args = ['User', 'name:string', 'zipcode:number'];
     this.model = helpers.createGenerator('ember:model', 
        ['../../model','../../controller','../../view','../../router'],
-       ['user', 'name:string', 'zipcode:number']);
+       cmd_line_args);
 
     filesDoNotExist(FILES_GENERATED_BY_MODEL_SUBGEN);
 

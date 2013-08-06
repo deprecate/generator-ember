@@ -28,19 +28,19 @@ describe('subgenerators', function () {
 
     filesDoNotExist([this.router.router_file]);
 
-    this.router.controller_files = ['foo_controller.js'];
+    this.router.controller_files = ['user_controller.js'];
     var router = this.router;
     this.router.run({}, function () {
       helpers.assertFiles( [ router.options.router_file ] );
       var content = fs.readFileSync(router.options.router_file);
-      assert(content.toString().match(/route.*foo/));
+      assert(content.toString().match(/route.*user/));
       done();
     });
   });
 
   it('view', function (done) {
     this.view = {};
-    this.view = helpers.createGenerator('ember:view', ['../../view'], 'foo');
+    this.view = helpers.createGenerator('ember:view', ['../../view'], 'user');
 
     filesDoNotExist(FILES_GENERATED_BY_VIEW_SUBGEN);
 
@@ -48,14 +48,14 @@ describe('subgenerators', function () {
     this.view.run({}, function () {
       helpers.assertFiles( FILES_GENERATED_BY_VIEW_SUBGEN );
       var content = fs.readFileSync(FILES_GENERATED_BY_VIEW_SUBGEN[0]); // brittle
-      assert(content.toString().match(/FooView/));
+      assert(content.toString().match(/UserView/));
       done();
     });
   }); 
 
   it('controller', function (done) {
     this.controller = {};
-    this.controller = helpers.createGenerator('ember:controller', ['../../controller','../../view','../../router'], 'foo');
+    this.controller = helpers.createGenerator('ember:controller', ['../../controller','../../view','../../router'], 'user');
 
     filesDoNotExist(FILES_GENERATED_BY_CONTROLLER_SUBGEN);
 
@@ -63,7 +63,7 @@ describe('subgenerators', function () {
     this.controller.run({}, function () {
       helpers.assertFiles( FILES_GENERATED_BY_CONTROLLER_SUBGEN );
       var content = fs.readFileSync(FILES_GENERATED_BY_CONTROLLER_SUBGEN[0]); // brittle
-      assert(content.toString().match(/FooController/));
+      assert(content.toString().match(/UserController/));
       done();
     });
   });
