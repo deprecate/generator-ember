@@ -27,7 +27,7 @@ describe('Model', function () {
     this.model = {};
     this.model = helpers.createGenerator('ember:model', 
        ['../../model','../../controller','../../view','../../router'],
-       ['foo', 'name:string', 'zipcode:number']);
+       ['user', 'name:string', 'zipcode:number']);
 
     filesDoNotExist(FILES_GENERATED_BY_MODEL_SUBGEN);
 
@@ -35,7 +35,7 @@ describe('Model', function () {
     this.model.run({}, function () {
       helpers.assertFiles( FILES_GENERATED_BY_MODEL_SUBGEN );
       var content = fs.readFileSync(FILES_GENERATED_BY_MODEL_SUBGEN[0]); // brittle
-      assert(content.toString().match(/Foo = Ember.Object/));
+      assert(content.toString().match(/User = Ember.Object/));
       assert(content.toString().match(/name: DS.attr\('string'\)/));
       assert(content.toString().match(/zipcode: DS.attr\('number'\)/));
     });
@@ -51,7 +51,7 @@ describe('Model', function () {
     this.router.run({}, function () {
       helpers.assertFiles( [ router.options.router_file ] );
       var content = fs.readFileSync(router.options.router_file);
-      assert(content.toString().match(/route.*foo/));
+      assert(content.toString().match(/route.*user/));
       done();
     });
   });
