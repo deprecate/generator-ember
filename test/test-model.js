@@ -5,6 +5,8 @@ var helpers = require('yeoman-generator').test;
 var assert = require('assert');
 var fs = require('fs');
 
+require('fleck');
+
 require('../lib/expected_model_files');
 
 describe('Model', function () {
