@@ -129,6 +129,7 @@ You probably added a view; restart the server.
 
 ### 0.5.10 (2013-08-04)
 
+* Fixed issue where generator invoked in 'ember' dir
 * Fixed issue where routes in router.js were blasted on model subgen invocation
 * Reordered app script requires and added store.js
 
