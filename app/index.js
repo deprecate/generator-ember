@@ -5,6 +5,10 @@ var yeoman = require('yeoman-generator');
 
 var EmberGenerator = module.exports = function EmberGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
+  
+  if (this.appname.match(/^[Ee]mber$/)) {
+    this.appname += '_app';
+  }
 
   this.hookFor('ember:router');
 

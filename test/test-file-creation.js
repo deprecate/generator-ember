@@ -25,12 +25,14 @@ var EXPECTED_FILES = [
 ];
 
 describe('Basics', function () {
+  
   beforeEach(function (done) {
 
     helpers.testDirectory(path.join(__dirname, './temp'), function (err) {
       if (err) {
         return done(err);
       }
+
       this.ember = {};
       this.ember.app = helpers.createGenerator('ember:app', [
         '../../router',
@@ -47,7 +49,7 @@ describe('Basics', function () {
       done();
     }.bind(this));
   });
-
+  
   it('every generator can be required without throwing', function () {
     // not testing the actual run of generators yet
     this.app = require('../app');
@@ -84,4 +86,41 @@ describe('Basics', function () {
       done();
     });
   });
+  
+  describe('the app name', function () {
+    before(function (done) {
+      helpers.stub(path, 'basename', function(dir) { return 'some-app'; });
+      done();
+    })
+    after(function (done) {
+      helpers.restore();
+      done();
+    });
+    
+    it('creates an application object named after the directory usually', function (done) {
+      this.ember.app.run({}, function () {
+        helpers.assertFile('app/scripts/app.js', /var SomeApp = window.SomeApp = Ember\.Application\.create\(\);/);
+        done();
+      });
+    });
+  });
+
+  describe('the app name, special case', function () {
+    before(function (done) {
+      helpers.stub(path, 'basename', function(dir) { return 'ember'; });
+      done();
+    })
+    after(function (done) {
+      helpers.restore();
+      done();
+    });
+    
+    it('creates an application object with a special name', function (done) {
+      this.ember.app.run({}, function () {
+        helpers.assertFile('app/scripts/app.js', /var EmberApp = window.EmberApp = Ember\.Application\.create\(\);/);
+        done();
+      });
+    });
+  });
+
 });
