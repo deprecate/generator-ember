@@ -35,10 +35,10 @@ describe('Model', function () {
     var model = this.model;
     this.model.run({}, function () {
       helpers.assertFiles( FILES_GENERATED_BY_MODEL_SUBGEN );
-      var content = fs.readFileSync(FILES_GENERATED_BY_MODEL_SUBGEN[0]); // brittle
-      assert(content.toString().match(/User = DS.Model/));
-      assert(content.toString().match(/name: DS.attr\('string'\)/));
-      assert(content.toString().match(/zipcode: DS.attr\('number'\)/));
+      helpers.assertFile('app/scripts/models/user_model.js', /User = DS.Model/);
+      helpers.assertFile('app/scripts/models/user_model.js', /name: DS.attr\('string'\)/);
+      helpers.assertFile('app/scripts/models/user_model.js', /zipcode: DS.attr\('number'\)/);
+      helpers.assertFile('app/scripts/models/user_model.js', /User.FIXTURES/);
     });
 
     // there has to be a better way

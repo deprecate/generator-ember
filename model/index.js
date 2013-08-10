@@ -26,5 +26,4 @@ util.inherits(ModelGenerator, yeoman.generators.NamedBase);
 
 ModelGenerator.prototype.files = function files() {
   this.copy('base.js', 'app/scripts/models/' + this._.slugify(this.name) + '_model.js');
-  this.copy('fixtures.js', 'app/scripts/models/' + this._.slugify(this.name) + '_fixtures.js');
 };
