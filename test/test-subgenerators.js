@@ -32,8 +32,7 @@ describe('subgenerators', function () {
     var router = this.router;
     this.router.run({}, function () {
       helpers.assertFiles( [ router.options.router_file ] );
-      var content = fs.readFileSync(router.options.router_file);
-      assert(content.toString().match(/route.*user/));
+      helpers.assertFile(router.options.router_file, /resource\('users'/);
       done();
     });
   });
@@ -48,6 +47,7 @@ describe('subgenerators', function () {
     this.view.run({}, function () {
       helpers.assertFiles( FILES_GENERATED_BY_VIEW_SUBGEN );
       helpers.assertFile('app/scripts/views/users_view.js', /UsersView/);
+      helpers.assertFile('app/templates/users.hbs', /linkTo.*this/);
       done();
     });
   });
