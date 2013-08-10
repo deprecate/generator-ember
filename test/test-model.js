@@ -36,7 +36,7 @@ describe('Model', function () {
     this.model.run({}, function () {
       helpers.assertFiles( FILES_GENERATED_BY_MODEL_SUBGEN );
       var content = fs.readFileSync(FILES_GENERATED_BY_MODEL_SUBGEN[0]); // brittle
-      assert(content.toString().match(/User = Ember.Object/));
+      assert(content.toString().match(/User = DS.Model/));
       assert(content.toString().match(/name: DS.attr\('string'\)/));
       assert(content.toString().match(/zipcode: DS.attr\('number'\)/));
     });
