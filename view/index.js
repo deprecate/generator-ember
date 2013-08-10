@@ -11,8 +11,8 @@ util.inherits(ViewGenerator, yeoman.generators.NamedBase);
 
 ViewGenerator.prototype.files = function files() {
   var pluralized_name = fleck.pluralize(this.name);
-  this.copy('base.js', 'app/scripts/views/' + this._.slugify(this.name) + '_view.js');
-  this.copy('base.js', 'app/scripts/views/' + this._.slugify(pluralized_name) + '_view.js');
-  this.copy('base.hbs', 'app/templates/' + this._.slugify(this.name) + '.hbs');
-  this.copy('base.hbs', 'app/templates/' + this._.slugify(pluralized_name) + '.hbs');
+  this.copy('single.js', 'app/scripts/views/' + this._.slugify(this.name) + '_view.js');
+  this.copy('plural.js', 'app/scripts/views/' + this._.slugify(pluralized_name) + '_view.js');
+  this.copy('single.hbs', 'app/templates/' + this._.slugify(this.name) + '.hbs');
+  this.copy('plural.hbs', 'app/templates/' + this._.slugify(pluralized_name) + '.hbs');
 };
