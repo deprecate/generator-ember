@@ -2,7 +2,7 @@
 
 <ul>
  {{#each model}}
-    <li>{{linkTo 'users' model}}</li>
+ <li>{{#linkTo '<%= slugified_name %>' this}}{{this.id}}{{/linkTo}}</li>
   {{/each}}
 </ul>
 
