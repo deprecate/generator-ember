@@ -16,6 +16,7 @@ var EXPECTED_FILES = [
   'Gruntfile.js',
   'app/scripts/app.js',
   'app/scripts/router.js',
+  'app/scripts/store.js',
   'app/scripts/routes/application_route.js',
   'app/bower_components/ember/ember-1.0.0-rc.6.1.js',
   'app/bower_components/handlebars/handlebars.runtime.js',
@@ -123,4 +124,12 @@ describe('Basics', function () {
     });
   });
 
+  describe('store', function () {
+    it('uses FixtureAdapter by default', function (done) {
+      this.ember.app.run({}, function () {
+        helpers.assertFile('app/scripts/store.js', /adapter: DS.FixtureAdapter/);
+        done();
+      });
+    });
+  });
 });

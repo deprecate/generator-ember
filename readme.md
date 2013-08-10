@@ -127,6 +127,11 @@ You probably added a view; restart the server.
 
 ## History
 
+### 0.5.11 (2013-08...)
+
+* Assuming FixtureAdapter to start
+* Changed base model to DS.Model
+
 ### 0.5.10 (2013-08-04)
 
 * Fixed issue where generator invoked in 'ember' dir
