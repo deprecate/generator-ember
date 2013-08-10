@@ -59,10 +59,9 @@ describe('Model', function () {
 
   it('takes singular noun and creates plural route, template for read of all')
   it('takes singular noun and creates singular controller, template for read')
+  it('takes singular noun and registers singular and plural routes with router')
   it('takes singular noun and creates singular route, controller for new')
   it('takes singular noun and creates singular route, controller, template for edit')
-  //it('takes singular noun and creates singular route for delete')
-  it('takes singular noun and creates plural route')
-  it('takes singular noun and registers singular and plural routes with router')
 
+  //it('takes singular noun and creates singular route for delete')
 });
