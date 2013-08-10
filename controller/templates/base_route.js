@@ -1,4 +1,4 @@
-<%= _.classify(appname) %>.<%= _.classify(name) %>Route = Ember.Route.extend({
+<%= _.classify(appname) %>.<%= _.classify(pluralized_name) %>Route = Ember.Route.extend({
     // Implement route-specific logic here
 });
 

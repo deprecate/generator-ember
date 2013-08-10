@@ -63,6 +63,7 @@ describe('subgenerators', function () {
     this.controller.run({}, function () {
       helpers.assertFiles( FILES_GENERATED_BY_CONTROLLER_SUBGEN );
       helpers.assertFile('app/scripts/controllers/users_controller.js', /UsersController/);
+      helpers.assertFile('app/scripts/routes/users_route.js', /UsersRoute/);
       done();
     });
   });
