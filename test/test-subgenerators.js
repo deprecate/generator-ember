@@ -62,8 +62,7 @@ describe('subgenerators', function () {
     var controller = this.controller;
     this.controller.run({}, function () {
       helpers.assertFiles( FILES_GENERATED_BY_CONTROLLER_SUBGEN );
-      var content = fs.readFileSync(FILES_GENERATED_BY_CONTROLLER_SUBGEN[0]); // brittle
-      assert(content.toString().match(/UserController/));
+      helpers.assertFile('app/scripts/controllers/users_controller.js', /UsersController/);
       done();
     });
   });
