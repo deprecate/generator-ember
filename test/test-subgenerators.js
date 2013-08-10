@@ -53,7 +53,7 @@ describe('subgenerators', function () {
       assert(content.toString().match(/FooView/));
       done();
     });
-  }); 
+  });
 
   var files_generated_by_controller_subgen = [
     'app/scripts/controllers/foo_controller.js',
@@ -81,7 +81,7 @@ describe('subgenerators', function () {
 
   it('model', function (done) {
     this.model = {};
-    this.model = helpers.createGenerator('ember:model', 
+    this.model = helpers.createGenerator('ember:model',
        ['../../model','../../controller','../../view','../../router'],
        ['foo', 'name:string']);
 
@@ -91,7 +91,7 @@ describe('subgenerators', function () {
     this.model.run({}, function () {
       helpers.assertFiles( files_generated_by_model_subgen );
       var content = fs.readFileSync(files_generated_by_model_subgen[0]); // brittle
-      assert(content.toString().match(/Foo = Ember.Object/));
+      assert(content.toString().match(/Foo = DS.Model/));
       assert(content.toString().match(/name: DS.attr\('string'\)/));
     });
 
