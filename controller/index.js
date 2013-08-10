@@ -6,6 +6,7 @@ var fleck = require('fleck');
 
 var ControllerGenerator = module.exports = function ControllerGenerator(args, options, config) {
   yeoman.generators.NamedBase.apply(this, arguments);
+  this.pluralized_name = fleck.pluralize(this.name);
   this.hookFor('ember:view', {
     args: args
   });
@@ -17,7 +18,6 @@ var ControllerGenerator = module.exports = function ControllerGenerator(args, op
 util.inherits(ControllerGenerator, yeoman.generators.NamedBase);
 
 ControllerGenerator.prototype.files = function files() {
-  var pluralized_name = fleck.pluralize(this.name);
-  this.copy('base.js', 'app/scripts/controllers/' + this._.slugify(pluralized_name) + '_controller.js');
-  this.copy('base_route.js', 'app/scripts/routes/' + this._.slugify(pluralized_name) + '_route.js');
+  this.copy('base.js', 'app/scripts/controllers/' + this._.slugify(this.pluralized_name) + '_controller.js');
+  this.copy('base_route.js', 'app/scripts/routes/' + this._.slugify(this.pluralized_name) + '_route.js');
 };
