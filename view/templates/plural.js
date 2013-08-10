@@ -1,3 +1,3 @@
-<%= _.classify(appname) %>.<%= _.classify(name) %>View = Ember.View.extend({
-    templateName: '<%= _.underscored(name) %>'
+<%= _.classify(appname) %>.<%= _.classify(pluralized_name) %>View = Ember.View.extend({
+    templateName: '<%= _.underscored(pluralized_name) %>'
 });
