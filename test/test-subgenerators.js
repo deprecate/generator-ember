@@ -47,8 +47,7 @@ describe('subgenerators', function () {
     var view = this.view;
     this.view.run({}, function () {
       helpers.assertFiles( FILES_GENERATED_BY_VIEW_SUBGEN );
-      var content = fs.readFileSync(FILES_GENERATED_BY_VIEW_SUBGEN[0]); // brittle
-      assert(content.toString().match(/UserView/));
+      helpers.assertFile('app/scripts/views/users_view.js', /UsersView/);
       done();
     });
   });
