@@ -2,6 +2,7 @@
 var util = require('util');
 var yeoman = require('yeoman-generator');
 var fs = require('fs');
+var fleck = require('fleck');
 
 var RouterGenerator = module.exports = function RouterGenerator(args, options, config) {
   // NamedBase needs a name, which is usually the first param passed in the script
@@ -20,10 +21,14 @@ var RouterGenerator = module.exports = function RouterGenerator(args, options, c
 util.inherits(RouterGenerator, yeoman.generators.NamedBase);
 
 RouterGenerator.prototype.files = function files() {
-  this.attrs = [];
+  this.models = [];
   var controllers = this.controller_files;
   for (var i in controllers) {
-    this.attrs.push(controllers[i].replace('_controller.js', ''));
+    var stripped = controllers[i].replace('_controller.js', '');
+    this.models.push({
+      single: fleck.singularize(stripped),
+      plural: stripped
+    });
   }
   this.copy('base.js', this.options.router_file);
 };

@@ -1,6 +1,6 @@
 <%= _.classify(appname) %>.Router.map(function () {
-  // Register routes
-  <% _.each(attrs, function(attr, i) { %>
-  this.route('<%= attr %>');
+  <% _.each(models, function(model, i) { %>
+  this.resource('<%= model.plural %>');
+  this.resource('<%= model.single %>', { path: '/<%= model.single %>/:<%= model.single %>_id' });
   <% }); %>
 });
