@@ -23,7 +23,9 @@ describe('Model', function () {
     }
   };
 
-  it('takes singular noun and creates plural route, template for read of all', function (done) {
+  //it('takes singular noun and creates plural route, template for read of all')
+  //it('takes singular noun and creates singular controller, template for read')
+  it('scaffolds', function (done) {
     this.model = {};
     var cmd_line_args = ['User', 'name:string', 'zipcode:number'];
     this.model = helpers.createGenerator('ember:model', 
@@ -56,7 +58,6 @@ describe('Model', function () {
     });
   });
 
-  it('takes singular noun and creates singular controller, template for read')
   it('takes singular noun and registers singular and plural routes with router')
   it('takes singular noun and creates singular route, controller for new')
   it('takes singular noun and creates singular route, controller, template for edit')
