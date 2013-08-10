@@ -51,8 +51,7 @@ describe('Model', function () {
     var router = this.router;
     this.router.run({}, function () {
       helpers.assertFiles( [ router.options.router_file ] );
-      var content = fs.readFileSync(router.options.router_file);
-      assert(content.toString().match(/route.*user/));
+      helpers.assertFile(router.options.router_file, /route\('users'/);
       done();
     });
   });
