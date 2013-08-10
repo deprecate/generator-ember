@@ -2,6 +2,7 @@
 var util = require('util');
 var yeoman = require('yeoman-generator');
 var fs = require('fs');
+var fleck = require('fleck');
 
 var ControllerGenerator = module.exports = function ControllerGenerator(args, options, config) {
   yeoman.generators.NamedBase.apply(this, arguments);
@@ -16,6 +17,7 @@ var ControllerGenerator = module.exports = function ControllerGenerator(args, op
 util.inherits(ControllerGenerator, yeoman.generators.NamedBase);
 
 ControllerGenerator.prototype.files = function files() {
-  this.copy('base.js', 'app/scripts/controllers/' + this._.slugify(this.name) + '_controller.js');
-  this.copy('base_route.js', 'app/scripts/routes/' + this._.slugify(this.name) + '_route.js');
+  var pluralized_name = fleck.pluralize(this.name);
+  this.copy('base.js', 'app/scripts/controllers/' + this._.slugify(pluralized_name) + '_controller.js');
+  this.copy('base_route.js', 'app/scripts/routes/' + this._.slugify(pluralized_name) + '_route.js');
 };
