@@ -18,4 +18,5 @@ ViewGenerator.prototype.files = function files() {
   this.copy('single.hbs', 'app/templates/' + this.slugified_name + '.hbs');
   this.copy('single_edit.hbs', 'app/templates/' + this.slugified_name + '_edit.hbs');
   this.copy('plural.hbs', 'app/templates/' + this._.slugify(this.pluralized_name) + '.hbs');
+  this.copy('bound_text_field_view.js', 'app/scripts/views/bound_text_field_view.js');
 };

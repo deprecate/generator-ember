@@ -7,7 +7,7 @@
       <strong>{{this.key}}:</strong>
     </td>
     <td>
-      <input type="text" value="{{unbound this.value}}"/>
+      {{view <%= _.classify(appname) %>.BoundTextFieldView contentBinding="this"}}
     </td>
   </tr>
   {{/each}}

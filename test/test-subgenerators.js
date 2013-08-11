@@ -47,6 +47,7 @@ describe('subgenerators', function () {
       helpers.assertFiles( FILES_GENERATED_BY_VIEW_SUBGEN );
       helpers.assertFile('app/scripts/views/users_view.js', /UsersView/);
       helpers.assertFile('app/templates/users.hbs', /linkTo.*this/);
+      helpers.assertFile('app/scripts/views/bound_text_field_view.js', /BoundTextFieldView = Ember.TextField.extend/);
       done();
     });
   });
