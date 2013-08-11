@@ -21,4 +21,5 @@ ControllerGenerator.prototype.files = function files() {
   this.copy('base.js', 'app/scripts/controllers/' + this._.slugify(this.pluralized_name) + '_controller.js');
   this.copy('plural_route.js', 'app/scripts/routes/' + this._.slugify(this.pluralized_name) + '_route.js');
   this.copy('single_route.js', 'app/scripts/routes/' + this._.slugify(this.name) + '_route.js');
+  this.copy('single_edit_route.js', 'app/scripts/routes/' + this._.slugify(this.name) + '_edit_route.js');
 };

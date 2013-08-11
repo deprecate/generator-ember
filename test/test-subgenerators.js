@@ -32,7 +32,6 @@ describe('subgenerators', function () {
     var router = this.router;
     this.router.run({}, function () {
       helpers.assertFiles( [ router.options.router_file ] );
-      helpers.assertFile(router.options.router_file, /resource\('users'/);
       done();
     });
   });
