@@ -78,11 +78,16 @@ see: http://localhost:9000/#/bar
 
 ### ember:model
 
-Creates a model, view, handlebar, controller, and route given an arg, as in: 
+Creates a model, views, handlebars, controllers, view/edit/new routes, and some basic fixtures given an arg, as in: 
 
-`yo ember:model Baz name:string postal_code:number`
+`yo ember:model User name:string zipcode:number`
 
-see http://localhost:9000/#/baz
+see http://localhost:9000/#/users
+
+see also:
+  http://localhost:9000/#/user/1
+  http://localhost:9000/#/user/1/edit
+  http://localhost:9000/#/user/1/new
  
 ## Options
 
@@ -127,8 +132,9 @@ You probably added a view; restart the server.
 
 ## History
 
-### 0.5.11 (2013-08...)
+### 0.6.0 (2013-08-10)
 
+* Substantial update for scaffolding
 * Assuming FixtureAdapter to start
 * Changed base model to DS.Model
 
