@@ -47,17 +47,25 @@ A welcome page should appear in your browser.
 
 ## Generators
 
-Available generators:
+Add'l generators:
 
-* ember 
+* ember:model
 * ember:view
 * ember:controller
-* ember:model
 
-### ember
+### ember:model
 
-Creates the basic infrastructure for your app. 
+Creates a model, views, handlebars, controllers, view/edit routes, and some basic fixtures given an arg, as in: 
 
+`yo ember:model User name:string zipcode:number`
+
+see:
+http://localhost:9000/#/users
+
+see also:
+http://localhost:9000/#/user/1
+http://localhost:9000/#/user/1/edit
+ 
 ### ember:view
 
 Creates a view and template given an arg, as in
@@ -76,19 +84,6 @@ Creates a view, handlebar, controller and route given an arg, as in:
 
 see: http://localhost:9000/#/bar
 
-### ember:model
-
-Creates a model, views, handlebars, controllers, view/edit/new routes, and some basic fixtures given an arg, as in: 
-
-`yo ember:model User name:string zipcode:number`
-
-see http://localhost:9000/#/users
-
-see also:
-  http://localhost:9000/#/user/1
-  http://localhost:9000/#/user/1/edit
-  http://localhost:9000/#/user/1/new
- 
 ## Options
 
 * `--skip-install`
