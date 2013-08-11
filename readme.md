@@ -11,10 +11,9 @@ The scaffolding tool for Ember.js apps.
 * [Pre-reqs](#pre-reqs)
 * [Usage](#usage)
 * [Generators](#generators)
-  * [ember](#ember)
+  * [ember-model](#ember-model)
   * [ember-view](#ember-view)
   * [ember-controller](#ember-controller)
-  * [ember-model](#ember-model)
 * [Options](#options)
 * [Troubleshooting](#troubleshooting)
 * [History](#history)
@@ -60,11 +59,13 @@ Creates a model, views, handlebars, controllers, view/edit routes, and some basi
 `yo ember:model User name:string zipcode:number`
 
 see:
-http://localhost:9000/#/users
+
+* http://localhost:9000/#/users
 
 see also:
-http://localhost:9000/#/user/1
-http://localhost:9000/#/user/1/edit
+
+* http://localhost:9000/#/user/1
+* http://localhost:9000/#/user/1/edit
  
 ### ember:view
 
@@ -82,7 +83,9 @@ Creates a view, handlebar, controller and route given an arg, as in:
 
 (and updates router.js, overwrite when prompted)
 
-see: http://localhost:9000/#/bar
+see: 
+
+* http://localhost:9000/#/bar
 
 ## Options
 
