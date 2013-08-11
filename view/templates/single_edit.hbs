@@ -1,0 +1,18 @@
+<h1><%= name %></h1>
+
+<table>
+  {{#each model.attributes}}
+  <tr>
+    <td>
+      <strong>{{this.key}}:</strong>
+    </td>
+    <td>
+      <input type="text" value="{{unbound this.value}}"/>
+    </td>
+  </tr>
+  {{/each}}
+</table>
+
+<button>Update</button>
+
+{{outlet}}
