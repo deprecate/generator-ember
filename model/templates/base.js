@@ -2,6 +2,20 @@
     <%= _.camelize(attr.name) %>: DS.attr('<%= attr.type %>')<% if(i < (attributes.length - 1)) { %>,<% } %>
 <% }); %>});
 
+// probably should be mixed-in...
+<%= _.classify(appname) %>.<%= _.classify(name) %>.reopen({
+  // certainly I'm duplicating something that exists elsewhere...
+  attributes: function(){
+    var attrs = [];
+    var model = this;
+    $.each(Em.A(Ember.keys(this.get('data.attributes'))), function(idx, key){
+      var pair = { key: key, value: model.get(key) };
+      attrs.push(pair);
+    });
+    return attrs;
+  }.property()
+});
+
 // delete below here if you do not want fixtures
 <%= _.classify(appname) %>.<%= _.classify(name) %>.FIXTURES = [
   <% var ids = [1,2]; _.each(ids, function(idx, id) { %>

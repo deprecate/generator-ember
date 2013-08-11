@@ -1,5 +1,16 @@
 <h1><%= name %></h1>
 
-<p>Your content here.</p>
+<table>
+  {{#each model.attributes}}
+  <tr>
+    <td>
+      <strong>{{this.key}}:</strong>
+    </td>
+    <td>
+      {{this.value}}
+    </td>
+  </tr>
+  {{/each}}
+</table>
 
 {{outlet}}
