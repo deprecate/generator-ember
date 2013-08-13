@@ -26,6 +26,7 @@
     "matchdep": "~0.1.1",
     "connect-livereload": "~0.2.0",
     "grunt-ember-templates": "0.4.7",
+    "time-grunt": "~0.1.1",
     "grunt-neuter": "~0.5.0"<% if (options.karma) { %>,
     "grunt-karma": "~0.4.4"<% } %>
   },
