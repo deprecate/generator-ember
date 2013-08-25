@@ -1,5 +1,9 @@
 ## History
 
+### 0.6.2 (2013-08-25)
+
+* Hotfix for template compilation
+
 ### 0.6.1 (2013-08-25)
 
 * Compatibility fix for yo 1.0
