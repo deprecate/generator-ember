@@ -36,7 +36,7 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
   this.bowerScripts = [
     'bower_components/jquery/jquery.js',
     'bower_components/handlebars/handlebars.runtime.js',
-    'bower_components/ember/ember-1.0.0-rc.6.1.js',
+    'bower_components/ember/ember.js',
     'bower_components/ember-data-shim/ember-data.js'
   ];
 
@@ -82,7 +82,6 @@ EmberGenerator.prototype.createDirLayout = function createDirLayout() {
   this.mkdir('app/scripts/controllers');
   this.mkdir('app/scripts/routes');
   this.mkdir('app/scripts/views');
-  this.mkdir('app/libs');
 };
 
 EmberGenerator.prototype.git = function git() {
@@ -176,10 +175,6 @@ EmberGenerator.prototype.all = function all() {
     this.copy('styles/normalize.css', 'app/styles/normalize.css');
     this.copy('styles/style.css', 'app/styles/style.css');
   }
-
-  this.copy('scripts/libs/ember-1.0.0-rc.6.1.js', 'app/bower_components/ember/ember-1.0.0-rc.6.1.js');
-  this.copy('scripts/libs/handlebars.runtime.js', 'app/bower_components/handlebars/handlebars.runtime.js');
-  this.copy('scripts/libs/ember-data.js', 'app/bower_components/ember-data-shim/ember-data.js');
 
   this.copy(this._getJSPath('scripts/app'), this._getJSPath('app/scripts/app'));
   this.copy(this._getJSPath('scripts/store'), this._getJSPath('app/scripts/store'));

@@ -14,7 +14,7 @@ files = [
   JASMINE_ADAPTER,<% } %>
   'app/bower_components/jquery/jquery.min.js',
   'app/bower_components/handlebars/handlebars.runtime.js',
-  'app/bower_components/ember/ember-1.0.0-rc.6.1.js',
+  'app/bower_components/ember/ember.js',
   'app/bower_components/ember-data-shim/ember-data.js',
   <% if (testFramework === 'mocha') { %>
   'test/lib/chai.js',
