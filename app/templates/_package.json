@@ -25,7 +25,7 @@
     "grunt-concurrent": "~0.3.0",
     "load-grunt-tasks": "~0.1.0",
     "connect-livereload": "~0.2.0",
-    "grunt-ember-templates": "0.4.7",
+    "grunt-ember-templates": "0.4.13",
     "time-grunt": "~0.1.1",
     "grunt-neuter": "~0.5.0"<% if (options.karma) { %>,
     "grunt-karma": "~0.6.1"<% } %>

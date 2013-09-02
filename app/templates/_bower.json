@@ -2,14 +2,15 @@
   "name": "<%= _.slugify(appname) %>",
   "version": "0.0.0",
   "dependencies": {
-    "jquery": "~1.9.1"
-    <% if (compassBootstrap) { %>,
+    "ember": "1.0.0",
+    "ember-data-shim": "1.0.0-beta.1"<% if (compassBootstrap) { %>,
     "bootstrap-sass": "~2.3.1"
     <% } %>
   },
   "resolutions": {
+    "ember": "1.0.0"
   },
   "devDependencies": {<% if (testFramework === 'mocha') { %>
-    "ember-mocha-adapter": "0.1.1"<% } %>
+    "ember-mocha-adapter": "0.1.2"<% } %>
   }
 }
