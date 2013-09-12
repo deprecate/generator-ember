@@ -80,7 +80,7 @@ EmberGenerator.prototype.askFor = function askFor() {
 
   this.prompt(prompts, function (props) {
     this.compassBootstrap = props.compassBootstrap;
-    this.options.karma = props.wantsKarma;
+    this.options.karma = this.options.karma || props.wantsKarma;
 
     cb();
   }.bind(this));
