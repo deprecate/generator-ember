@@ -1,3 +1,4 @@
+/*global Ember*/
 <%= _.classify(appname) %>.<%= _.classify(name) %> = DS.Model.extend({<% _.each(attrs, function(attr, i) { %>
     <%= _.camelize(attr.name) %>: DS.attr('<%= attr.type %>')<% if(i < (attributes.length - 1)) { %>,<% } %>
 <% }); %>});
@@ -8,7 +9,7 @@
   attributes: function(){
     var attrs = [];
     var model = this;
-    $.each(Em.A(Ember.keys(this.get('data.attributes'))), function(idx, key){
+    Ember.$.each(Ember.A(Ember.keys(this.get('data'))), function(idx, key){
       var pair = { key: key, value: model.get(key) };
       attrs.push(pair);
     });
