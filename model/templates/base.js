@@ -8,7 +8,7 @@
   attributes: function(){
     var attrs = [];
     var model = this;
-    $.each(Em.A(Ember.keys(this.get('data.attributes'))), function(idx, key){
+    $.each(Em.A(Ember.keys(this.get('data'))), function(idx, key){
       var pair = { key: key, value: model.get(key) };
       attrs.push(pair);
     });
