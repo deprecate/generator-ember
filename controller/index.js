@@ -18,9 +18,9 @@ var ControllerGenerator = module.exports = function ControllerGenerator(args, op
 util.inherits(ControllerGenerator, yeoman.generators.NamedBase);
 
 ControllerGenerator.prototype.files = function files() {
-  this.copy('base.js', 'app/scripts/controllers/' + this._.slugify(this.pluralized_name) + '_controller.js');
-  this.copy('base_edit.js', 'app/scripts/controllers/' + this._.slugify(this.name) + '_edit_controller.js');
-  this.copy('plural_route.js', 'app/scripts/routes/' + this._.slugify(this.pluralized_name) + '_route.js');
-  this.copy('single_route.js', 'app/scripts/routes/' + this._.slugify(this.name) + '_route.js');
-  this.copy('single_edit_route.js', 'app/scripts/routes/' + this._.slugify(this.name) + '_edit_route.js');
+  this.template('base.js', 'app/scripts/controllers/' + this._.slugify(this.pluralized_name) + '_controller.js');
+  this.template('base_edit.js', 'app/scripts/controllers/' + this._.slugify(this.name) + '_edit_controller.js');
+  this.template('plural_route.js', 'app/scripts/routes/' + this._.slugify(this.pluralized_name) + '_route.js');
+  this.template('single_route.js', 'app/scripts/routes/' + this._.slugify(this.name) + '_route.js');
+  this.template('single_edit_route.js', 'app/scripts/routes/' + this._.slugify(this.name) + '_edit_route.js');
 };
