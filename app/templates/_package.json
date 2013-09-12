@@ -28,7 +28,10 @@
     "grunt-ember-templates": "0.4.14",
     "time-grunt": "~0.1.1",
     "grunt-neuter": "~0.5.0"<% if (options.karma) { %>,
-    "grunt-karma": "~0.6.1"<% } %>
+    "grunt-karma": "~0.6.1", <% if (testFramework === 'mocha') { %>
+    "karma-mocha": "~0.1"<% } else { %>
+    "karma-jasmine": "~0.1" <% } } %>
+
   },
   "engines": {
     "node": ">=0.8.0"
