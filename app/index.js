@@ -64,10 +64,23 @@ EmberGenerator.prototype.askFor = function askFor() {
     name: 'compassBootstrap',
     message: 'Would you like to include Twitter Bootstrap for Sass?',
     default: true
+  },
+  {
+    type: 'confirm',
+    name: 'wantsKarma',
+    message: 'Would you like to use Karma as your test runner?',
+    default: false
+  },
+  {
+    type: 'confirm',
+    name: 'wantsCoffeescript',
+    message: 'Would you also like to use Coffeescript?',
+    default: false
   }];
 
   this.prompt(prompts, function (props) {
     this.compassBootstrap = props.compassBootstrap;
+    this.options.karma = props.wantsKarma;
 
     cb();
   }.bind(this));
