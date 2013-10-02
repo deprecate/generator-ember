@@ -5,7 +5,7 @@ var yeoman = require('yeoman-generator');
 
 var EmberGenerator = module.exports = function EmberGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
-  
+
   if (this.appname.match(/^[Ee]mber$/)) {
     this.appname += '_app';
   }
@@ -158,7 +158,6 @@ EmberGenerator.prototype.bootstrapJavaScript = function bootstrapJavaScript() {
     'bower_components/bootstrap-sass/js/transition.js',
     'bower_components/bootstrap-sass/js/button.js',
     'bower_components/bootstrap-sass/js/popover.js',
-    'bower_components/bootstrap-sass/js/typeahead.js',
     'bower_components/bootstrap-sass/js/carousel.js',
     'bower_components/bootstrap-sass/js/scrollspy.js',
     'bower_components/bootstrap-sass/js/collapse.js',
