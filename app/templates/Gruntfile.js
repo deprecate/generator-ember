@@ -38,11 +38,11 @@ module.exports = function (grunt) {
             coffeeTest: {
                 files: ['test/spec/{,*/}*.coffee'],
                 tasks: ['coffee:test']
-            },
+            },<% if (options.sass) { %>
             compass: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
-            },
+            },<% } %>
             neuter: {<% if (!options.coffee) { %>
                 files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],<% }else{ %>
                 files: ['.tmp/scripts/{,*/}*.js',
@@ -162,7 +162,7 @@ module.exports = function (grunt) {
                     ext: '.js'
                 }]
             }
-        },
+        },<% if (options.sass) { %>
         compass: {
             options: {
                 sassDir: '<%%= yeoman.app %>/styles',
@@ -183,7 +183,7 @@ module.exports = function (grunt) {
                     debugInfo: true
                 }
             }
-        },
+        },<% } %>
         // not used since Uglify task does concat,
         // but still available if needed
         /*concat: {
@@ -291,18 +291,19 @@ module.exports = function (grunt) {
         concurrent: {
             server: [
                 'emberTemplates',
-                'coffee:dist',
-                'compass:server'
+                'coffee:dist'<% if (options.sass) { %>,
+                'compass:server'<% } %>
             ],
             test: [
                 'emberTemplates',
-                'coffee',
-                'compass'
+                'coffee'<% if (options.sass) { %>,
+                'compass'<% } %>
+                
             ],
             dist: [
                 'emberTemplates',
-                'coffee',
-                'compass:dist',
+                'coffee',<% if (options.sass) { %>
+                'compass:dist',<% } %>
                 'imagemin',
                 'svgmin',
                 'htmlmin'

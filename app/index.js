@@ -26,6 +26,9 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
   // hook for karma test runner
   this.options.karma = options.karma;
 
+  // hook for Sass
+  this.options.sass = options.sass;
+
   // resolved to mocha by default (could be switched to jasmine for instance)
   this.hookFor('test-framework', { as: 'app' });
 
@@ -59,19 +62,24 @@ EmberGenerator.prototype.welcome = function welcome() {
 EmberGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
-  var prompts = [{
-    type: 'confirm',
-    name: 'compassBootstrap',
-    message: 'Would you like to include Twitter Bootstrap for Sass?',
-    default: true
-  }];
+  if (this.options.sass) {
+    var prompts = [{
+      type: 'confirm',
+      name: 'compassBootstrap',
+      message: 'Would you like to include Twitter Bootstrap for Sass?',
+      default: true
+    }];
 
-  this.prompt(prompts, function (props) {
-    this.compassBootstrap = props.compassBootstrap;
+    this.prompt(prompts, function (props) {
+      this.compassBootstrap = props.compassBootstrap;
 
+      cb();
+    }.bind(this));
+  } else {
     cb();
-  }.bind(this));
+  }
 };
+
 
 EmberGenerator.prototype.createDirLayout = function createDirLayout() {
   this.mkdir('app/templates');
