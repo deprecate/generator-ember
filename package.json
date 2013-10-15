@@ -26,7 +26,7 @@
     "fleck": "~0.5.1"
   },
   "devDependencies": {
-    "mocha": "~1.12.0"
+    "mocha": "~1.13.0"
   },
   "peerDependencies": {
     "generator-mocha": "~0.1.1",
