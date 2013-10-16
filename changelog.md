@@ -1,5 +1,14 @@
 ## History
 
+### 0.7.0 (2013-10-16)
+
+* Updated for Ember 1.0.0
+* Updated Ember Data
+* Updated for Bootstrap 3
+* Fixed hardcoded `user` model in template
+* JSHint fixes
+* Updated karma
+
 ### 0.6.2 (2013-08-25)
 
 * Hotfix for template compilation
