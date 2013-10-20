@@ -125,7 +125,7 @@ describe('Basics', function () {
   describe('store', function () {
     it('uses FixtureAdapter by default', function (done) {
       this.ember.app.run({}, function () {
-        helpers.assertFile('app/scripts/store.js', /adapter: DS.FixtureAdapter/);
+        helpers.assertFile('app/scripts/store.js', /ApplicationAdapter = DS.FixtureAdapter;/);
         done();
       });
     });
