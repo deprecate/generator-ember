@@ -1,5 +1,12 @@
 ## History
 
+### 0.7.1 (2013-10-20)
+
+* Fix Bootstrap 3 template
+* Fix for #111, #92: karma picking up the wrong files
+* Use model hooks for generated routes for Ember 1.0
+* Remove Application Store's adapter field
+
 ### 0.7.0 (2013-10-16)
 
 * Updated for Ember 1.0.0
