@@ -30,7 +30,7 @@ module.exports = function (grunt) {
             emberTemplates: {
                 files: '<%%= yeoman.app %>/templates/**/*.hbs',
                 tasks: ['emberTemplates']
-            },
+            },<% if (options.coffee) { %>
             coffee: {
                 files: ['<%%= yeoman.app %>/scripts/{,*/}*.coffee'],
                 tasks: ['coffee:dist']
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
             coffeeTest: {
                 files: ['test/spec/{,*/}*.coffee'],
                 tasks: ['coffee:test']
-            },
+            },<% } %>
             compass: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
@@ -142,7 +142,7 @@ module.exports = function (grunt) {
                     specs: 'test/spec/{,*/}*.js'
                 }
             }
-        },<% } %>
+        },<% } %><% if (options.coffee) { %>
         coffee: {
             dist: {
                 files: [{
@@ -162,7 +162,7 @@ module.exports = function (grunt) {
                     ext: '.js'
                 }]
             }
-        },
+        },<% } %>
         compass: {
             options: {
                 sassDir: '<%%= yeoman.app %>/styles',
@@ -290,29 +290,29 @@ module.exports = function (grunt) {
         },
         concurrent: {
             server: [
-                'emberTemplates',
-                'coffee:dist',
+                'emberTemplates',<%if (options.coffee) { %>
+                'coffee:dist',<% } %>
                 'compass:server'
             ],
             test: [
-                'emberTemplates',
-                'coffee',
+                'emberTemplates',<%if (options.coffee) { %>
+                'coffee',<% } %>
                 'compass'
             ],
             dist: [
-                'emberTemplates',
-                'coffee',
+                'emberTemplates',<%if (options.coffee) { %>
+                'coffee',<% } %>
                 'compass:dist',
                 'imagemin',
                 'svgmin',
                 'htmlmin'
             ]
-        },
+        },<%if (options.karma) { %>
         karma: {
             unit: {
                 configFile: 'karma.conf.js'
             }
-        },
+        },<% } %>
         emberTemplates: {
             options: {
                 templateName: function (sourceFile) {
