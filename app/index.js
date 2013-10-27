@@ -10,8 +10,6 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
     this.appname += '_app';
   }
 
-  this.hookFor('ember:router');
-
   // setup the test-framework property, Gruntfile template will need this
   this.testFramework = options['test-framework'] || 'mocha';
 

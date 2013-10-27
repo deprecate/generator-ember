@@ -15,7 +15,6 @@ var EXPECTED_FILES = [
   '.editorconfig',
   'Gruntfile.js',
   'app/scripts/app.js',
-  'app/scripts/router.js',
   'app/scripts/store.js',
   'app/scripts/routes/application_route.js',
   'app/templates/application.hbs',
@@ -82,6 +81,7 @@ describe('Basics', function () {
     this.ember.app.options['coffee'] = true;
     this.ember.app.run({}, function () {
       assert.ok(fs.existsSync('app/scripts/app.coffee'));
+      assert.ok(!fs.existsSync('app/scripts/router.js'));
       done();
     });
   });
