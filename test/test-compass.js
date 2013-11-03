@@ -15,7 +15,6 @@ var EXPECTED_FILES = [
   '.editorconfig',
   'Gruntfile.js',
   'app/scripts/app.js',
-  'app/scripts/router.js',
   'app/templates/application.hbs',
   'app/templates/index.hbs',
   'app/index.html'
