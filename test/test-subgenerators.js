@@ -40,11 +40,11 @@ describe('subgenerators', function () {
     this.view = {};
     this.view = helpers.createGenerator('ember:view', ['../../view'], 'user');
 
-    filesDoNotExist(FILES_GENERATED_BY_VIEW_SUBGEN);
+    filesDoNotExist(JS_FILES_GENERATED_BY_VIEW_SUBGEN);
 
     var view = this.view;
     this.view.run({}, function () {
-      helpers.assertFiles( FILES_GENERATED_BY_VIEW_SUBGEN );
+      helpers.assertFiles( JS_FILES_GENERATED_BY_VIEW_SUBGEN );
       helpers.assertFile('app/scripts/views/users_view.js', /UsersView/);
       helpers.assertFile('app/templates/users.hbs', /linkTo.*this/);
       helpers.assertFile('app/scripts/views/bound_text_field_view.js', /BoundTextFieldView = Ember.TextField.extend/);
@@ -52,18 +52,37 @@ describe('subgenerators', function () {
     });
   });
 
-  it('controller', function (done) {
-    this.controller = {};
-    this.controller = helpers.createGenerator('ember:controller', ['../../controller','../../view','../../router'], 'user');
+  describe("Controller", function(){
+    it('with javascript', function (done) {
+      this.controller = {};
+      this.controller = helpers.createGenerator('ember:controller', ['../../controller','../../view','../../router'], 'user');
 
-    filesDoNotExist(FILES_GENERATED_BY_CONTROLLER_SUBGEN);
+      filesDoNotExist(JS_FILES_GENERATED_BY_CONTROLLER_SUBGEN);
 
-    var controller = this.controller;
-    this.controller.run({}, function () {
-      helpers.assertFiles( FILES_GENERATED_BY_CONTROLLER_SUBGEN );
-      helpers.assertFile('app/scripts/controllers/users_controller.js', /UsersController/);
-      helpers.assertFile('app/scripts/routes/users_route.js', /UsersRoute/);
-      done();
+      var controller = this.controller;
+      this.controller.run({}, function () {
+        helpers.assertFiles( JS_FILES_GENERATED_BY_CONTROLLER_SUBGEN );
+        helpers.assertFile('app/scripts/controllers/users_controller.js', /UsersController/);
+        helpers.assertFile('app/scripts/routes/users_route.js', /UsersRoute/);
+        done();
+      });
+    });
+
+    it('with coffee-script', function (done) {
+      this.controller = {};
+      this.controller = helpers.createGenerator('ember:controller', ['../../controller','../../view','../../router'], 'user');
+
+      filesDoNotExist(COFFEE_FILES_GENERATED_BY_CONTROLLER_SUBGEN);
+
+      var controller = this.controller;
+      this.controller.options['coffee'] = true;
+      this.controller.run({}, function () {
+        helpers.assertFiles( COFFEE_FILES_GENERATED_BY_CONTROLLER_SUBGEN );
+        helpers.assertFile('app/scripts/controllers/users_controller.coffee', /UsersController/);
+        helpers.assertFile('app/scripts/routes/users_route.coffee', /UsersRoute/);
+        done();
+      });
     });
   });
+
 });

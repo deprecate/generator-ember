@@ -7,9 +7,13 @@ var fleck = require('fleck');
 var ControllerGenerator = module.exports = function ControllerGenerator(args, options, config) {
   yeoman.generators.NamedBase.apply(this, arguments);
   this.pluralized_name = fleck.pluralize(this.name);
+
   this.hookFor('ember:view', {
     args: args
   });
+
+  this.options.coffee = options.coffee;
+
   this.hookFor('ember:router');
 };
 
@@ -17,10 +21,14 @@ var ControllerGenerator = module.exports = function ControllerGenerator(args, op
 
 util.inherits(ControllerGenerator, yeoman.generators.NamedBase);
 
+ControllerGenerator.prototype._getJSPath = function _getJSPath(file) {
+  return file + (this.options.coffee ? '.coffee' : '.js');
+};
+
 ControllerGenerator.prototype.files = function files() {
-  this.template('base.js', 'app/scripts/controllers/' + this._.slugify(this.pluralized_name) + '_controller.js');
-  this.template('base_edit.js', 'app/scripts/controllers/' + this._.slugify(this.name) + '_edit_controller.js');
-  this.template('plural_route.js', 'app/scripts/routes/' + this._.slugify(this.pluralized_name) + '_route.js');
-  this.template('single_route.js', 'app/scripts/routes/' + this._.slugify(this.name) + '_route.js');
-  this.template('single_edit_route.js', 'app/scripts/routes/' + this._.slugify(this.name) + '_edit_route.js');
+  this.template(this._getJSPath('base'), 'app/scripts/controllers/' + this._.slugify(this.pluralized_name) + this._getJSPath('_controller'));
+  this.template(this._getJSPath('base_edit'), 'app/scripts/controllers/' + this._.slugify(this.name) + this._getJSPath('_edit_controller'));
+  this.template(this._getJSPath('plural_route'), 'app/scripts/routes/' + this._.slugify(this.pluralized_name) + this._getJSPath('_route'));
+  this.template(this._getJSPath('single_route'), 'app/scripts/routes/' + this._.slugify(this.name) + this._getJSPath('_route'));
+  this.template(this._getJSPath('single_edit_route'), 'app/scripts/routes/' + this._.slugify(this.name) + this._getJSPath('_edit_route'));
 };
