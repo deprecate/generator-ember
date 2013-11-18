@@ -10,10 +10,10 @@ var RouterGenerator = module.exports = function RouterGenerator(args, options, c
   args.push('ember:router');
   yeoman.generators.NamedBase.apply(this, arguments);
 
-  this.options.controller_files = [];
-  this.options.controller_dir = 'app/scripts/controllers';
-  if (fs.existsSync(this.options.controller_dir)) {
-    this.controller_files = fs.readdirSync(this.options.controller_dir);
+  this.options.model_files = [];
+  this.options.model_dir = 'app/scripts/models';
+  if (fs.existsSync(this.options.model_dir)) {
+    this.model_files = fs.readdirSync(this.options.model_dir);
   }
   this.options.router_file = 'app/scripts/router.js';
 };
@@ -22,12 +22,12 @@ util.inherits(RouterGenerator, yeoman.generators.NamedBase);
 
 RouterGenerator.prototype.files = function files() {
   this.models = [];
-  var controllers = this.controller_files;
-  for (var i in controllers) {
-    var stripped = controllers[i].replace('_controller.js', '');
+  var models = this.model_files;
+  for (var i in models) {
+    var stripped = models[i].replace('_model.js', '');
     this.models.push({
       single: fleck.singularize(stripped),
-      plural: stripped
+      plural: fleck.pluralize(stripped)
     });
   }
   this.copy('base.js', this.options.router_file);
