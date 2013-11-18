@@ -57,7 +57,6 @@ describe('Model', function () {
       helpers.assertFiles( [ router.options.router_file ] );
       helpers.assertFile(router.options.router_file, /resource\('users'/);
       helpers.assertFile(router.options.router_file, /resource\('user'/);
-      helpers.assertFile(router.options.router_file, /resource\('user.edit'/);
       done();
     });
   });
