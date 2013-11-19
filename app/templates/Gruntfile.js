@@ -209,7 +209,7 @@ module.exports = function (grunt) {
             }
         },
         useminPrepare: {
-            html: '<%%= yeoman.app %>/index.html',
+            html: '.tmp/index.html',
             options: {
                 dest: '<%%= yeoman.dist %>'
             }
@@ -271,6 +271,30 @@ module.exports = function (grunt) {
                     dest: '<%%= yeoman.dist %>'
                 }]
             }
+        },
+        replace: {
+          app: {
+            options: {
+              variables: {
+                ember: 'bower_components/ember/ember.js',
+                ember_data: 'bower_components/ember-data-shim/ember-data.js'
+              }
+            },
+            files: [
+              {src: '<%%= yeoman.app %>/index.html', dest: '.tmp/index.html'}
+            ]
+          },
+          dist: {
+            options: {
+              variables: {
+                ember: 'bower_components/ember/ember.prod.js',
+                ember_data: 'bower_components/ember-data-shim/ember-data.prod.js'
+              }
+            },
+            files: [
+              {src: '<%%= yeoman.app %>/index.html', dest: '.tmp/index.html'}
+            ]
+          }
         },
         // Put files not handled in other tasks here
         copy: {
@@ -359,6 +383,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
+            'replace:app',
             'concurrent:server',
             'neuter:app',
             'connect:livereload',
@@ -369,6 +394,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'clean:server',
+        'replace:app',
         'concurrent:test',
         'connect:test',
         'neuter:app',<% if (options.karma) { %>
@@ -379,6 +405,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        'replace:dist',
         'useminPrepare',
         'concurrent:dist',
         'neuter:app',

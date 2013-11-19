@@ -68,7 +68,7 @@ describe('Basics', function () {
     var expected = [
       [
         'app/index.html', 
-        /<script src="bower_components\/ember-data-shim\/ember-data.js"><\/script>/
+        /<script src="@@ember_data"><\/script>/
       ]
     ];
     this.ember.app.run({}, function () {

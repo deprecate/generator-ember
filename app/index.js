@@ -34,8 +34,8 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
   this.bowerScripts = [
     'bower_components/jquery/jquery.js',
     'bower_components/handlebars/handlebars.runtime.js',
-    'bower_components/ember/ember.js',
-    'bower_components/ember-data-shim/ember-data.js'
+    '@@ember',
+    '@@ember_data'
   ];
 
   this.on('end', function () {
@@ -136,7 +136,7 @@ EmberGenerator.prototype.writeIndex = function writeIndex() {
 
   this.indexFile = this.appendStyles(this.indexFile, 'styles/main.css', mainCssFiles);
 
-  this.indexFile = this.appendScripts(this.indexFile, 'scripts/components.js', this.bowerScripts);
+  this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/components.js', this.bowerScripts, null, 'app');
 
   this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/templates.js', ['scripts/compiled-templates.js'], null, '.tmp');
   this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/main.js', ['scripts/combined-scripts.js'], null, '.tmp');
@@ -160,7 +160,7 @@ EmberGenerator.prototype.bootstrapJavaScript = function bootstrapJavaScript() {
     'bower_components/bootstrap-sass/js/scrollspy.js',
     'bower_components/bootstrap-sass/js/collapse.js',
     'bower_components/bootstrap-sass/js/tab.js'
-  ]);
+  ], null, 'app');
 };
 
 EmberGenerator.prototype.all = function all() {
