@@ -9,6 +9,11 @@ var ControllerGenerator = module.exports = function ControllerGenerator(args, op
   this.pluralized_name = fleck.pluralize(this.name);
 
   this.options.coffee = options.coffee;
+  // TODO Find a better way to do this. Passing `coffee` via options from controller seems to be a futile effort
+  this.options.coffee = options.coffee;
+  if (!this.options.coffee && this.expandFiles('app/scripts/**/*.coffee', {}).length > 0) {
+    this.options.coffee = true;
+  }
 
   this.hookFor('ember:view', {
     args: args,
