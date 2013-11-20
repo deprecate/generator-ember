@@ -18,7 +18,7 @@ describe('subgenerators', function () {
 
   var filesDoNotExist = function(list_of_files){
     for (var i = 0; i < list_of_files.length; i++) {
-      assert(!fs.existsSync(list_of_files[i]));
+      assert(!fs.existsSync(list_of_files[i]), list_of_files[i]);
     }
   };
 
@@ -36,19 +36,38 @@ describe('subgenerators', function () {
     });
   });
 
-  it('view', function (done) {
-    this.view = {};
-    this.view = helpers.createGenerator('ember:view', ['../../view'], 'user');
+  describe("View", function(){
+    it('with javascript', function (done) {
+      this.view = {};
+      this.view = helpers.createGenerator('ember:view', ['../../view'], 'user');
 
-    filesDoNotExist(JS_FILES_GENERATED_BY_VIEW_SUBGEN);
+      filesDoNotExist(JS_FILES_GENERATED_BY_VIEW_SUBGEN);
 
-    var view = this.view;
-    this.view.run({}, function () {
-      helpers.assertFiles( JS_FILES_GENERATED_BY_VIEW_SUBGEN );
-      helpers.assertFile('app/scripts/views/users_view.js', /UsersView/);
-      helpers.assertFile('app/templates/users.hbs', /linkTo.*this/);
-      helpers.assertFile('app/scripts/views/bound_text_field_view.js', /BoundTextFieldView = Ember.TextField.extend/);
-      done();
+      var view = this.view;
+      this.view.run({}, function () {
+        helpers.assertFiles( JS_FILES_GENERATED_BY_VIEW_SUBGEN );
+        helpers.assertFile('app/scripts/views/users_view.js', /UsersView/);
+        helpers.assertFile('app/templates/users.hbs', /linkTo.*this/);
+        helpers.assertFile('app/scripts/views/bound_text_field_view.js', /BoundTextFieldView = Ember.TextField.extend/);
+        done();
+      });
+    });
+
+    it('with coffee-script', function (done) {
+      this.view = {};
+      this.view = helpers.createGenerator('ember:view', ['../../view'], 'user');
+
+      filesDoNotExist(COFFEE_FILES_GENERATED_BY_VIEW_SUBGEN);
+
+      var view = this.view;
+      this.view.options['coffee'] = true;
+      this.view.run({}, function () {
+        helpers.assertFiles( COFFEE_FILES_GENERATED_BY_VIEW_SUBGEN );
+        helpers.assertFile('app/scripts/views/users_view.coffee', /UsersView/);
+        helpers.assertFile('app/templates/users.hbs', /linkTo.*this/);
+        helpers.assertFile('app/scripts/views/bound_text_field_view.coffee', /BoundTextFieldView = Ember.TextField.extend/);
+        done();
+      });
     });
   });
 

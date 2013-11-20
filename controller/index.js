@@ -8,11 +8,15 @@ var ControllerGenerator = module.exports = function ControllerGenerator(args, op
   yeoman.generators.NamedBase.apply(this, arguments);
   this.pluralized_name = fleck.pluralize(this.name);
 
-  this.hookFor('ember:view', {
-    args: args
-  });
-
   this.options.coffee = options.coffee;
+
+  this.hookFor('ember:view', {
+    args: args,
+    // this doesn't seem to be working yet
+    options: {
+      coffee: this.options.coffee
+    }
+  });
 
   this.hookFor('ember:router');
 };
