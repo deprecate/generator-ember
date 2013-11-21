@@ -22,17 +22,33 @@ describe('subgenerators', function () {
     }
   };
 
-  it('router', function (done) {
-    this.router = {};
-    this.router = helpers.createGenerator('ember:router', ['../../router']);
+  describe("Router", function(){
+    it('with javascript', function (done) {
+      this.router = {};
+      this.router = helpers.createGenerator('ember:router', ['../../router']);
 
-    filesDoNotExist([this.router.router_file]);
+      filesDoNotExist([this.router.router_file]);
 
-    this.router.controller_files = ['user_controller.js'];
-    var router = this.router;
-    this.router.run({}, function () {
-      helpers.assertFiles( [ router.options.router_file ] );
-      done();
+      this.router.controller_files = ['user_controller.js'];
+      var router = this.router;
+      this.router.run({}, function () {
+        helpers.assertFiles( [ router.options.router_file ] );
+        done();
+      });
+    });
+
+    it('with coffee-script', function (done) {
+      this.router = {};
+      this.router = helpers.createGenerator('ember:router', ['../../router']);
+
+      filesDoNotExist([this.router.router_file]);
+
+      this.router.controller_files = ['user_controller.coffee'];
+      var router = this.router;
+      this.router.run({}, function () {
+        helpers.assertFiles( [ router.options.router_file ] );
+        done();
+      });
     });
   });
 

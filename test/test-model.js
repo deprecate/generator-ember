@@ -89,6 +89,7 @@ describe('Model', function () {
     filesDoNotExist([this.router.router_file]);
 
     var router = this.router;
+    this.router.options['coffee'] = true;
     this.router.run({}, function () {
       helpers.assertFiles( [ router.options.router_file ] );
       helpers.assertFile(router.options.router_file, /resource\('users'/);

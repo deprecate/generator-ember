@@ -14,21 +14,35 @@ var RouterGenerator = module.exports = function RouterGenerator(args, options, c
   this.options.model_dir = 'app/scripts/models';
   if (fs.existsSync(this.options.model_dir)) {
     this.model_files = fs.readdirSync(this.options.model_dir);
+    // console.log(this.model_files);
   }
-  this.options.router_file = 'app/scripts/router.js';
+
+  this.options.coffee = options.coffee;
+  // TODO Find a better way to do this. Passing `coffee` via options from model seems to be a futile effort
+  this.options.coffee = options.coffee;
+  if (!this.options.coffee && this.expandFiles('app/scripts/**/*.coffee', {}).length > 0) {
+    this.options.coffee = true;
+  }
+
+  this.options.router_file = this._getJSPath('app/scripts/router');
 };
 
 util.inherits(RouterGenerator, yeoman.generators.NamedBase);
+
+RouterGenerator.prototype._getJSPath = function _getJSPath(file) {
+  return file + (this.options.coffee ? '.coffee' : '.js');
+};
 
 RouterGenerator.prototype.files = function files() {
   this.models = [];
   var models = this.model_files;
   for (var i in models) {
-    var stripped = models[i].replace('_model.js', '');
+    var extension = this._getJSPath('_model');
+    var stripped = models[i].replace(extension, '');
     this.models.push({
       single: fleck.singularize(stripped),
       plural: fleck.pluralize(stripped)
     });
   }
-  this.copy('base.js', this.options.router_file);
+  this.copy(this._getJSPath('base'), this.options.router_file);
 };
