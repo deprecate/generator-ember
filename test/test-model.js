@@ -7,7 +7,7 @@ var fs = require('fs');
 
 require('fleck');
 
-require('../lib/expected_model_files');
+require('./helpers/expected_model_files');
 
 describe('Model', function () {
 
