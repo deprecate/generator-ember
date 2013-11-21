@@ -6,7 +6,6 @@
 
 # probably should be mixed-in...
 <%= _.classify(appname) %>.<%= _.classify(name) %>.reopen(
-
   # certainly I'm duplicating something that exists elsewhere...
   attributes: -> (
     attrs = []
@@ -21,10 +20,9 @@
 
 # delete below here if you do not want fixtures
 <%= _.classify(appname) %>.<%= _.classify(name) %>.FIXTURES = [
-  <% var ids = [1,2]; _.each(ids, function(idx, id) { %>
-    id: <%= id %>
-    <% _.each(attrs, function(attr, i) { %>
-    <%= attr.name %>: 'foo'
-    <% }); %>
-  <% }); %>
+<% var ids = [1,2]; _.each(ids, function(idx, id) { %>
+  id: <%= id %><% _.each(attrs, function(attr, i) { %>
+  <%= attr.name %>: 'foo'<% }); %>
+<% if(id < (ids.length - 1)) { %>,<% } %>
+<% }); %>
 ]
