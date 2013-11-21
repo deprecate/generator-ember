@@ -7,11 +7,10 @@
 # probably should be mixed-in...
 <%= _.classify(appname) %>.<%= _.classify(name) %>.reopen(
   # certainly I'm duplicating something that exists elsewhere...
-  attributes: -> (
+  attributes: ( ->
     attrs = []
-    model = @
-    Ember.$.each(Ember.A(Ember.keys(@get('data'))), (idx, key) ->
-      pair = key: key, value: model.get(key)
+    Ember.$.each(Ember.keys(@get('data')), (idx, key) =>
+      pair = key: key, value: @get(key)
       attrs.push(pair)
     )
     attrs

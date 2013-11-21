@@ -5,11 +5,10 @@
 
 // probably should be mixed-in...
 <%= _.classify(appname) %>.<%= _.classify(name) %>.reopen({
-  // certainly I'm duplicating something that exists elsewhere...
   attributes: function(){
     var attrs = [];
     var model = this;
-    Ember.$.each(Ember.A(Ember.keys(this.get('data'))), function(idx, key){
+    Ember.$.each(Ember.keys(this.get('data')), function(idx, key){
       var pair = { key: key, value: model.get(key) };
       attrs.push(pair);
     });
