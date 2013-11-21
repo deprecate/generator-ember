@@ -1,6 +1,6 @@
 <%= _.classify(appname) %>.BoundTextFieldView = Ember.TextField.extend(
   valueBinding: 'content.value',
-  contentChanged: -> (
+  contentChanged: ( ->
     @get('controller').get('model').set(
       @get('content').key,
       @get('content').value
