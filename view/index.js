@@ -26,7 +26,7 @@ ViewGenerator.prototype.files = function files() {
   this.copy(this._getJSPath('single_edit'), 'app/scripts/views/' + this.slugified_name + this._getJSPath('_edit_view'));
   this.copy(this._getJSPath('plural'), 'app/scripts/views/' + this._.slugify(this.pluralized_name) + this._getJSPath('_view'));
   this.copy('single.hbs', 'app/templates/' + this.slugified_name + '.hbs');
-  this.copy('single_edit.hbs', 'app/templates/' + this.slugified_name + '_edit.hbs');
+  this.copy('single_edit.hbs', 'app/templates/' + this.slugified_name + '/edit.hbs');
   this.copy('plural.hbs', 'app/templates/' + this._.slugify(this.pluralized_name) + '.hbs');
   this.copy(this._getJSPath('bound_text_field_view'), this._getJSPath('app/scripts/views/bound_text_field_view'));
 };
