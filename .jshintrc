@@ -14,5 +14,6 @@
 	"trailing": true,
 	"smarttabs": true,
 	"white": true,
+	"camelcase": true,
 	"indent": 2
 }

@@ -12,9 +12,9 @@ var RouterGenerator = module.exports = function RouterGenerator(args, options, c
 
   this.options.model_files = [];
   this.options.model_dir = 'app/scripts/models';
+
   if (fs.existsSync(this.options.model_dir)) {
     this.model_files = fs.readdirSync(this.options.model_dir);
-    // console.log(this.model_files);
   }
 
   this.options.coffee = options.coffee;
@@ -33,7 +33,7 @@ RouterGenerator.prototype._getJSPath = function _getJSPath(file) {
   return file + (this.options.coffee ? '.coffee' : '.js');
 };
 
-RouterGenerator.prototype.files = function files() {
+RouterGenerator.prototype.generateFiles = function generateFiles() {
   this.models = [];
   var models = this.model_files;
   for (var i in models) {

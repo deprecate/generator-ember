@@ -13,36 +13,32 @@ describe('Router', function () {
     }.bind(this));
   });
 
-  var filesDoNotExist = function(list_of_files){
-    for (var i = 0; i < list_of_files.length; i++) {
-      assert(!fs.existsSync(list_of_files[i]), list_of_files[i]);
+  var filesDoNotExist = function (files) {
+    for (var i = 0; i < files.length; i++) {
+      assert(!fs.existsSync(files[i]), files[i] + ' should not exist');
     }
   };
 
   it('with javascript', function (done) {
-    this.router = {};
-    this.router = helpers.createGenerator('ember:router', ['../../router']);
+    var router = helpers.createGenerator('ember:router', ['../../router']);
 
-    filesDoNotExist([this.router.router_file]);
+    filesDoNotExist([router.router_file]);
 
-    this.router.controller_files = ['user_controller.js'];
-    var router = this.router;
-    this.router.run({}, function () {
-      helpers.assertFiles( [ router.options.router_file ] );
+    router.controller_files = ['user_controller.js'];
+    router.run({}, function () {
+      helpers.assertFiles([router.options.router_file]);
       done();
     });
   });
 
   it('with coffee-script', function (done) {
-    this.router = {};
-    this.router = helpers.createGenerator('ember:router', ['../../router']);
+    var router = helpers.createGenerator('ember:router', ['../../router']);
 
-    filesDoNotExist([this.router.router_file]);
+    filesDoNotExist([router.router_file]);
 
-    this.router.controller_files = ['user_controller.coffee'];
-    var router = this.router;
-    this.router.run({}, function () {
-      helpers.assertFiles( [ router.options.router_file ] );
+    router.controllerFiles = ['user_controller.coffee'];
+    router.run({}, function () {
+      helpers.assertFiles([router.options.router_file]);
       done();
     });
   });
