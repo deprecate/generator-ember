@@ -1,6 +1,9 @@
 <%= _.classify(appname) %>.<%= _.classify(name) %>EditController = Ember.ObjectController.extend(
-  save: ->
-    # we're cheating here that there's no commit()
-    # but the UI element is already bound to the model
-    @transitionToRoute '<%= name.toLowerCase() %>', @get('model')
+  needs: '<%=name.toLowerCase()%>'
+  actions:
+    save: ->
+      self = this
+      @get('buffer').forEach (attr)->
+        self.get('controllers.<%=name.toLowerCase()%>.model').set(attr.key, attr.value)
+      @transitionToRoute '<%= name.toLowerCase() %>', @get('model')
 )

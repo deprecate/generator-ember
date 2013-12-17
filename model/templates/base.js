@@ -6,13 +6,10 @@
 // probably should be mixed-in...
 <%= _.classify(appname) %>.<%= _.classify(name) %>.reopen({
   attributes: function(){
-    var attrs = [];
     var model = this;
-    Ember.$.each(Ember.keys(this.get('data')), function(idx, key){
-      var pair = { key: key, value: model.get(key) };
-      attrs.push(pair);
+    return Ember.keys(this.get('data')).map(function(key){
+      return Em.Object.create({ model: model, key: key, valueBinding: 'model.' + key });
     });
-    return attrs;
   }.property()
 });
 

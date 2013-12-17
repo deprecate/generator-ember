@@ -1,13 +1,13 @@
 <h1><%= name %></h1>
 
 <table>
-  {{#each model.attributes}}
+  {{#each buffer}}
   <tr>
     <td>
-      <strong>{{this.key}}:</strong>
+      <strong>{{key}}:</strong>
     </td>
     <td>
-      {{view <%= _.classify(appname) %>.BoundTextFieldView contentBinding="this"}}
+      {{input value=value}}
     </td>
   </tr>
   {{/each}}
