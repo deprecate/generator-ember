@@ -42,7 +42,7 @@ module.exports = function (grunt) {
             compass: {
                 files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
-            }, <% } %>
+            },<% } %>
             neuter: {<% if (!options.coffee) { %>
                 files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],<% }else{ %>
                 files: ['.tmp/scripts/{,*/}*.js',
@@ -184,7 +184,7 @@ module.exports = function (grunt) {
                     debugInfo: true
                 }
             }
-        }, <% } %>
+        },<% } %>
         // not used since Uglify task does concat,
         // but still available if needed
         /*concat: {
@@ -317,17 +317,17 @@ module.exports = function (grunt) {
             server: [
                 'emberTemplates',<%if (options.coffee) { %>
                 'coffee:dist',<% } if (compassBootstrap) {%>
-                'compass:server' <% } %>
+                'compass:server'<% } %>
             ],
             test: [
                 'emberTemplates',<%if (options.coffee) { %>
                 'coffee',<% } if (compassBootstrap) {%>
-                'compass' <%}%>
+                'compass'<% } %>
             ],
             dist: [
                 'emberTemplates',<%if (options.coffee) { %>
                 'coffee',<% } if (compassBootstrap) {%>
-                'compass:dist', <% } %>
+                'compass:dist',<% } %>
                 'imagemin',
                 'svgmin',
                 'htmlmin'
