@@ -1,6 +1,6 @@
 # Ember.js Generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-ember.png?branch=master)](http://travis-ci.org/yeoman/generator-ember)
 
-Maintainer: [Anthony Bull](https://github.com/inkredabull)
+Maintainer: [Fayimora Femi-Balogun](https://github.com/fayimora)
 
 The scaffolding tool for Ember.js apps.
 
