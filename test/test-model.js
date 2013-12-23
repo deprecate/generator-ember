@@ -43,20 +43,6 @@ describe('Model', function () {
       helpers.assertFile('app/scripts/models/user_model.js', /name: DS.attr\('string'\)/);
       helpers.assertFile('app/scripts/models/user_model.js', /zipcode: DS.attr\('number'\)/);
       helpers.assertFile('app/scripts/models/user_model.js', /User.FIXTURES/);
-    });
-
-    // there has to be a better way
-    // to structure/include the following...
-    this.router = {};
-    this.router = helpers.createGenerator('ember:router', ['../../router']);
-
-    filesDoNotExist([this.router.router_file]);
-
-    var router = this.router;
-    this.router.run({}, function () {
-      helpers.assertFiles( [ router.options.router_file ] );
-      helpers.assertFile(router.options.router_file, /resource\('users'/);
-      helpers.assertFile(router.options.router_file, /resource\('user'/);
       done();
     });
   });
@@ -71,34 +57,14 @@ describe('Model', function () {
     filesDoNotExist(COFFEE_FILES_GENERATED_BY_MODEL_SUBGEN);
 
     var model = this.model;
-    this.model.options['coffee'] = true;
+    this.model.options.coffee = true;
     this.model.run({}, function () {
       helpers.assertFiles( COFFEE_FILES_GENERATED_BY_MODEL_SUBGEN );
       helpers.assertFile('app/scripts/models/user_model.coffee', /User = DS.Model/);
       helpers.assertFile('app/scripts/models/user_model.coffee', /name: DS.attr\('string'\)/);
       helpers.assertFile('app/scripts/models/user_model.coffee', /zipcode: DS.attr\('number'\)/);
       helpers.assertFile('app/scripts/models/user_model.coffee', /User.FIXTURES/);
-    });
-
-    // there has to be a better way
-    // to structure/include the following...
-    this.router = {};
-    this.router = helpers.createGenerator('ember:router', ['../../router']);
-
-
-    filesDoNotExist([this.router.router_file]);
-
-    var router = this.router;
-    this.router.options['coffee'] = true;
-    this.router.run({}, function () {
-      helpers.assertFiles( [ router.options.router_file ] );
-      helpers.assertFile(router.options.router_file, /resource\('users'/);
-      helpers.assertFile(router.options.router_file, /resource\('user'/);
       done();
     });
   });
-
-  it('takes singular noun and creates singular route, controller for new')
-
-  //it('takes singular noun and creates singular route for delete')
 });
