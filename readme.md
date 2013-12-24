@@ -142,10 +142,8 @@ See the [changelog file](https://github.com/yeoman/generator-ember/blob/master/c
 
 ## TODO
 
-* Change tests to instantiate and test objects instead of grepping for text
-* DRY up/refactor tests
-* Consider ES6 as base structure
-* Remove Ruby dependency
+Please take a look at [#144](https://github.com/yeoman/generator-ember/issues/144) for a detailed list of TODOS.
+
 
 ## Contribute
 
