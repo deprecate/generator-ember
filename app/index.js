@@ -37,10 +37,6 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
     '@@ember',
     '@@ember_data'
   ];
-
-  this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
-  });
 };
 
 util.inherits(EmberGenerator, yeoman.generators.Base);
@@ -176,4 +172,17 @@ EmberGenerator.prototype.all = function all() {
   this.copy(this._getJSPath('scripts/app'), this._getJSPath('app/scripts/app'));
   this.copy(this._getJSPath('scripts/store'), this._getJSPath('app/scripts/store'));
   this.copy(this._getJSPath('scripts/routes/application_route'), this._getJSPath('app/scripts/routes/application_route'));
+};
+
+EmberGenerator.prototype.install = function () {
+  if (this.options['skip-install']) {
+    return;
+  }
+
+  var done = this.async();
+  this.installDependencies({
+    skipMessage: this.options['skip-message'],
+    skipInstall: this.options['skip-install'],
+    callback: done
+  });
 };
