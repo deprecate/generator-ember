@@ -2,7 +2,8 @@
 
 Maintainer: [Fayimora Femi-Balogun](https://github.com/fayimora)
 
-The scaffolding tool for Ember.js apps.
+`generator-ember` aims to provide intelligent scaffolding for Ember.js web applications, offering a sane project structure, dependency management and build-time optimization for your scripts, stylesheets and assets. It is a compliment to [Ember App Kit](https://github.com/stefanpenner/ember-app-kit) and can be used on it's own or in conjunction with another set of tools or boilerplates.
+
 
 ![ScreenShot](https://raw.github.com/yeoman/generator-ember/master/project/img/screenshots/2013_07_17.png)
 
