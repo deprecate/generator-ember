@@ -30,5 +30,5 @@ ModelGenerator.prototype._getJSPath = function _getJSPath(file) {
 };
 
 ModelGenerator.prototype.files = function files() {
-  this.copy(this._getJSPath('base'), 'app/scripts/models/' + this._.slugify(this.name) + this._getJSPath('_model'));
+  this.template(this._getJSPath('base'), 'app/scripts/models/' + this._.slugify(this.name) + this._getJSPath('_model'));
 };
