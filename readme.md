@@ -10,6 +10,7 @@ Maintainer: [Fayimora Femi-Balogun](https://github.com/fayimora)
 ## Table of Contents
 
 * [Pre-reqs](#pre-reqs)
+* [Tutorials](#tutorials)
 * [Usage](#usage)
 * [Generators](#generators)
   * [ember-model](#embermodel)
@@ -34,6 +35,13 @@ Maintainer: [Fayimora Femi-Balogun](https://github.com/fayimora)
 You should have one path each for:
 
   `which ruby && which compass`
+
+## Tutorials
+
+You can either get started using the guie in our documentation lower down or via one of the community-authored tutorials about this generator.
+
+* [Yeoman Ember](https://www.openshift.com/blogs/day-24-yeoman-ember-the-missing-tutorial) - the missing tutorial
+* [Productive out-of-the-box with Yeoman and Ember](http://www.infoq.com/presentations/emberjs-tools-yeoman)
 
 ## Usage
 
