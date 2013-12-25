@@ -21,6 +21,7 @@ This project is an ongoing community effort, and efforts to find the easiest way
 * [Troubleshooting](#troubleshooting)
 * [Changelog](#changelog)
 * [Roadmap](#roadmap)
+* [Modules](#modules)
 * [Contribute](#contribute)
   * [Basics](#basics)
   * [Tips](#tips)
@@ -145,6 +146,11 @@ See the [changelog file](https://github.com/yeoman/generator-ember/blob/master/c
 
 Please take a look at [#144](https://github.com/yeoman/generator-ember/issues/144) for a detailed list of updates on our roadmap.
 
+## Modules
+
+Support for ES6 modules are currently on our roadmap, but are not yet implemented. In the interim, we are happy to recommend using the [ES6 Module Transpiler](https://github.com/square/es6-module-transpiler) via [grunt-es6-module-transpiler](https://github.com/joefiorini/grunt-es6-module-transpiler) to get transpilation support for modules in your Ember.js apps. 
+
+This will turn your ES6 module syntax into AMD (RequireJS-style) modules and using the transpiler you can write code using tomorrow's syntax today. Note: actually scaffolding ES6 modules will not be supported until this generator adds that feature.
 
 ## Contribute
 
