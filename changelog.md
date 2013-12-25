@@ -1,5 +1,22 @@
 ## History
 
+### 0.7.2 (2013-12-24)
+* All generated scripts and templates have been updated to use the latest ember syntax as of v1.2.0.
+  See [this post](http://emberjs.com/blog/2013/12/04/ember-1-2-0-and-ember-1-3-0-beta-released.html#toc_non-block-form-link-to-helper)
+  and [this entry in the changelog](https://github.com/emberjs/ember.js/blob/v1.2.0/CHANGELOG#L132)
+* The generator ships with ember v1.2.0
+* Better coffee-script syntax
+* Generated edit template now goes into expected subfolder. So `yo ember:model User name age:number`
+  will place the edit template in `user/edit.hbs`
+* The generated views no longer explicitly define `templateName` as Ember's default resolver knows
+  where to find the templates
+* Removed hardcoded user.edit link.
+* CoffeeScript support has been added to the sub-generators. `yo ember:controller Users --coffee`
+  will now generate a controller in CoffeeScript
+* More concise REST routes in router as described in [An In-depth Introduction to Ember.js](http://coding.smashingmagazine.com/2013/11/07/an-in-depth-introduction-to-ember-js/#instantiate_the_router)
+* The build task now uses the production version of ember.
+* Remove Unecessary File From App Generation
+
 ### 0.7.1 (2013-10-20)
 
 * Fix Bootstrap 3 template
