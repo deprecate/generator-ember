@@ -2,8 +2,9 @@
 
 Maintainer: [Fayimora Femi-Balogun](https://github.com/fayimora)
 
-`generator-ember` aims to provide intelligent scaffolding for Ember.js web applications, offering a sane project structure, dependency management and build-time optimization for your scripts, stylesheets and assets. It is a compliment to [Ember App Kit](https://github.com/stefanpenner/ember-app-kit) and can be used on it's own or in conjunction with another set of tools or boilerplates.
+The Ember.js generator aims to provide intelligent scaffolding for Ember.js web applications, offering a sane project structure, dependency management and build-time optimization for your scripts, stylesheets and assets. It is a compliment to [Ember App Kit](https://github.com/stefanpenner/ember-app-kit) and can be used on it's own or in conjunction with another set of tools or boilerplates.
 
+This project is an ongoing community effort, and efforts to find the easiest ways to architect applications continue. We welcome your issues and PRs for features, bug fixes, and anything that would improve your quality of life as an Ember developer.
 
 ![ScreenShot](https://raw.github.com/yeoman/generator-ember/master/project/img/screenshots/2013_07_17.png)
 
@@ -19,7 +20,7 @@ Maintainer: [Fayimora Femi-Balogun](https://github.com/fayimora)
 * [Options](#options)
 * [Troubleshooting](#troubleshooting)
 * [Changelog](#changelog)
-* [TODO](#todo)
+* [Roadmap](#roadmap)
 * [Contribute](#contribute)
   * [Basics](#basics)
   * [Tips](#tips)
@@ -140,9 +141,9 @@ You probably added a view; restart the server.
 ## Changelog
 See the [changelog file](https://github.com/yeoman/generator-ember/blob/master/changelog.md)
 
-## TODO
+## Roadmap
 
-Please take a look at [#144](https://github.com/yeoman/generator-ember/issues/144) for a detailed list of TODOS.
+Please take a look at [#144](https://github.com/yeoman/generator-ember/issues/144) for a detailed list of updates on our roadmap.
 
 
 ## Contribute
