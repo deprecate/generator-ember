@@ -35,7 +35,8 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
     'bower_components/jquery/jquery.js',
     'bower_components/handlebars/handlebars.runtime.js',
     '@@ember',
-    '@@ember_data'
+    '@@ember_data',
+    '@@app_config'
   ];
 };
 

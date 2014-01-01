@@ -55,6 +55,33 @@ You can either get started using the guie in our documentation lower down or via
 
 A welcome page should appear in your browser.
 
+## Environment App config
+
+If you want to setup some different variables depending on wether you qre developing or the production build, you can add them in:
+*For development:*
+`app/scripts/app_config/development.js`
+
+*For Production:*
+`app/scripts/app_config/development.js`
+
+###Example:
+In app/scripts/app_config/development.js:
+```
+var AppConfig: {
+  adapterUrl: 'http://mydevapi'
+};
+```
+
+Then in app/scripts/store.js:
+
+```
+MyApp.Store = DS.Store.extend({
+  adapter: DS.RESTAdapter.create({
+    url: AppConfig.adapterUrl
+  });
+});
+```
+
 ## Generators
 
 Add'l generators:

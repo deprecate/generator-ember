@@ -77,6 +77,19 @@ describe('File Creation', function () {
     });
   });
 
+  it('properly links app config', function (done) {
+    var expected = [
+      [
+        'app/index.html',
+        /<script src="@@app_config"><\/script>/
+      ]
+    ];
+    this.ember.run({}, function () {
+      helpers.assertFiles(expected);
+      done();
+    });
+  });
+
   it('creates a CoffeeScript based project when --coffee is specified', function (done) {
     this.ember.options.coffee = true;
     this.ember.run({}, function () {
