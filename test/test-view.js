@@ -31,7 +31,7 @@ describe('View', function () {
     this.view.run({}, function () {
       helpers.assertFiles( JS_FILES_GENERATED_BY_VIEW_SUBGEN );
       helpers.assertFile('app/scripts/views/users_view.js', /UsersView/);
-      helpers.assertFile('app/templates/users.hbs', /linkTo.*this/);
+      helpers.assertFile('app/templates/users.hbs', /link-to.*this/);
       done();
     });
   });
@@ -47,7 +47,7 @@ describe('View', function () {
     this.view.run({}, function () {
       helpers.assertFiles( COFFEE_FILES_GENERATED_BY_VIEW_SUBGEN );
       helpers.assertFile('app/scripts/views/users_view.coffee', /UsersView/);
-      helpers.assertFile('app/templates/users.hbs', /linkTo.*this/);
+      helpers.assertFile('app/templates/users.hbs', /link-to.*this/);
       done();
     });
   });
