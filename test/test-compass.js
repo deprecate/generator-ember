@@ -6,7 +6,7 @@ var assert = require('assert');
 var fs = require('fs');
 
 var EXPECTED_FILES = [
-  '.gitignore',
+'.gitignore',
   '.gitattributes',
   '.bowerrc',
   'bower.json',
@@ -20,7 +20,7 @@ var EXPECTED_FILES = [
   'app/index.html'
 ];
 
-describe('Compass', function () {
+describe('compassBootstrap', function () {
 
   beforeEach(function (done) {
     helpers.testDirectory(path.join(__dirname, './temp'), function (err) {
@@ -31,36 +31,76 @@ describe('Compass', function () {
       this.ember.app = helpers.createGenerator('ember:app', [
         '../../router',
         '../../app', [
-          helpers.createDummyGenerator(),
-          'mocha:app'
+        helpers.createDummyGenerator(),
+        'mocha:app'
         ]
-      ]);
-      helpers.mockPrompt(this.ember.app, {
-        'compassBootstrap': true
-      });
+        ]);
       this.ember.app.options['coffee'] = false;
       this.ember.app.options['skip-install'] = true;
       done();
     }.bind(this));
   });
 
-  describe('compass', function () {
-    it('creates expected files without compassSass', function (done) {
+  describe('true', function () {
+
+    beforeEach(function () {
       helpers.mockPrompt(this.ember.app, {
-        'compassBootstrap': false
+        compassBootstrap: true
       });
+    });
+
+    it('create expected files', function (done) {
       this.ember.app.run({}, function () {
-        helpers.assertFiles(EXPECTED_FILES);
-        helpers.assertFiles( ['app/styles/normalize.css', 'app/styles/style.css'] );
+        helpers.assertFile(EXPECTED_FILES);
         done();
       });
     });
 
-    it('creates expected files with compassSass', function (done) {
+    it('add compass as an npm dependency', function (done) {
       this.ember.app.run({}, function () {
-        helpers.assertFiles(EXPECTED_FILES);
+        helpers.assertFileContent('package.json', /grunt-contrib-compass/);
         done();
       });
     });
+
+    it('add compass configuration to Gruntfile', function (done) {
+      this.ember.app.run({}, function () {
+        helpers.assertFileContent('Gruntfile.js', /compass:/);
+        done();
+      });
+    });
+
+  });
+
+  describe('false', function () {
+
+    beforeEach(function () {
+      helpers.mockPrompt(this.ember.app, {
+        compassBootstrap: false
+      });
+    });
+
+    it('create expected files', function (done) {
+      this.ember.app.run({}, function () {
+        helpers.assertFile(EXPECTED_FILES);
+        helpers.assertFile( ['app/styles/normalize.css', 'app/styles/style.css'] );
+        done();
+      });
+    });
+
+    it('do not add compass as an npm dependency', function (done) {
+      this.ember.app.run({}, function () {
+        helpers.assertNoFileContent('package.json', /grunt-contrib-compass/);
+        done();
+      });
+    });
+
+    it('do not add compass configuration to Gruntfile', function (done) {
+      this.ember.app.run({}, function () {
+        helpers.assertNoFileContent('Gruntfile.js', /compass:/);
+        done();
+      });
+    });
+
   });
 });
