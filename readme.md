@@ -32,8 +32,8 @@ This project is an ongoing community effort, and efforts to find the easiest way
 
 * [npm](http://nodejs.org/)
 * `npm install -g grunt-contrib-compass`
-* Ruby 
- 
+* Ruby
+
 You should have one path each for:
 
   `which ruby && which compass`
@@ -50,8 +50,8 @@ You can either get started using the guide in our documentation lower down or vi
 * `npm install -g generator-ember`
 * `mkdir myemberapp && cd myemberapp`(The directory's name is your application's name)
 * `yo ember`
-* `npm install -g grunt-mocha` 
-* `grunt server`
+* `npm install -g grunt-mocha`
+* `grunt serve`
 
 A welcome page should appear in your browser.
 
@@ -84,7 +84,7 @@ Creates a view and template given an arg, as in
 
   `yo ember:view Foo`
 
-__KNOWN ISSUE: IF YOU ADD A NEW VIEW, REGARDLESS OF WITH WHICH GENERATOR, YOU HAVE TO RESTART THE SERVER.__ 
+__KNOWN ISSUE: IF YOU ADD A NEW VIEW, REGARDLESS OF WITH WHICH GENERATOR, YOU HAVE TO RESTART THE SERVER.__
 
 ### ember:controller
 
@@ -94,7 +94,7 @@ Creates a view, handlebar, controller and route given an arg, as in:
 
 (and updates router.js, overwrite when prompted)
 
-see: 
+see:
 
 * http://localhost:9000/#/bar
 
@@ -176,7 +176,7 @@ When developing...
 if you want to smoke-test changes, bad if you update Bower and/or Node
 mods (ignores removing their subdirs.)
 
-## Background 
+## Background
 
 * Originally inspired by the [Ember Starter Kit](https://github.com/emberjs/starter-kit/archive/v1.0.0-rc.6.zip)
 * Taking influence from [ember_data_example](https://github.com/dgeb/ember_data_example)
