@@ -59,13 +59,13 @@ A welcome page should appear in your browser.
 
 If you want to set-up environment specific variables, edit the respective file in:
 *For development:*
-`app/scripts/app_config/development.js`
+`app/scripts/config/environments/development.js`
 
 *For Production:*
-`app/scripts/app_config/production.js`
+`app/scripts/config/environments/production.js`
 
 ###Example:
-In app/scripts/app_config/development.js:
+In app/scripts/config/environments/development.js:
 ```
 var AppConfig: {
   adapterUrl: 'http://mydevapi'
