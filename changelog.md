@@ -1,6 +1,16 @@
 ## History
 
-### 0.7.2 (2013-12-24)
+
+### 0.8.1 (2014-01-15)
+* `grunt server` is now deprecated. Use `grunt serve` instead
+* Upgrade Ember to 1.3.1(security critical) and Ember Data to 1.0.0.beta.5
+* Generator now includes compass ONLY if user wants it
+* Replace the deprecated 'linkTo' helper with the recommended link-to helper in templates
+* Merge pull request #156 from chadfennell/master
+* Add a note about ES6 modules
+
+### 0.8.0 (2013-12-24)
+
 * All generated scripts and templates have been updated to use the latest ember syntax as of v1.2.0.
   See [this post](http://emberjs.com/blog/2013/12/04/ember-1-2-0-and-ember-1-3-0-beta-released.html#toc_non-block-form-link-to-helper)
   and [this entry in the changelog](https://github.com/emberjs/ember.js/blob/v1.2.0/CHANGELOG#L132)
