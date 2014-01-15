@@ -6,7 +6,6 @@
 * Upgrade Ember to 1.3.1(security critical) and Ember Data to 1.0.0.beta.5
 * Generator now includes compass ONLY if user wants it
 * Replace the deprecated 'linkTo' helper with the recommended link-to helper in templates
-* Merge pull request #156 from chadfennell/master
 * Add a note about ES6 modules
 
 ### 0.8.0 (2013-12-24)
