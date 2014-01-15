@@ -277,8 +277,14 @@ module.exports = function (grunt) {
             options: {
               variables: {
                 ember: 'bower_components/ember/ember.js',
+<<<<<<< HEAD
                 ember_data: 'bower_components/ember-data/ember-data.js'
                 config: 'scripts/config/environments/development.js'
+=======
+                ember_data: 'bower_components/ember-data-shim/ember-data.js',
+                app_config: 'scripts/app_config/development.js'
+
+>>>>>>> 66f26e9e5a7599da53cb99b85e8ef5864648349b
               }
             },
             files: [
@@ -289,8 +295,13 @@ module.exports = function (grunt) {
             options: {
               variables: {
                 ember: 'bower_components/ember/ember.prod.js',
+<<<<<<< HEAD
                 ember_data: 'bower_components/ember-data/ember-data.prod.js'
                 config: 'scripts/config/environments/production.js'
+=======
+                ember_data: 'bower_components/ember-data-shim/ember-data.prod.js',
+                app_config: 'scripts/app_config/production.js'
+>>>>>>> 66f26e9e5a7599da53cb99b85e8ef5864648349b
               }
             },
             files: [

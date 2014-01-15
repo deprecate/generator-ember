@@ -77,11 +77,19 @@ describe('File Creation', function () {
     });
   });
 
+<<<<<<< HEAD
   it('properly links config', function (done) {
     var expected = [
       [
         'app/index.html',
         /<script src="@@config"><\/script>/
+=======
+  it('properly links app config', function (done) {
+    var expected = [
+      [
+        'app/index.html',
+        /<script src="@@app_config"><\/script>/
+>>>>>>> 66f26e9e5a7599da53cb99b85e8ef5864648349b
       ]
     ];
     this.ember.run({}, function () {
