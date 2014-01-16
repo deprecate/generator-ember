@@ -26,14 +26,14 @@
     "fleck": "~0.5.1"
   },
   "devDependencies": {
-    "mocha": "~1.13.0"
+    "mocha": "*"
   },
   "peerDependencies": {
-    "generator-mocha": "~0.1.1",
-    "yo": ">=1.0.0-rc.1.1"
+    "generator-mocha": ">=0.1.1",
+    "yo": ">=1.0.0"
   },
   "engines": {
-    "node": ">=0.8.0",
+    "node": ">=0.10.0",
     "npm": ">=1.2.10"
   },
   "licenses": [
