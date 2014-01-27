@@ -21,9 +21,9 @@ module.exports = function(config) {
       'app/bower_components/jquery/jquery.min.js',
       'app/bower_components/handlebars/handlebars.runtime.js',
       'app/bower_components/ember/ember.js',
-      'app/bower_components/ember-data-shim/ember-data.js',
+      'app/bower_components/ember-data/ember-data.js',
       <% if (testFramework === 'mocha') { %>
-      'test/lib/chai.js',
+      'test/bower_components/chai/chai.js',
       'app/bower_components/ember-mocha-adapter/adapter.js',
       <% } %>
       '.tmp/scripts/combined-scripts.js',
