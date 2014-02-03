@@ -298,6 +298,21 @@ module.exports = function (grunt) {
         },
         // Put files not handled in other tasks here
         copy: {
+            fonts: {
+                files: [
+                    { 
+                        expand: true,
+                        flatten: true,
+                        filter: 'isFile',
+                        cwd: '<%= yeoman.app %>/bower_components/',
+                        dest: '<%= yeoman.app %>/styles/fonts/',
+                        src: [ 
+                            'bootstrap-sass/dist/fonts/**', // Bootstrap
+                            'font-awesome/fonts/**' // Font-Awesome
+                        ]
+                    }
+                ]
+            },
             dist: {
                 files: [
                     {
@@ -310,17 +325,6 @@ module.exports = function (grunt) {
                             '.htaccess',
                             'images/{,*/}*.{webp,gif}',
                             'styles/fonts/*'
-                        ]
-                    },
-                    { // Copy Fonts from Bower Components
-                        expand: true,
-                        flatten: true,
-                        filter: 'isFile',
-                        cwd: '<%%= yeoman.app %>',
-                        dest: '<%%= yeoman.dist %>/styles/fonts/',
-                        src: [ 
-                            'bower_components/bootstrap-sass/dist/fonts/**', // Bootstrap
-                            'bower_components/font-awesome/fonts/**' // Font-Awesome
                         ]
                     }
                 ]
@@ -404,6 +408,7 @@ module.exports = function (grunt) {
             'replace:app',
             'concurrent:server',
             'neuter:app',
+            'copy:fonts',
             'connect:livereload',
             'open',
             'watch'
