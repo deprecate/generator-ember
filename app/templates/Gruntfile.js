@@ -304,8 +304,8 @@ module.exports = function (grunt) {
                         expand: true,
                         flatten: true,
                         filter: 'isFile',
-                        cwd: '<%= yeoman.app %>/bower_components/',
-                        dest: '<%= yeoman.app %>/styles/fonts/',
+                        cwd: '<%%= yeoman.app %>/bower_components/',
+                        dest: '<%%= yeoman.app %>/styles/fonts/',
                         src: [ 
                             'bootstrap-sass/dist/fonts/**', // Bootstrap
                             'font-awesome/fonts/**' // Font-Awesome
