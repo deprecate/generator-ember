@@ -372,7 +372,7 @@ module.exports = function (grunt) {
             app: {
                 options: {
                     filepathTransform: function (filepath) {
-                        return 'app/' + filepath;
+                        return yeomanConfig.app + '/' + filepath;
                     }
                 },
                 src: '<%%= yeoman.app %>/scripts/app.js',
