@@ -1,6 +1,12 @@
 ## History
 
 
+### 0.8.2 (2014-01-09)
+ * Fix PhantomJS time out bug
+ * Fix bug in test helpers where #ember-testing-container wasn't found
+ * Fix ember-data and chai paths in generated karma.conf.js :heavy_exclamation_mark:
+ * Newly scaffolded project now comes with a default empty router
+
 ### 0.8.1 (2014-01-15)
 * `grunt server` is now deprecated. Use `grunt serve` instead
 * Upgrade Ember to 1.3.1(security critical) and Ember Data to 1.0.0.beta.5
