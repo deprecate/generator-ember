@@ -1,2 +1,2 @@
-<%= _.classify(appname) %>.Router - >
+<%= _.classify(appname) %>.Router ->
   # Add your routes here
