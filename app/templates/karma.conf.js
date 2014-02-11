@@ -23,7 +23,7 @@ module.exports = function(config) {
       'app/bower_components/ember/ember.js',
       'app/bower_components/ember-data/ember-data.js',
       <% if (testFramework === 'mocha') { %>
-      'test/bower_components/chai/chai.js',
+      'test/lib/chai.js',
       'app/bower_components/ember-mocha-adapter/adapter.js',
       <% } %>
       '.tmp/scripts/combined-scripts.js',
