@@ -1,7 +1,12 @@
 ## History
 
 
-### 0.8.2 (2014-01-09)
+### 0.8.3 (2014-02-12)
+* Upgrade ember to 1.3.2 :heavy_exclamation_mark:
+* Fix incorrect path of chai.js for karma
+* Explicitly state handlebars dependency (1.2.1)
+
+### 0.8.2 (2014-02-09)
  * Fix PhantomJS time out bug
  * Fix bug in test helpers where #ember-testing-container wasn't found
  * Fix ember-data and chai paths in generated karma.conf.js :heavy_exclamation_mark:
