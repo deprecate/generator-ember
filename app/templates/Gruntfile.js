@@ -297,7 +297,7 @@ module.exports = function (grunt) {
           }
         },
         // Put files not handled in other tasks here
-        copy: {
+        copy: {<% if (compassBootstrap) {%>
             fonts: {
                 files: [
                     { 
@@ -307,12 +307,11 @@ module.exports = function (grunt) {
                         cwd: '<%%= yeoman.app %>/bower_components/',
                         dest: '<%%= yeoman.app %>/styles/fonts/',
                         src: [ 
-                            'bootstrap-sass/dist/fonts/**', // Bootstrap
-                            'font-awesome/fonts/**' // Font-Awesome
+                            'bootstrap-sass/dist/fonts/**' // Bootstrap
                         ]
                     }
                 ]
-            },
+            }, <% } %>
             dist: {
                 files: [
                     {
@@ -407,8 +406,8 @@ module.exports = function (grunt) {
             'clean:server',
             'replace:app',
             'concurrent:server',
-            'neuter:app',
-            'copy:fonts',
+            'neuter:app',<% if (compassBootstrap) {%>
+            'copy:fonts',<% } %>
             'connect:livereload',
             'open',
             'watch'
