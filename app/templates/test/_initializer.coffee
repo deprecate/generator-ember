@@ -7,7 +7,6 @@ should = chai.should()
 
 chai.Assertion.includeStack = true
 
-Ember.testing = true
 <%= _.classify(appname) %>.rootElement = "#ember-testing"
 Ember.Test.adapter = Ember.Test.MochaAdapter.create()
 
