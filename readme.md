@@ -31,6 +31,7 @@ This project is an ongoing community effort, and efforts to find the easiest way
 ## Pre-reqs
 
 * [npm](http://nodejs.org/)
+* [compass](http://compass-style.org/install/)
 * `npm install -g grunt-contrib-compass`
 * Ruby
 
