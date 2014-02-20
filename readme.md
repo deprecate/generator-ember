@@ -34,6 +34,7 @@ This project is an ongoing community effort, and efforts to find the easiest way
 * [compass](http://compass-style.org/install/)
 * `npm install -g grunt-contrib-compass`
 * Ruby
+* gem install compass
 
 You should have one path each for:
 
