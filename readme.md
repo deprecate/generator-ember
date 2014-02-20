@@ -31,8 +31,9 @@ This project is an ongoing community effort, and efforts to find the easiest way
 ## Pre-reqs
 
 * [npm](http://nodejs.org/)
-* `npm install -g grunt-contrib-compass`
+* `npm install -g grunt-contrib-compass` 
 * Ruby
+* gem install compass
 
 You should have one path each for:
 
