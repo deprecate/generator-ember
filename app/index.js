@@ -56,7 +56,7 @@ EmberGenerator.prototype.askFor = function askFor() {
   var prompts = [{
     type: 'confirm',
     name: 'compassBootstrap',
-    message: 'Would you like to include Twitter Bootstrap for Sass?',
+    message: 'Would you like to include Bootstrap for Sass?',
     default: true
   }];
 
@@ -142,7 +142,7 @@ EmberGenerator.prototype.bootstrapJavaScript = function bootstrapJavaScript() {
   if (!this.compassBootstrap) {
     return;  // Skip if disabled.
   }
-  // Wire Twitter Bootstrap plugins
+  // Wire Bootstrap plugins
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/plugins.js', [
     'bower_components/bootstrap-sass/js/affix.js',
     'bower_components/bootstrap-sass/js/alert.js',
