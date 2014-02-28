@@ -10,13 +10,13 @@
     "grunt-contrib-uglify": "~0.2.0",<% if (compassBootstrap) { %>
     "grunt-contrib-compass": "~0.5.0",<% } %>
     "grunt-contrib-jshint": "~0.6.3",
-    "grunt-contrib-cssmin": "~0.6.0",
     "grunt-contrib-connect": "~0.3.0",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-htmlmin": "~0.1.3",
     "grunt-contrib-imagemin": "~0.2.0",
     "grunt-contrib-watch": "~0.5.2",<% if (testFramework === 'jasmine') { %>
     "grunt-contrib-jasmine": "~0.5.1",<% } %>
+    "grunt-csso": "~0.5.3",
     "grunt-rev": "~0.1.0",
     "grunt-usemin": "~0.1.12",<% if (testFramework === 'mocha') {  %>
     "grunt-mocha": "~0.4.1",<% } %>
