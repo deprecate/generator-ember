@@ -144,18 +144,18 @@ EmberGenerator.prototype.bootstrapJavaScript = function bootstrapJavaScript() {
   }
   // Wire Bootstrap plugins
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/plugins.js', [
-    'bower_components/bootstrap-sass/js/affix.js',
-    'bower_components/bootstrap-sass/js/alert.js',
-    'bower_components/bootstrap-sass/js/dropdown.js',
-    'bower_components/bootstrap-sass/js/tooltip.js',
-    'bower_components/bootstrap-sass/js/modal.js',
-    'bower_components/bootstrap-sass/js/transition.js',
-    'bower_components/bootstrap-sass/js/button.js',
-    'bower_components/bootstrap-sass/js/popover.js',
-    'bower_components/bootstrap-sass/js/carousel.js',
-    'bower_components/bootstrap-sass/js/scrollspy.js',
-    'bower_components/bootstrap-sass/js/collapse.js',
-    'bower_components/bootstrap-sass/js/tab.js'
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js',
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js',
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js',
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js',
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js',
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js',
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js',
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js',
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js',
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js',
+    'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js'
   ], null, 'app');
 };
 

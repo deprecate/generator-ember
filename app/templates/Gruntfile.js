@@ -300,14 +300,14 @@ module.exports = function (grunt) {
         copy: {<% if (compassBootstrap) {%>
             fonts: {
                 files: [
-                    { 
+                    {
                         expand: true,
                         flatten: true,
                         filter: 'isFile',
                         cwd: '<%%= yeoman.app %>/bower_components/',
                         dest: '<%%= yeoman.app %>/styles/fonts/',
-                        src: [ 
-                            'bootstrap-sass/dist/fonts/**' // Bootstrap
+                        src: [
+                            'bootstrap-sass-official/vendor/assets/fonts/bootstrap/**' // Bootstrap
                         ]
                     }
                 ]
