@@ -351,7 +351,8 @@ module.exports = function (grunt) {
         },<%if (options.karma) { %>
         karma: {
             unit: {
-                configFile: 'karma.conf.js'
+                configFile: 'karma.conf.js',
+                singleRun: true
             }
         },<% } %>
         emberTemplates: {
