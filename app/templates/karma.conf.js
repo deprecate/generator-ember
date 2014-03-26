@@ -28,9 +28,9 @@ module.exports = function(config) {
       <% } %>
       '.tmp/scripts/combined-scripts.js',
       '.tmp/scripts/compiled-templates.js',<% if (options.coffee) { %>
-      'test/support/*.coffee',
-      'test/spec/*.coffee',
-      'test/integration/*.coffee'<% } else { %>
+      '.tmp/test/support/*.js',
+      '.tmp/test/spec/*.js',
+      '.tmp/test/integration/*.js'<% } else { %>
       'test/support/*.js',
       'test/spec/*.js',
       'test/integration/*.js'<% } %>

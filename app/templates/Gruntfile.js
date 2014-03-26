@@ -157,9 +157,9 @@ module.exports = function (grunt) {
             test: {
                 files: [{
                     expand: true,
-                    cwd: 'test/spec',
+                    cwd: 'test',
                     src: '{,*/}*.coffee',
-                    dest: '.tmp/spec',
+                    dest: '.tmp/test',
                     ext: '.js'
                 }]
             }
