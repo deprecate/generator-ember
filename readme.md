@@ -53,7 +53,7 @@ You can either get started using the guide in our documentation lower down or vi
 * `mkdir myemberapp && cd myemberapp`(The directory's name is your application's name)
 * `yo ember`
 * `npm install -g grunt-mocha`
-* `grunt serve`
+* `grunt server`
 
 A welcome page should appear in your browser.
 
@@ -67,7 +67,7 @@ Add'l generators:
 
 ### ember:model
 
-Creates a model, views, handlebars, controllers, view/edit routes, and some basic fixtures given an arg, as in: 
+Creates a model, views, handlebars, controllers, view/edit routes, and some basic fixtures given an arg, as in:
 
 `yo ember:model User name:string zipcode:number`
 
@@ -79,7 +79,7 @@ see also:
 
 * http://localhost:9000/#/user/1
 * http://localhost:9000/#/user/1/edit
- 
+
 ### ember:view
 
 Creates a view and template given an arg, as in
@@ -150,7 +150,7 @@ Please take a look at [#144](https://github.com/yeoman/generator-ember/issues/14
 
 ## Modules
 
-Support for ES6 modules are currently on our roadmap, but are not yet implemented. In the interim, we are happy to recommend using the [ES6 Module Transpiler](https://github.com/square/es6-module-transpiler) via [grunt-es6-module-transpiler](https://github.com/joefiorini/grunt-es6-module-transpiler) to get transpilation support for modules in your Ember.js apps. 
+Support for ES6 modules are currently on our roadmap, but are not yet implemented. In the interim, we are happy to recommend using the [ES6 Module Transpiler](https://github.com/square/es6-module-transpiler) via [grunt-es6-module-transpiler](https://github.com/joefiorini/grunt-es6-module-transpiler) to get transpilation support for modules in your Ember.js apps.
 
 This will turn your ES6 module syntax into AMD (RequireJS-style) modules and using the transpiler you can write code using tomorrow's syntax today. Note: actually scaffolding ES6 modules will not be supported until this generator adds that feature.
 
