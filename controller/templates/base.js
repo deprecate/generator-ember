@@ -1,4 +1,4 @@
-<%= _.classify(appname) %>.<%= _.classify(pluralized_name) %>Controller = Ember.ObjectController.extend({
+<%= _.classify(appname) %>.<%= _.classify(pluralized_name) %>Controller = Ember.ArrayController.extend({
   // Implement your controller here.
 });
 
