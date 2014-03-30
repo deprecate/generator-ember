@@ -35,7 +35,8 @@ ControllerGenerator.prototype._getJSPath = function _getJSPath(file) {
 };
 
 ControllerGenerator.prototype.files = function files() {
-  this.template(this._getJSPath('base'), 'app/scripts/controllers/' + this._.slugify(this.pluralized_name) + this._getJSPath('_controller'));
+  this.template(this._getJSPath('base'), 'app/scripts/controllers/' + this._.slugify(this.name) + this._getJSPath('_controller'));
+  this.template(this._getJSPath('plural'), 'app/scripts/controllers/' + this._.slugify(this.pluralized_name) + this._getJSPath('_controller'));
   this.template(this._getJSPath('base_edit'), 'app/scripts/controllers/' + this._.slugify(this.name) + this._getJSPath('_edit_controller'));
   this.template(this._getJSPath('plural_route'), 'app/scripts/routes/' + this._.slugify(this.pluralized_name) + this._getJSPath('_route'));
   this.template(this._getJSPath('single_route'), 'app/scripts/routes/' + this._.slugify(this.name) + this._getJSPath('_route'));
