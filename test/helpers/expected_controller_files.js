@@ -1,6 +1,7 @@
 require('./expected_view_files');
 
 JS_FILES_GENERATED_BY_CONTROLLER_SUBGEN = [
+  'app/scripts/controllers/user_controller.js',
   'app/scripts/controllers/users_controller.js',
   'app/scripts/controllers/user_edit_controller.js',
   'app/scripts/routes/user_route.js',
@@ -10,6 +11,7 @@ JS_FILES_GENERATED_BY_CONTROLLER_SUBGEN = [
 
 
 COFFEE_FILES_GENERATED_BY_CONTROLLER_SUBGEN = [
+  'app/scripts/controllers/user_controller.coffee',
   'app/scripts/controllers/users_controller.coffee',
   'app/scripts/controllers/user_edit_controller.coffee',
   'app/scripts/routes/user_route.coffee',

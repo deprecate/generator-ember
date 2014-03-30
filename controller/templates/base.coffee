@@ -1,1 +1,1 @@
-<%= _.classify(appname) %>.<%= _.classify(pluralized_name) %>Controller = Ember.ObjectController.extend()
+<%= _.classify(appname) %>.<%= _.classify(name) %>Controller = Ember.ObjectController.extend()
