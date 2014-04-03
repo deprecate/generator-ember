@@ -1,4 +1,4 @@
-# Ember.js Generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-ember.png?branch=master)](http://travis-ci.org/yeoman/generator-ember)
+# Ember.js Generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-ember.svg?branch=master)](http://travis-ci.org/yeoman/generator-ember)
 
 Maintainer: [Fayimora Femi-Balogun](https://github.com/fayimora)
 
