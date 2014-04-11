@@ -1,6 +1,8 @@
 'use strict';
+
 var util = require('util');
 var yeoman = require('yeoman-generator');
+var getJSPath = require('../utils/js_path');
 
 var ModelGenerator = module.exports = function ModelGenerator(args, options, config) {
   yeoman.generators.NamedBase.apply(this, arguments);
@@ -25,9 +27,7 @@ var ModelGenerator = module.exports = function ModelGenerator(args, options, con
 
 util.inherits(ModelGenerator, yeoman.generators.NamedBase);
 
-ModelGenerator.prototype._getJSPath = function _getJSPath(file) {
-  return file + (this.options.coffee ? '.coffee' : '.js');
-};
+ModelGenerator.prototype._getJSPath = getJSPath;
 
 ModelGenerator.prototype.files = function files() {
   this.template(this._getJSPath('base'), 'app/scripts/models/' + this._.slugify(this.name) + this._getJSPath('_model'));

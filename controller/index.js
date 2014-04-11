@@ -1,8 +1,10 @@
 'use strict';
+
 var util = require('util');
 var yeoman = require('yeoman-generator');
 var fs = require('fs');
 var fleck = require('fleck');
+var getJSPath = require('../utils/js_path');
 
 var ControllerGenerator = module.exports = function ControllerGenerator(args, options, config) {
   yeoman.generators.NamedBase.apply(this, arguments);
@@ -30,9 +32,7 @@ var ControllerGenerator = module.exports = function ControllerGenerator(args, op
 
 util.inherits(ControllerGenerator, yeoman.generators.NamedBase);
 
-ControllerGenerator.prototype._getJSPath = function _getJSPath(file) {
-  return file + (this.options.coffee ? '.coffee' : '.js');
-};
+ControllerGenerator.prototype._getJSPath = getJSPath;
 
 ControllerGenerator.prototype.files = function files() {
   this.template(this._getJSPath('base'), 'app/scripts/controllers/' + this._.slugify(this.name) + this._getJSPath('_controller'));
