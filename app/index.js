@@ -143,7 +143,7 @@ EmberGenerator.prototype.bootstrapJavaScript = function bootstrapJavaScript() {
     return;  // Skip if disabled.
   }
   // Wire Bootstrap plugins
-  this.indexFile = this.appendScripts(this.indexFile, 'scripts/plugins.js', [
+  this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/plugins.js', [
     'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js',
     'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js',
     'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
