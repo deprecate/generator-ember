@@ -1,8 +1,10 @@
 'use strict';
+
 var util = require('util');
 var yeoman = require('yeoman-generator');
 var fs = require('fs');
 var fleck = require('fleck');
+var getJSPath = require('../utils/js_path');
 
 var RouterGenerator = module.exports = function RouterGenerator(args, options, config) {
   // NamedBase needs a name, which is usually the first param passed in the script
@@ -29,9 +31,7 @@ var RouterGenerator = module.exports = function RouterGenerator(args, options, c
 
 util.inherits(RouterGenerator, yeoman.generators.NamedBase);
 
-RouterGenerator.prototype._getJSPath = function _getJSPath(file) {
-  return file + (this.options.coffee ? '.coffee' : '.js');
-};
+RouterGenerator.prototype._getJSPath = getJSPath;
 
 RouterGenerator.prototype.generateFiles = function generateFiles() {
   this.models = [];

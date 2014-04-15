@@ -1,7 +1,9 @@
 'use strict';
+
 var util = require('util');
 var yeoman = require('yeoman-generator');
 var fleck = require('fleck');
+var getJSPath = require('../utils/js_path');
 
 var ViewGenerator = module.exports = function ViewGenerator(args, options, config) {
   yeoman.generators.NamedBase.apply(this, arguments);
@@ -17,9 +19,7 @@ var ViewGenerator = module.exports = function ViewGenerator(args, options, confi
 
 util.inherits(ViewGenerator, yeoman.generators.NamedBase);
 
-ViewGenerator.prototype._getJSPath = function _getJSPath(file) {
-  return file + (this.options.coffee ? '.coffee' : '.js');
-};
+ViewGenerator.prototype._getJSPath = getJSPath;
 
 ViewGenerator.prototype.files = function files() {
   this.copy(this._getJSPath('single'), 'app/scripts/views/' + this.slugified_name + this._getJSPath('_view'));

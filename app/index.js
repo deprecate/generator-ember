@@ -1,7 +1,9 @@
 'use strict';
+
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
+var getJSPath = require('../utils/js_path');
 
 var EmberGenerator = module.exports = function EmberGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
@@ -41,9 +43,7 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
 
 util.inherits(EmberGenerator, yeoman.generators.Base);
 
-EmberGenerator.prototype._getJSPath = function _getJSPath(file) {
-  return file + (this.options.coffee ? '.coffee' : '.js');
-};
+EmberGenerator.prototype._getJSPath = getJSPath;
 
 EmberGenerator.prototype.welcome = function welcome() {
   // welcome message
