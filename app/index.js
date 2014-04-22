@@ -34,7 +34,7 @@ var EmberGenerator = module.exports = function EmberGenerator(args, options) {
 
   // this holds the list of scripts we want to include in components.js
   this.bowerScripts = [
-    'bower_components/jquery/jquery.js',
+    'bower_components/jquery/dist/jquery.js',
     'bower_components/handlebars/handlebars.runtime.js',
     '@@ember',
     '@@ember_data'
