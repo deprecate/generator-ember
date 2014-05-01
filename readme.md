@@ -17,6 +17,7 @@ This project is an ongoing community effort, and efforts to find the easiest way
   * [ember-model](#embermodel)
   * [ember-view](#emberview)
   * [ember-controller](#embercontroller)
+  * [ember-component](#embercomponent)
 * [Options](#options)
 * [Troubleshooting](#troubleshooting)
 * [Changelog](#changelog)
@@ -64,6 +65,7 @@ Add'l generators:
 * ember:model
 * ember:view
 * ember:controller
+* ember:component
 
 ### ember:model
 
@@ -99,6 +101,14 @@ Creates a view, handlebar, controller and route given an arg, as in:
 see:
 
 * http://localhost:9000/#/bar
+
+### ember:component
+
+Creates a component and a template for that component given an arg, as in:
+
+  `yo ember:component x-player`
+
+Which can be used in the application with `{{x-player}}`.
 
 ## Options
 
