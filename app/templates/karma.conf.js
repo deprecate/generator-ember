@@ -18,7 +18,7 @@ module.exports = function(config) {
 
     // List of files / patterns to load in the browser.
     files : [
-      'app/bower_components/jquery/jquery.min.js',
+      'app/bower_components/jquery/dist/jquery.min.js',
       'app/bower_components/handlebars/handlebars.runtime.js',
       'app/bower_components/ember/ember.js',
       'app/bower_components/ember-data/ember-data.js',
