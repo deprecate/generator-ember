@@ -100,7 +100,7 @@ module.exports = function (grunt) {
         },
         open: {
             server: {
-                path: 'http://localhost:<%%= connect.options.port %>'
+                path: 'http://<%%= connect.options.hostname %>:<%%= connect.options.port %>'
             }
         },
         clean: {
@@ -132,7 +132,7 @@ module.exports = function (grunt) {
             all: {
                 options: {
                     run: true,
-                    urls: ['http://localhost:<%%= connect.options.port %>/index.html']
+                    urls: ['http://<%%= connect.options.hostname %>:<%%= connect.options.port %>/index.html']
                 }
             }
         },<% } else if (testFramework === 'jasmine') { %>
