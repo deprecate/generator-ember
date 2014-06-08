@@ -1,6 +1,32 @@
 ## History
 
 
+### 0.8.4 (2014-06-08)
+* ember:component
+* allow emberTemplates to compile nested templates
+* updated jquery script to point to dist/jquery inside bower_component
+* added test/bower_components to gitignore template
+* updates grunt-neuter version from 0.5.0 to 0.6.0
+* pullout getJSPath
+* dont add coffee package if option not specified
+* Use SVG badge for Travis
+* Forgotten hardcoded path to `app`
+* Added test for generation of singular controller stub
+* Add support for singular base controller generation
+* Fix Karma's loading of CoffeeScript tests.
+* Adds singleRun option in grunts karma config
+* Updates file location of chai.js in karma.conf.js
+* Adds karma-chrome-launcher to devDependencies
+* Updates karma dependencies
+* fixed route in coffeescript template
+* remove unnecessary comment
+* Switch to official twitter bootstrap sass package
+* "Twitter Bootstrap" is now simply Bootstrap
+* Clarify compass gem requirement
+* Remove `Ember.testing = true`
+* Create test container before setting App.rootElement
+* Automated usage of Bootstrap Fonts now checks if compassBootstrap is enabled first. See #175.
+
 ### 0.8.3 (2014-02-12)
 * Upgrade ember to 1.3.2 :heavy_exclamation_mark:
 * Fix incorrect path of chai.js for karma
