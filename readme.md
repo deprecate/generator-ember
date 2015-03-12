@@ -2,7 +2,7 @@
 
 Maintainer: [Fayimora Femi-Balogun](https://github.com/fayimora)
 
-The Ember.js generator aims to provide intelligent scaffolding for Ember.js web applications, offering a sane project structure, dependency management and build-time optimization for your scripts, stylesheets and assets. It is a compliment to [Ember App Kit](https://github.com/stefanpenner/ember-app-kit) and can be used on it's own or in conjunction with another set of tools or boilerplates.
+The Ember.js generator aims to provide intelligent scaffolding for Ember.js web applications, offering a sane project structure, dependency management, and build-time optimization for your scripts, stylesheets and assets. It is a complement to [Ember App Kit](https://github.com/stefanpenner/ember-app-kit) and can be used on its own or in conjunction with another set of tools or boilerplates.
 
 This project is an ongoing community effort, and efforts to find the easiest ways to architect applications continue. We welcome your issues and PRs for features, bug fixes, and anything that would improve your quality of life as an Ember developer.
 
