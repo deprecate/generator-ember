@@ -1,6 +1,6 @@
 # Ember.js Generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-ember.svg?branch=master)](http://travis-ci.org/yeoman/generator-ember)
 
-Maintainer: [Fayimora Femi-Balogun](https://github.com/fayimora)
+## Deprecated in favor of [`ember-cli`](http://www.ember-cli.com). See [#249](https://github.com/yeoman/generator-ember/issues/249).
 
 The Ember.js generator aims to provide intelligent scaffolding for Ember.js web applications, offering a sane project structure, dependency management, and build-time optimization for your scripts, stylesheets and assets. It is a complement to [Ember App Kit](https://github.com/stefanpenner/ember-app-kit) and can be used on its own or in conjunction with another set of tools or boilerplates.
 
