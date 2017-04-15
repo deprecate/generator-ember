@@ -358,8 +358,8 @@ module.exports = function (grunt) {
         emberTemplates: {
             options: {
                 templateName: function (sourceFile) {
-                    var templatePath = yeomanConfig.app + '/templates/';
-                    return sourceFile.replace(templatePath, '');
+                    // Removes the path and returns the actual templateName
+                    return sourceFile.replace(/^.*[\\\/]/, '');
                 }
             },
             dist: {
