@@ -125,14 +125,15 @@ EmberGenerator.prototype.writeIndex = function writeIndex() {
   var mainCssFiles = [];
   if (this.compassBootstrap) {
     mainCssFiles.push('styles/style.css');
+    this.indexFile = this.appendStyles(this.indexFile, 'styles/main.css', mainCssFiles);
   } else {
     mainCssFiles.push('styles/normalize.css');
     mainCssFiles.push('styles/style.css');
+    this.indexFile = this.appendFiles(this.indexFile, 'css', 'styles/main.css', mainCssFiles, null, '<%= yeoman.app %>');
   }
 
-  this.indexFile = this.appendStyles(this.indexFile, 'styles/main.css', mainCssFiles);
 
-  this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/components.js', this.bowerScripts, null, 'app');
+  this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/components.js', this.bowerScripts, null, '<%= yeoman.app %>');
 
   this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/templates.js', ['scripts/compiled-templates.js'], null, '.tmp');
   this.indexFile = this.appendFiles(this.indexFile, 'js', 'scripts/main.js', ['scripts/combined-scripts.js'], null, '.tmp');

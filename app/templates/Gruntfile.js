@@ -241,13 +241,10 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        cssmin: {
+        csso: {
             dist: {
                 files: {
-                    '<%%= yeoman.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css',
-                        '<%%= yeoman.app %>/styles/{,*/}*.css'
-                    ]
+                    '<%%= yeoman.dist %>/styles/main.css': ['<%%= yeoman.dist %>/styles/main.css']
                 }
             }
         },
@@ -433,7 +430,7 @@ module.exports = function (grunt) {
         'concurrent:dist',
         'neuter:app',
         'concat',
-        'cssmin',
+        'csso',
         'uglify',
         'copy',
         'rev',
